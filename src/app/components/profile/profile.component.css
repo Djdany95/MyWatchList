@@ -1,0 +1,10 @@
+.nameProfile {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.flotante {
+    text-align: center;
+    position: sticky;
+    bottom: 1em;
+}

@@ -1,0 +1,110 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@ngx-share/button/styles/share-buttons.css';
+@import '~@ngx-share/button/styles/themes/material/material-light-theme.css';
+@import '~@ngx-share/button/styles/themes/material/material-dark-theme.css';
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 4px;
+    background-color: rgb(170, 205, 237);
+}
+
+.basic-container {
+    padding: 5px;
+}
+
+.insert-form {
+    max-width: 49.6%;
+    width: 100%;
+}
+
+.insert-full-width {
+    width: 100%;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.list-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+.nameList {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.nightMode {
+    background: #293946;
+    color: #bdc7c1;
+}
+
+.mat-option:focus:not(.mat-option-disabled),
+.mat-option:hover:not(.mat-option-disabled) {
+    background: #456076;
+    color: #bdc7c1;
+}
+
+.mat-menu {
+    background: #293946;
+}
+
+.nightMode .mat-focused .placeholder {
+    color: #bdc7c1;
+}
+
+.nightModeHeaders {
+    color: #bdc7c1;
+}
+
+.nightModeButtonOn {
+    color: #d48872;
+}
+
+.nightModeButtonOff {
+    color: #142635;
+}
+
+.nightModeButtonOn .mat-icon {
+    color: #d48872;
+}
+
+.nightModeButtonOff .mat-icon {
+    color: #142635;
+}
+
+.mat-raised-button:not([class*=mat-elevation-z]).nightModeLogoutOn {
+    background-color: #d48872;
+    color: #142635;
+    box-shadow: 0 3px 1px -2px rgba(100, 112, 117, .2), 0 2px 2px 0 rgba(100, 112, 117, .14), 0 1px 5px 0 rgba(100, 112, 117, .12);
+}
+
+.nightModeShadowHeader {
+    box-shadow: 0 3px 1px -2px rgba(100, 112, 117, .2), 0 2px 2px 0 rgba(100, 112, 117, .14), 0 1px 5px 0 rgba(100, 112, 117, .12);
+}
+
+.nightModeShadow {
+    box-shadow: 0 5px 5px -3px rgba(100, 112, 117, .2), 0 8px 10px 1px rgba(100, 112, 117, .14), 0 3px 14px 2px rgba(100, 112, 117, .12);
+}
+
+.lightModeFilter {
+    background-color: #fff;
+}
+
+.mat-dialog-container {
+        background-color: #e9ecef;
+    }

@@ -1,0 +1,66 @@
+<div class="container" i18n="@@seriesDetails">
+    <ng-progress></ng-progress>
+    <div class="row">
+        <div class="col">
+            <h1>{{series.Title}} {{series.imdbRating}}/10</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6">
+            <img class="rounded" src="{{series.Poster}}" alt="POSTER" width="310px" height="550px">
+        </div>
+        <div class="col-lg-8  col-md-6">
+            <h4 class="title">PLOT</h4>
+            <p [innerHTML]="series.Plot==='N/A'? 'Unknown' : series.Plot"></p>
+            <h4 class="title">GENRE</h4>
+            <p [innerHTML]="series.Genre==='N/A'? 'Unknown' : series.Genre"></p>
+            <h4 class="title">COUNTRY</h4>
+            <p [innerHTML]="series.Country==='N/A'? 'Unknown' : series.Country"></p>
+            <h4 class="title">RELEASED</h4>
+            <p [innerHTML]="series.Released==='N/A'? 'Unknown' : series.Released"></p>
+            <h4 class="title">TOTAL SEASONS</h4>
+            <p [innerHTML]="series.totalSeasons==='N/A'? 'Unknown' : series.totalSeasons"></p>
+            <h4 class="title">RUNTIME</h4>
+            <p [innerHTML]="series.Runtime==='N/A'? 'Unknown' : series.Runtime"></p>
+        </div>
+    </div>
+    <h2 class="title">CAST</h2>
+    <div class="row">
+        <div class="col">
+            <h4 class="title">DIRECTOR</h4>
+            <p *ngIf="!(directors.length>0)">Unknown Director</p>
+            <div *ngIf="directors.length>0">
+                <ul>
+                    <a class="badge badge-pill" href="https://en.wikipedia.org/wiki/{{director}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let director of directors">
+                        {{director}}
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <h4 class="title">WRITER</h4>
+            <p *ngIf="!(writers.length>0)">Unknown Writer</p>
+            <div *ngIf="writers.length>0">
+                <ul>
+                    <a class="badge badge-pill" href="https://en.wikipedia.org/wiki/{{writer}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let writer of writers">
+                        {{writer}}
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <h4 class="title">ACTORS</h4>
+            <p *ngIf="!(actors.length>0)">Unknown Actors</p>
+            <div *ngIf="actors.length>0">
+                <ul>
+                    <a class="badge badge-pill" href="https://en.wikipedia.org/wiki/{{actor}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'"
+                        *ngFor="let actor of actors">
+                        {{actor}}
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button mat-raised-button class="btn float-right flotante" i18n="@@detailsReturn" [color]="nightMode==='true'?'primary':'default'" routerLink="/my-list">Return to MyWatchList</button>

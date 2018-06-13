@@ -1,0 +1,80 @@
+<div class="nameList" i18n="@@headerShared">
+    <br>
+    <h3>
+        <button class="float-left" mat-icon-button (click)="toggleNightMode()">
+            <mat-icon data-placement="left" data-toggle="tooltip" title="Toggle Night Mode" aria-label="toggle nightMode" [ngClass]="{nightModeButtonOn: nightMode.toString()==='true', nightModeButtonOff: nightMode.toString()==='false'}">brightness_medium</mat-icon>
+        </button>
+
+        <img class="rounded-circle" [src]="image" width="50" height="50">
+        <i>{{userName | titlecase}}'s</i> Shared List
+    </h3>
+
+    <mat-divider [class.nightMode]="nightMode==='true'"></mat-divider>
+</div>
+<ng-progress></ng-progress>
+<div class="list-container mat-elevation-z8" [class.nightModeShadow]="nightMode==='true'" i18n="@@listShared">
+    <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)">
+            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Filter</mat-placeholder>
+        </mat-form-field>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort matSortActive="active" matSortDisableClear matSortDirection="desc" [class.nightMode]="nightMode==='true'">
+        <!-- Active Column -->
+        <ng-container matColumnDef="active">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> On Air </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <mat-icon *ngIf="element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">check_box</mat-icon>
+                <mat-icon *ngIf="!element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">indeterminate_check_box</mat-icon>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Temp Column -->
+        <ng-container matColumnDef="temp">
+            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Season </mat-header-cell>
+            <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.temp}} </mat-cell>
+        </ng-container>
+
+        <!-- epS Column -->
+        <ng-container matColumnDef="epA">
+            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Actual Episode </mat-header-cell>
+            <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.epA}}
+            </mat-cell>
+        </ng-container>
+
+        <!-- Buttons Column -->
+        <ng-container matColumnDef="buttons">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button routerLink="/details/{{element.id}}">
+                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">info</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
+
+<br>
+<span class="badge badge-pill" i18n="@@shareNSeries" style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</span>
+<div class="d-flex justify-content-center">
+    <button class="btn-lg" [class.btn-danger]="nightMode==='true'" [class.btn-warning]="nightMode==='false'" routerLink="/intro">Join Now!</button>
+</div>
+
+<share-buttons class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']" [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description"
+    [description]="sharedOptions.description" [tags]="sharedOptions.description" [autoSetMeta]="true"></share-buttons>
+
+
+<div [hidden]="true" i18n="@@shareErrors">
+    <span id="notFollow" [hidden]="true"> doesn't follow any series.</span>
+    <span id="errUser" [hidden]="true">Error! User doesn't exists.</span>
+</div>

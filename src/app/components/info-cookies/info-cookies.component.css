@@ -1,0 +1,21 @@
+.entendido {
+    text-align: center;
+    margin: 7px;
+}
+
+.cookies {
+    color: black;
+    line-height: 24px;
+    margin-bottom: 30px;
+    padding: 14px 15px 14px 25px;
+    position: relative;
+    width: auto;
+    border-left: 3px solid rgb(84, 87, 210);
+    min-height: 57px;
+    background-color: rgba(208, 221, 233, 0.7);
+}
+
+.flotante {
+    position: sticky;
+    bottom: 1em;
+}

@@ -1,0 +1,73 @@
+<ng-progress></ng-progress>
+<header>
+    <mat-toolbar class="toolbar-header">
+        <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-md-block" alt="">
+        <h2 class="toolbar-title">mywatchlist</h2>
+        <span class="toolbar-spacer"></span>
+        <button mat-raised-button color="primary" (click)="openLoginDialog()">Login</button>
+    </mat-toolbar>
+</header>
+
+<div class="jumbotron" i18n="@@introJumbo">
+    <app-lang-selector class="float-right"></app-lang-selector>
+    <h1 class="display-3 d-none d-md-block">Welcome to MyWatchList!</h1>
+    <h1 class="d-md-none">Welcome to MyWatchList!</h1>
+    <p class="lead">This is a simple page to track all Series you follow and share it with your friends.</p>
+    <hr class="my-4">
+    <br>
+
+    <h4>Register now to become a Lister</h4>
+    <div class="float-md-left">
+        <app-register-form (user)="register($event)"></app-register-form>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
+
+<footer>
+    <div class="flotanteIzq card w-20 alert-light" i18n="@@contacto">
+        <div class="card-header" id="headingContact">
+            <h5 class="mb-0 text-center text-truncate">
+                <button class="btn btn-link" data-toggle="collapse" href="#collapseContact" aria-controls="collapseContact" aria-expanded="true">
+                    Feedback
+                </button>
+            </h5>
+        </div>
+
+        <div class="collapse" id="collapseContact" aria-labelledby="headingContact">
+            <div class="card-body text-center">
+                <app-feedback-form></app-feedback-form>
+            </div>
+        </div>
+    </div>
+
+    <div class="flotanteDer card w-25" style="background-color: rgb(208, 221, 233)" i18n="@@introCookies" *ngIf="!hideCookies">
+        <div class="card-header" id="headingOne">
+            <button class="close" type="button" aria-label="Close" (click)="toggleCookies()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h5 class="mb-0 text-center text-truncate">
+                <button class="btn btn-link" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne" aria-expanded="true">
+                    Cookies...
+                </button>
+            </h5>
+        </div>
+
+        <div class="collapse" id="collapseOne" aria-labelledby="headingOne">
+            <div class="card-body text-center">
+                We use own cookies and third party cookies to obtain statistics data of our users and improve our services. If accepts or you continues navigating, we understund you accept their use. You can change configurations or obtain more information
+                <a class="alert-link" routerLink="/info-cookies">here</a>.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div [hidden]="true" i18n="@@introErrors">
+    <span id="registerSuccess" [hidden]="true">Registered successfully. Please confirm email.</span>
+    <span id="errConfirm" [hidden]="true">Error! Please confirm email.</span>
+    <span id="errUser" [hidden]="true">Error! User or password are incorrect.</span>
+    <span id="credentials" [hidden]="true">Sent credentials to </span>
+    <span id="errEmailNot" [hidden]="true">Error! Email doesn't exists.</span>
+    <span id="errServer" [hidden]="true">Server Error! Please try later.</span>
+</div>

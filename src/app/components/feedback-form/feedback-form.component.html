@@ -1,0 +1,29 @@
+<div>
+  <mat-form-field appearance="outline">
+    <input i18n-placeholder="@@feedbackEmail" placeholder="Email" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="emailControl.hasError('required')">
+      Email is
+      <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf=" emailControl.hasError('email')">
+      Email is
+      <strong>incorrect</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <textarea i18n-placeholder="@@feedbackMsg" placeholder="Input your feedback..." type="text" matInput [formControl]="msgControl"
+      [errorStateMatcher]="matcher"></textarea>
+    <mat-error *ngIf="msgControl.hasError('required')">
+      Message is
+      <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="warn" (click)="sendFeedback()">Send Feedback</button>
+</div>
+
+<div [hidden]="true" i18n="@@feedbackErrors">
+  <span id="okFeedback" [hidden]="true">Your feedback was sent.</span>
+  <span id="errFeedback" [hidden]="true">Error! Please try it later.</span>
+</div>

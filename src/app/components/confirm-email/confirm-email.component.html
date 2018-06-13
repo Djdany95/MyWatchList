@@ -1,0 +1,15 @@
+<div i18n="@@confirmJumbo" class="jumbotron">
+    <h1 class="display-4">Hello, new Lister!</h1>
+    <hr class="my-4">
+    <p>You are now registered.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" role="button" routerLink="/intro">Go to MyWatchList</a>
+    </p>
+</div>
+
+<ng-progress></ng-progress>
+
+<div [hidden]="true" i18n="@@confirmErrors">
+    <span id="confirmSuccess" [hidden]="true">Email confirmed.</span>
+    <span id="errServer" [hidden]="true">Server Error 500. Try it later.</span>
+</div>

@@ -1,0 +1,35 @@
+.flotanteDer {
+    margin: 10px;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+.flotanteIzq {
+    margin: 10px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.toolbar-header {
+    background-color: rgb(208, 221, 233);
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    margin-bottom: -5px;
+}
+
+.toolbar-title {
+    font-size: 160%;
+    font-family: 'Montserrat Alternates';
+    font-weight: bold;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar-icon{
+    width: 50px;
+}

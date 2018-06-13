@@ -1,0 +1,28 @@
+<h1 mat-dialog-title i18n="@@editHeader">Edit {{data.s.name}}</h1>
+<div mat-dialog-content i18n="@@editContent">
+    <mat-form-field>
+        <input type="text" i18n-placeholder="@@editName" placeholder="Name" matInput [formControl]="nameControl" [errorStateMatcher]="matcher">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="boolean" matInput placeholder style="display: none;">
+        <mat-checkbox [(ngModel)]="data.s.active">
+            On Air
+        </mat-checkbox>
+    </mat-form-field>
+    <mat-form-field>
+        <input (keyup.enter)="onEditClick()" type="number" i18n-placeholder="@@editSeason" placeholder="Season" matInput [formControl]="tempControl" [errorStateMatcher]="matcher" [value]="data.s.temp">
+        <mat-error *ngIf="tempControl.hasError('required')">
+            Season is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input (keyup.enter)="onEditClick()" type="number" i18n-placeholder="@@editEpa" placeholder="Actual Episode" matInput [formControl]="epaControl" [errorStateMatcher]="matcher" [value]="data.s.epA">
+        <mat-error *ngIf="epaControl.hasError('required')">
+            Actual Episode is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions i18n="@@editButtons">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button *ngIf="!nameControl.hasError('required') && !tempControl.hasError('required') && !epaControl.hasError('required')" mat-button (click)="onEditClick()" cdkFocusInitial>Edit</button>
+</div>

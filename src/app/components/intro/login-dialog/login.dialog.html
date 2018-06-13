@@ -1,0 +1,33 @@
+<h1 mat-dialog-title i18n="@@loginHeader">Please Login</h1>
+<div mat-dialog-content i18n="@@loginContent">
+    <mat-form-field>
+        <input (keyup.enter)="onLoginClick()" i18n-placeholder="@@loginUser" placeholder="Username" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="nameControl.hasError('required')">
+            Username is
+            <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf=" nameControl.hasError('pattern')">
+            Username is too
+            <strong>short</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input (keyup.enter)="onLoginClick()" i18n-placeholder="@@loginPass" placeholder="Password" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="passControl.hasError('required')">
+            Password is
+            <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="passControl.hasError('pattern')">
+            Password is too
+            <strong>weak</strong>
+        </mat-error>
+    </mat-form-field>
+</div>
+<span i18n="@@forgot">
+    <button type="button" class="btn btn-link btn-sm" (click)="openForgotDialog()">Forgot username or password?</button>
+</span>
+<div mat-dialog-actions i18n="@@loginButtons">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button *ngIf="!nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern')"
+        mat-button (click)="onLoginClick()" cdkFocusInitial>Login</button>
+</div>

@@ -1,0 +1,34 @@
+# HTID:5334458: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:5334458:
+
+# Enable CORS (REQUIRED)
+Header set Access-Control-Allow-Origin "*"
+
+# Redirects HTTP --> HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{SERVER_NAME} [R,L]
+
+# Redirect if 404
+RewriteEngine On
+    # If an existing asset or directory is requested go to it as it is
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+    RewriteRule ^ - [L]
+    # If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+
+# Redirect based on language
+RewriteEngine On
+    ## Rewriting url for gl browser 
+  RewriteCond %{HTTP:Accept-Language} ^gl [NC]
+  RewriteRule (.*) https://%{SERVER_NAME}/gl [R,L]
+
+  ## Rewriting url for es browser 
+  RewriteCond %{HTTP:Accept-Language} ^es [NC]
+  RewriteRule (.*) https://%{SERVER_NAME}/es [R,L]
+ 
+  ## Rewriting url for en browser
+  RewriteCond %{HTTP:Accept-Language} ^en [NC]
+  RewriteRule (.*) https://%{SERVER_NAME} [R,L]
