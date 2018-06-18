@@ -1789,6 +1789,180 @@
                     <context context-type="linenumber">4</context>
                 </context-group>
             </trans-unit>
+            <trans-unit id="registerForm" datatype="html">
+				<source>
+					<x id="START_TAG_DIV_4" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Username is
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					required
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_1" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Username is too
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					short
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT_1" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR_2" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Email is
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					required
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_3" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Email is
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					incorrect
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT_2" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR_4" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Password is
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					required
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_5" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Password is too
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					weak
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT_3" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR_6" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Password is
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					required
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_7" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Passwords doesn&apos;t
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					match
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_3" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;" />
+					Register
+					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
+					<x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;" />
+					Register
+					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+				</source>
+				<target>
+					<x id="START_TAG_DIV_4" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Usuario é 
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					obrigatorio
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_1" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Usuario é 
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					moi curto
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT_1" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR_2" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Email é
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					obrigatorio
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_3" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Email é 
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					incorrecto
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT_2" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR_4" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Contrasinal é 
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					obrigatoria
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_5" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Contrasinal é
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					débil
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;mat-form-field&gt;" />
+					<x id="TAG_INPUT_3" ctype="x-input" equiv-text="&lt;input/&gt;" />
+					<x id="START_TAG_MAT-ERROR_6" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					Contrasinal é 
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					obrigatoria
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="START_TAG_MAT-ERROR_7" ctype="x-mat-error" equiv-text="&lt;mat-error&gt;" />
+					As contrasinais 
+					<x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;" />
+					non coinciden
+					<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;" />
+					<x id="CLOSE_TAG_MAT-ERROR" ctype="x-mat-error" equiv-text="&lt;/mat-error&gt;" />
+					<x id="CLOSE_TAG_MAT-FORM-FIELD" ctype="x-mat-form-field" equiv-text="&lt;/mat-form-field&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV_3" ctype="x-div" equiv-text="&lt;div&gt;" />
+					<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;" />
+					Rexistrar
+					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
+					<x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;" />
+					Rexistrar
+					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+				</target>
+				<context-group purpose="location">
+					<context context-type="sourcefile">
+						app/components/register-form/register-form.component.ts
+					</context>
+					<context context-type="linenumber">
+						1
+					</context>
+				</context-group>
+			</trans-unit>
             <trans-unit id="registerUser" datatype="html">
                 <source>Username</source>
                 <target>Nome de usuario</target>

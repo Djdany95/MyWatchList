@@ -158,7 +158,7 @@ export class ListComponent implements OnInit, AfterViewInit {
         : 'material-light';
     this.sharedOptions.url = window.location.href
       .slice(0, -7)
-      .concat('sharedList/' + this.user.name);
+      .concat('sharedlist/' + this.user.name);
     this.sharedOptions.description = this.user.name + ' Public Series List';
   }
 

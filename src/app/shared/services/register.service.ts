@@ -43,6 +43,6 @@ export class RegisterService {
    * @param uniqId id to confirm
    */
   confirmEmail(uniqId: string): Observable<any> {
-    return this._http.get(this.url + 'confirmEmail/' + uniqId);
+    return this._http.get(this.url + 'confirmemail/' + uniqId);
   }
 }

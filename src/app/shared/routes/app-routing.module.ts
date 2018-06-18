@@ -17,11 +17,11 @@ import { Error404Component } from '../error-404/error-404.component';
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
   { path: 'intro', component: IntroComponent },
-  { path: 'my-list', component: ListComponent },
-  { path: 'info-cookies', component: InfoCookiesComponent },
-  { path: 'sharedList/:name', component: ListShareComponent },
+  { path: 'mylist', component: ListComponent },
+  { path: 'infocookies', component: InfoCookiesComponent },
+  { path: 'sharedlist/:name', component: ListShareComponent },
   { path: 'profile/:name', component: ProfileComponent },
-  { path: 'confirmEmail/:confirmId', component: ConfirmEmailComponent },
+  { path: 'confirmemail/:confirmId', component: ConfirmEmailComponent },
   { path: 'details/:id', component: SeriesDetailsComponent },
   { path: '**', component: IntroComponent }
 ];
