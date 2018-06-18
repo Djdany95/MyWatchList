@@ -119,7 +119,7 @@ export class IntroComponent implements OnInit {
           this.user.email = response.data.email;
           this.user.imageUrl = response.data.imageUrl;
           this.loginService.setUser(this.user);
-          this.router.navigate(['/my-list']);
+          this.router.navigate(['/mylist']);
         }
       },
       error => {

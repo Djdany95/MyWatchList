@@ -53,8 +53,7 @@
             <p *ngIf="!(actors.length>0)">Unknown Actors</p>
             <div *ngIf="actors.length>0">
                 <ul>
-                    <a class="badge badge-pill" href="https://en.wikipedia.org/wiki/{{actor}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'"
-                        *ngFor="let actor of actors">
+                    <a class="badge badge-pill" href="https://en.wikipedia.org/wiki/{{actor}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let actor of actors">
                         {{actor}}
                     </a>
                 </ul>
@@ -63,4 +62,4 @@
     </div>
 </div>
 
-<button mat-raised-button class="btn float-right flotante" i18n="@@detailsReturn" [color]="nightMode==='true'?'primary':'default'" routerLink="/my-list">Return to MyWatchList</button>
+<button mat-raised-button class="btn float-right flotante" i18n="@@detailsReturn" [color]="nightMode==='true'?'primary':'default'" routerLink="/mylist">Return to MyWatchList</button>
