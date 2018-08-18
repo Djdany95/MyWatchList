@@ -2078,7 +2078,7 @@
 					<x id="START_PARAGRAPH_1" ctype="x-p" equiv-text="&lt;p&gt;" />
 					<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;" />
 					<x id="START_HEADING_LEVEL4" ctype="x-h4" equiv-text="&lt;h4&gt;" />
-					PAIS
+					PAÍS
 					<x id="CLOSE_HEADING_LEVEL4" ctype="x-h4" equiv-text="&lt;/h4&gt;" />
 					<x id="START_PARAGRAPH_2" ctype="x-p" equiv-text="&lt;p&gt;" />
 					<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;" />
@@ -2120,7 +2120,7 @@
 					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
 					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
 					<x id="START_HEADING_LEVEL4" ctype="x-h4" equiv-text="&lt;h4&gt;" />
-					GUINISTA
+					GUIONISTA
 					<x id="CLOSE_HEADING_LEVEL4" ctype="x-h4" equiv-text="&lt;/h4&gt;" />
 					<x id="START_PARAGRAPH_7" ctype="x-p" equiv-text="&lt;p&gt;" />
 					Guionista desconocido
