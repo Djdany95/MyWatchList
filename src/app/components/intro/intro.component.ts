@@ -34,7 +34,7 @@ export class IntroComponent implements OnInit {
   /**
    * Flag to hide or not the cookies card info
    */
-  hideCookies: boolean;
+  cookiesAdvice: boolean;
 
   /**
    * Constructor
@@ -70,17 +70,21 @@ export class IntroComponent implements OnInit {
       this.user.pass = this.cookieService.get('myUserPass');
       this.login(this.user);
     }
-
-    this.hideCookies = false;
+    if (this.cookieService.check('cookiesAdvice')) {
+      this.cookiesAdvice = false;
+    } else {
+      this.cookiesAdvice = true;
+    }
     document.body.style.backgroundColor = '';
     document.body.style.color = '';
   }
 
   /**
-   * Toggle hideCookies flag
+   * Toggle cookiesAdvice flag
    */
-  toggleCookies() {
-    this.hideCookies = !this.hideCookies;
+  closeCookies() {
+    this.cookieService.set('cookiesAdvice', 'false');
+    this.cookiesAdvice = false;
   }
 
   /**

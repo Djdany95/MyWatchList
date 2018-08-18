@@ -95,3 +95,4 @@ mwlIcons/
 Thumbs.db
 UserInterfaceState.xcuserstate
 private-constants/
+.angulardoc.json

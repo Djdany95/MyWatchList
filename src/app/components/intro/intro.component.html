@@ -42,9 +42,9 @@
         </div>
     </div>
 
-    <div class="flotanteDer card w-25" style="background-color: rgb(208, 221, 233)" i18n="@@introCookies" *ngIf="!hideCookies">
+    <div class="flotanteDer card w-25" style="background-color: rgb(208, 221, 233)" i18n="@@introCookies" *ngIf="cookiesAdvice">
         <div class="card-header" id="headingOne">
-            <button class="close" type="button" aria-label="Close" (click)="toggleCookies()">
+            <button class="close" type="button" aria-label="Close" (click)="closeCookies()">
                 <span aria-hidden="true">&times;</span>
             </button>
             <h5 class="mb-0 text-center text-truncate">
