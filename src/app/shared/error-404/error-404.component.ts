@@ -13,5 +13,11 @@ export class Error404Component {
   /**
    * Constructor
    */
-  constructor() {}
+  constructor() {
+    document.body.classList.add('body404')
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('body404')
+  }
 }

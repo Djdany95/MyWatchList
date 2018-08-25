@@ -79,7 +79,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     private router: Router,
     private cookieService: CookieService,
     private titleService: Title
-  ) {}
+  ) { }
 
   /**
    * We set various parameters to default, check if there are cookies for autologin and if nightMode is setted in storage before.
@@ -96,8 +96,8 @@ export class ListComponent implements OnInit, AfterViewInit {
 
     this.titleService.setTitle(
       this.user.name.charAt(0).toUpperCase() +
-        this.user.name.slice(1) +
-        '\'s List'
+      this.user.name.slice(1) +
+      '\'s List'
     );
 
     this.getNightMode();
@@ -280,6 +280,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.dataSource.data.forEach((element: any) => {
       if (element.id === id) {
         duplicatedFlag = true;
+        console.log(element)
       }
     });
 
@@ -293,14 +294,19 @@ export class ListComponent implements OnInit, AfterViewInit {
   addSeries(series: Series): void {
     const seriesDuplicated = this.checkSeriesDuplicated(series.id);
 
-    if (!seriesDuplicated) {
-      this.seriesService.newSeries(this.user, series).subscribe(response => {
-        this.getSeries();
-        alertify.success(document.getElementById('addSuccess').innerHTML);
-      });
+    if (series.id !== undefined) {
+      if (!seriesDuplicated) {
+        this.seriesService.newSeries(this.user, series).subscribe(response => {
+          this.getSeries();
+          alertify.success(document.getElementById('addSuccess').innerHTML);
+        });
+      } else {
+        alertify.error(document.getElementById('seriesAlready').innerHTML);
+      }
     } else {
-      alertify.error(document.getElementById('seriesAlready').innerHTML);
+      alertify.error(document.getElementById('seriesNoExists').innerHTML);
     }
+
   }
 
   /**

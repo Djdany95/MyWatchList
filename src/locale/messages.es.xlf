@@ -290,19 +290,22 @@
 					<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Series is already in your list.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;"/>
+					Series doesn&apos;t exists.
+                    <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+					<x id="START_TAG_SPAN_2" ctype="x-span" equiv-text="&lt;span&gt;" />
 					doesn&apos;t follow any series.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_2" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_3" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Added success.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_3" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_4" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Edited success.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_4" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_5" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Deleted success.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_5" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_6" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Logout success.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
 				</source>
@@ -310,19 +313,22 @@
 					<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
 					La serie ya está en tu lista.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_1" ctype="x-span" equiv-text="&lt;span&gt;"/>
+					La serie no existe.
+                    <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+					<x id="START_TAG_SPAN_2" ctype="x-span" equiv-text="&lt;span&gt;" />
 					no sigue ninguna serie.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_2" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_3" ctype="x-span" equiv-text="&lt;span&gt;" />
 					A&ntilde;adida.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_3" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_4" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Editada.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_4" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_5" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Borrada.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="START_TAG_SPAN_5" ctype="x-span" equiv-text="&lt;span&gt;" />
+					<x id="START_TAG_SPAN_6" ctype="x-span" equiv-text="&lt;span&gt;" />
 					Sesión cerrada.
 					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
 				</target>
@@ -497,8 +503,6 @@
 			</trans-unit>
 			<trans-unit id="introJumbo" datatype="html">
 				<source>
-					<x id="START_TAG_APP-LANG-SELECTOR" ctype="x-app-lang-selector" equiv-text="&lt;app-lang-selector&gt;" />
-					<x id="CLOSE_TAG_APP-LANG-SELECTOR" ctype="x-app-lang-selector" equiv-text="&lt;/app-lang-selector&gt;" />
 					<x id="START_HEADING_LEVEL1" ctype="x-h1" equiv-text="&lt;h1&gt;" />
 					Welcome to MyWatchList!
 					<x id="CLOSE_HEADING_LEVEL1" ctype="x-h1" equiv-text="&lt;/h1&gt;" />
@@ -522,8 +526,6 @@
 					<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;" />
 				</source>
 				<target>
-					<x id="START_TAG_APP-LANG-SELECTOR" ctype="x-app-lang-selector" equiv-text="&lt;app-lang-selector&gt;" />
-					<x id="CLOSE_TAG_APP-LANG-SELECTOR" ctype="x-app-lang-selector" equiv-text="&lt;/app-lang-selector&gt;" />
 					<x id="START_HEADING_LEVEL1" ctype="x-h1" equiv-text="&lt;h1&gt;" />
 					¡Bienvenido a MyWatchList!
 					<x id="CLOSE_HEADING_LEVEL1" ctype="x-h1" equiv-text="&lt;/h1&gt;" />
@@ -597,50 +599,44 @@
 			</trans-unit>
 			<trans-unit id="introCookies" datatype="html">
 				<source>
-					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
-					<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;" />
-					<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
-					×
-					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
-					<x id="START_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;h5&gt;" />
-					<x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;" />
-					Cookies...
-					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
-					<x id="CLOSE_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;/h5&gt;" />
-					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
-					<x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;" />
-					<x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;" />
-					We use own cookies and third party cookies to obtain statistics data of our users and improve our services. If accepts or you continues navigating, we understund you accept their use. You can change configurations or obtain more information
-					<x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;" />
-					here
-					<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" />
-					.
-					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
-					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>
+                    <x id="START_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;h5&gt;"/>
+                    <x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;"/>                    Cookies...                                                                            
+                    <x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>
+                    <x id="CLOSE_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;/h5&gt;"/>
+                    <x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+                    <x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;"/>
+                    <x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;"/>
+                    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>                We use own cookies and third party cookies to obtain statistics data of our users and improve our services. If accepts or                you continues navigating, we understund you accept their use. You can change configurations or obtain more                information                                                                            
+                    <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>here                                                            
+                    <x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.
+                    <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+                <x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;"/>
+                    <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>OK<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                <x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>                                                                        
+                    <x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+                    <x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
 				</source>
 				<target>
-					<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;" />
-					<x id="START_TAG_BUTTON" ctype="x-button" equiv-text="&lt;button&gt;" />
-					<x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;" />
-					×
-					<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
-					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
-					<x id="START_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;h5&gt;" />
-					<x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;" />
-					Cookies...
-					<x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;" />
-					<x id="CLOSE_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;/h5&gt;" />
-					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
-					<x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;" />
-					<x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;" />
-					Utilizamos cookies propias y de terceros para obtener datos estadísticos de la navegación de nuestros usuarios y mejorar nuestros servicios. Si acepta o continúa navegando, consideramos que acepta su uso. Puede cambiar la configuración u obtener más información
+				<x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>
+                    <x id="START_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;h5&gt;"/>
+                    <x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;"/>                    Cookies...                                                                            
+                    <x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>
+                    <x id="CLOSE_HEADING_LEVEL5" ctype="x-h5" equiv-text="&lt;/h5&gt;"/>
+                    <x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+                    <x id="START_TAG_DIV_2" ctype="x-div" equiv-text="&lt;div&gt;"/>
+                    <x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;"/>
+                    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Utilizamos cookies propias y de terceros para obtener datos estadísticos de la navegación de nuestros usuarios y mejorar nuestros servicios. Si acepta o continúa navegando, consideramos que acepta su uso. Puede cambiar la configuración u obtener más información
 					<x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;" />
 					aquí
 					<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;" />
 					.
-					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
-					<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;" />
+                    <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+                <x id="START_TAG_BUTTON_1" ctype="x-button" equiv-text="&lt;button&gt;"/>
+                    <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>OK<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+                <x id="CLOSE_TAG_BUTTON" ctype="x-button" equiv-text="&lt;/button&gt;"/>                                                                        
+                    <x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+                    <x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
 				</target>
 				<context-group purpose="location">
 					<context context-type="sourcefile">

@@ -59,7 +59,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
 import { SeriesDetailsComponent } from './components/series-details/series-details.component';
 import { NewSeriesComponent } from './components/new-series/new-series.component';
-import { LangSelectorComponent } from './components/lang-selector/lang-selector.component';
 import { Error404Component } from './shared/error-404/error-404.component';
 import { environment } from '../environments/environment';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
@@ -95,7 +94,6 @@ const shareOptions: ShareButtonsOptions = {
     SeriesDetailsComponent,
     NewSeriesComponent,
     Error404Component,
-    LangSelectorComponent,
     RegisterFormComponent,
     FeedbackFormComponent
   ],

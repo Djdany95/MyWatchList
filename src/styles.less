@@ -3,10 +3,28 @@
 @import '~@ngx-share/button/styles/themes/material/material-light-theme.css';
 @import '~@ngx-share/button/styles/themes/material/material-dark-theme.css';
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 4px;
-    background-color: rgb(170, 205, 237);
+    background-color: #aacded;
+}
+
+.body404 {
+    background: url(https://i.imgur.com/76NZB7A.gif) no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Raleway", sans-serif;
+    background-color: #342643;
+    overflow: hidden;
+    height: 100%;
+}
+
+.bodyIntro {
+    background: url('./assets/introImage.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .basic-container {
@@ -41,6 +59,11 @@ body {
 .mat-table {
     overflow: auto;
     max-height: 500px;
+    background-color: rgb(237, 226, 255);
+}
+
+.mat-expansion-panel{
+    background-color: rgb(237, 226, 255);
 }
 
 .nameList {
@@ -50,6 +73,16 @@ body {
 
 .nightMode {
     background: #293946;
+    color: #bdc7c1;
+}
+
+.nightModeLang {
+    background: #142635;
+    color: #bdc7c1;
+}
+
+.nightModeToolbar {
+    background: #142635 !important;
     color: #bdc7c1;
 }
 
@@ -72,7 +105,7 @@ body {
 }
 
 .nightModeButtonOn {
-    color: #d48872;
+    color: #d48872 !important;
 }
 
 .nightModeButtonOff {
@@ -102,9 +135,17 @@ body {
 }
 
 .lightModeFilter {
-    background-color: #fff;
+    background-color: rgb(237, 226, 255);
 }
 
 .mat-dialog-container {
         background-color: #e9ecef;
-    }
+}
+
+.langMenu{
+    background-color: rgb(237, 226, 255);
+}
+
+.badge-light{
+    background-color: rgb(237, 226, 255);
+}

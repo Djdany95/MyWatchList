@@ -1,6 +1,6 @@
 import { MatDialog } from '@angular/material';
 import { LoginDialog } from './login-dialog/login.dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -25,11 +25,6 @@ import * as sha256 from 'fast-sha256';
 })
 export class IntroComponent implements OnInit {
   /**
-   * Used to save the user preference for nightMode
-   */
-  nightMode: string;
-  
-  /**
    * Used to save the user when login
    */
   user: User;
@@ -38,6 +33,15 @@ export class IntroComponent implements OnInit {
    * Flag to hide or not the cookies card info
    */
   cookiesAdvice: boolean;
+
+  /**
+   * Languages contained in menu
+   */
+  languages = [
+    { code: 'en', label: 'English', href: '/'},
+    { code: 'es', label: 'Español', href: '/es/'},
+    { code: 'gl', label: 'Galego', href: '/gl/'}
+  ];
 
   /**
    * Constructor
@@ -53,7 +57,8 @@ export class IntroComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private cookieService: CookieService,
-    private titleService: Title
+    private titleService: Title,
+    @Inject(LOCALE_ID) protected localeId: string
   ) {
     this.titleService.setTitle('Welcome to MyWatchList');
   }
@@ -76,7 +81,11 @@ export class IntroComponent implements OnInit {
     } else {
       this.cookiesAdvice = true;
     }
-    this.getNightMode();
+    document.body.classList.add('bodyIntro');
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('bodyIntro');
   }
 
   /**
@@ -85,31 +94,6 @@ export class IntroComponent implements OnInit {
   closeCookies() {
     this.cookieService.set('cookiesAdvice', 'false');
     this.cookiesAdvice = false;
-  }
-
-  /**
-   * Get user nightMode preference from localStorage
-   */
-  getNightMode(): void {
-    if (localStorage.getItem('nightMode') === null) {
-      localStorage.setItem('nightMode', 'false');
-    }
-    this.setBodyNightMode();
-  }
-
-  /**
-   * Set nightMode if it's true, dayMode if it's false
-   */
-  setBodyNightMode(): void {
-    if (localStorage.getItem('nightMode') === 'true') {
-      this.nightMode = 'true';
-      document.body.style.backgroundColor = '#142635';
-      document.body.style.color = '#bdc7c1';
-    } else {
-      this.nightMode = 'false';
-      document.body.style.backgroundColor = '';
-      document.body.style.color = '';
-    }
   }
 
   /**

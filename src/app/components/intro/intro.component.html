@@ -1,7 +1,7 @@
 <ng-progress></ng-progress>
 <header>
     <mat-toolbar class="toolbar-header">
-        <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-md-block" alt="">
+        <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-sm-block" alt="">
         <h2 class="toolbar-title">mywatchlist</h2>
         <span class="toolbar-spacer"></span>
         <button mat-raised-button color="primary" (click)="openLoginDialog()">Login</button>
@@ -9,7 +9,20 @@
 </header>
 
 <div class="jumbotron" i18n="@@introJumbo">
-    <app-lang-selector class="float-right"></app-lang-selector>
+    <div class="float-right">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>language</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="langMenu">
+            <button mat-menu-item *ngFor="let lang of languages">
+                <mat-icon>language</mat-icon>
+                <span *ngIf="lang.code !== localeId">
+                    <a href="{{lang.href}}">{{lang.label}}</a>
+                </span>
+                <span *ngIf="lang.code === localeId">{{lang.label}} </span>
+            </button>
+        </mat-menu>
+    </div>
     <h1 class="display-3 d-none d-md-block">Welcome to MyWatchList!</h1>
     <h1 class="d-md-none">Welcome to MyWatchList!</h1>
     <p class="lead">This is a simple page to track all Series you follow and share it with your friends.</p>
@@ -20,13 +33,13 @@
     <div class="float-md-left">
         <app-register-form (user)="register($event)"></app-register-form>
     </div>
-    <br>
-    <br>
-    <br>
+    <br class=" d-none d-md-block">
+    <br class=" d-none d-md-block">
+    <br class=" d-none d-md-block">
 </div>
 
 <footer>
-    <div class="flotanteIzq card w-20 alert-light" i18n="@@contacto">
+    <div class="flotanteIzq card w-20 alert-light d-none d-sm-block" i18n="@@contacto">
         <div class="card-header" id="headingContact">
             <h5 class="mb-0 text-center text-truncate">
                 <button class="btn btn-link" data-toggle="collapse" href="#collapseContact" aria-controls="collapseContact" aria-expanded="true">
@@ -42,11 +55,8 @@
         </div>
     </div>
 
-    <div class="flotanteDer card w-25" style="background-color: rgb(208, 221, 233)" i18n="@@introCookies" *ngIf="cookiesAdvice">
+    <div class="flotanteDer card w-75" style="background-color: rgb(208, 221, 233)" i18n="@@introCookies" *ngIf="cookiesAdvice">
         <div class="card-header" id="headingOne">
-            <button class="close" type="button" aria-label="Close" (click)="closeCookies()">
-                <span aria-hidden="true">&times;</span>
-            </button>
             <h5 class="mb-0 text-center text-truncate">
                 <button class="btn btn-link" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne" aria-expanded="true">
                     Cookies...
@@ -54,10 +64,17 @@
             </h5>
         </div>
 
-        <div class="collapse" id="collapseOne" aria-labelledby="headingOne">
+        <div id="collapseOne" aria-labelledby="headingOne">
             <div class="card-body text-center">
-                We use own cookies and third party cookies to obtain statistics data of our users and improve our services. If accepts or you continues navigating, we understund you accept their use. You can change configurations or obtain more information
-                <a class="alert-link" routerLink="/infocookies">here</a>.
+                <p>
+                    We use own cookies and third party cookies to obtain statistics data of our users and improve our services. If accepts or
+                    you continues navigating, we understund you accept their use. You can change configurations or obtain
+                    more information
+                    <a class="alert-link" routerLink="/infocookies">here</a>.
+                </p>
+                <button class="btn btn-primary" type="button" aria-label="Close" (click)="closeCookies()">
+                    <span aria-hidden="true">OK</span>
+                </button>
             </div>
         </div>
     </div>

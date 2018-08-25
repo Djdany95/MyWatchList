@@ -42,6 +42,11 @@ export class ConfirmEmailComponent implements OnInit {
   ngOnInit() {
     this.confirmId = this.route.snapshot.paramMap.get('confirmId');
     this.confirmEmail();
+    document.body.classList.add('bodyIntro');
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('bodyIntro');
   }
 
   /**
