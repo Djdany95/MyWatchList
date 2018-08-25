@@ -3,11 +3,9 @@ import {
   Component,
   OnInit,
   ViewChild,
-  Inject,
   AfterViewInit
 } from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
-import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -18,7 +16,7 @@ import { SeriesService } from '../../shared/services/series.service';
 import { LoginService } from '../../shared/services/login.service';
 import { CookieService } from 'ngx-cookie-service';
 
-import { MyErrorStateMatcher, alertify } from '../../app.component';
+import { alertify } from '../../app.component';
 import { SharedOptions } from '../../shared/models/sharedOptions';
 
 /**
@@ -28,7 +26,7 @@ import { SharedOptions } from '../../shared/models/sharedOptions';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.less']
 })
 export class ListComponent implements OnInit, AfterViewInit {
   /**

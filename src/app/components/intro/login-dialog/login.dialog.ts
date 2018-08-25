@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'login-dialog',
   templateUrl: './login.dialog.html',
-  styleUrls: ['./login.dialog.css']
+  styleUrls: ['./login.dialog.less']
 })
 // tslint:disable-next-line:component-class-suffix
 export class LoginDialog {

@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'remember-dialog',
   templateUrl: './remember.dialog.html',
-  styleUrls: ['./remember.dialog.css']
+  styleUrls: ['./remember.dialog.less']
 })
 // tslint:disable-next-line:component-class-suffix
 export class RememberDialog {

@@ -21,7 +21,7 @@ import { SharedOptions } from '../../shared/models/sharedOptions';
 @Component({
   selector: 'app-list-share',
   templateUrl: './list-share.component.html',
-  styleUrls: ['./list-share.component.css']
+  styleUrls: ['./list-share.component.less']
 })
 export class ListShareComponent implements OnInit, AfterViewInit {
   /**

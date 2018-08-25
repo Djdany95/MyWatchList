@@ -1,8 +1,8 @@
 {
-    "name": "mywatchlist",
-    "short_name": "mywatchlist",
-    "theme_color": "#acceee",
-    "background_color": "#acceee",
+    "name": "MWL.xyz",
+    "short_name": "MWL",
+    "theme_color": "#673ab7",
+    "background_color": "#673ab7",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",

@@ -23,7 +23,7 @@
               "src/manifest.json"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ],
             "scripts": []
           },
@@ -148,7 +148,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.css"
+              "src/styles.less"
             ],
             "assets": [
               "src/assets",
@@ -202,7 +202,7 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "css"
+      "styleext": "less"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

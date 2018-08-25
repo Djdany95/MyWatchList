@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-info-cookies',
   templateUrl: './info-cookies.component.html',
-  styleUrls: ['./info-cookies.component.css']
+  styleUrls: ['./info-cookies.component.less']
 })
 export class InfoCookiesComponent {
 

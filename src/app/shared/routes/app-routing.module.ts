@@ -15,7 +15,7 @@ import { Error404Component } from '../error-404/error-404.component';
  * Web Routes
  */
 const APP_ROUTES: Routes = [
-  { path: '', redirectTo: '/intro', pathMatch: 'full' },
+  { path: '', component: IntroComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'mylist', component: ListComponent },
   { path: 'infocookies', component: InfoCookiesComponent },
@@ -23,7 +23,7 @@ const APP_ROUTES: Routes = [
   { path: 'profile/:name', component: ProfileComponent },
   { path: 'confirmemail/:confirmId', component: ConfirmEmailComponent },
   { path: 'details/:id', component: SeriesDetailsComponent },
-  { path: '**', component: IntroComponent }
+  { path: '**', component: Error404Component }
 ];
 
 @NgModule({

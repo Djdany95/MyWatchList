@@ -1,18 +1,16 @@
 import { MatDialog } from '@angular/material';
 import { LoginDialog } from './login-dialog/login.dialog';
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { RegisterService } from '../../shared/services/register.service';
-import { UserService } from '../../shared/services/user.service';
 import { LoginService } from '../../shared/services/login.service';
 import { CookieService } from 'ngx-cookie-service';
 
 import { User } from '../../shared/models/user';
 
-import { MyErrorStateMatcher, alertify } from '../../app.component';
+import { alertify } from '../../app.component';
 
 import * as sha256 from 'fast-sha256';
 
@@ -23,9 +21,14 @@ import * as sha256 from 'fast-sha256';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
-  styleUrls: ['./intro.component.css']
+  styleUrls: ['./intro.component.less']
 })
 export class IntroComponent implements OnInit {
+  /**
+   * Used to save the user preference for nightMode
+   */
+  nightMode: string;
+  
   /**
    * Used to save the user when login
    */
@@ -40,7 +43,6 @@ export class IntroComponent implements OnInit {
    * Constructor
    * @param registerService {RegisterService} Service to call register API
    * @param loginService {LoginService} Service to call login API
-   * @param userService {UserService} Service to call user API
    * @param dialog {MatDialog} Component used to open dialogs with material theme
    * @param router {Router} Used to implicitly navigate to a URL
    * @param cookieService {CookieService} Service to create and use custom cookies
@@ -48,7 +50,6 @@ export class IntroComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private loginService: LoginService,
-    private userService: UserService,
     public dialog: MatDialog,
     private router: Router,
     private cookieService: CookieService,
@@ -75,8 +76,7 @@ export class IntroComponent implements OnInit {
     } else {
       this.cookiesAdvice = true;
     }
-    document.body.style.backgroundColor = '';
-    document.body.style.color = '';
+    this.getNightMode();
   }
 
   /**
@@ -85,6 +85,31 @@ export class IntroComponent implements OnInit {
   closeCookies() {
     this.cookieService.set('cookiesAdvice', 'false');
     this.cookiesAdvice = false;
+  }
+
+  /**
+   * Get user nightMode preference from localStorage
+   */
+  getNightMode(): void {
+    if (localStorage.getItem('nightMode') === null) {
+      localStorage.setItem('nightMode', 'false');
+    }
+    this.setBodyNightMode();
+  }
+
+  /**
+   * Set nightMode if it's true, dayMode if it's false
+   */
+  setBodyNightMode(): void {
+    if (localStorage.getItem('nightMode') === 'true') {
+      this.nightMode = 'true';
+      document.body.style.backgroundColor = '#142635';
+      document.body.style.color = '#bdc7c1';
+    } else {
+      this.nightMode = 'false';
+      document.body.style.backgroundColor = '';
+      document.body.style.color = '';
+    }
   }
 
   /**

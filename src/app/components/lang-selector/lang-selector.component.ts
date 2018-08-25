@@ -7,7 +7,7 @@ import { Component, Inject, LOCALE_ID } from '@angular/core';
 @Component({
   selector: 'app-lang-selector',
   templateUrl: './lang-selector.component.html',
-  styleUrls: ['./lang-selector.component.css']
+  styleUrls: ['./lang-selector.component.less']
 })
 export class LangSelectorComponent {
 

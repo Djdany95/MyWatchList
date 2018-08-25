@@ -21,7 +21,7 @@ import { PredictSeries } from '../../shared/models/predictSeries';
 @Component({
   selector: 'app-new-series',
   templateUrl: './new-series.component.html',
-  styleUrls: ['./new-series.component.css']
+  styleUrls: ['./new-series.component.less']
 })
 export class NewSeriesComponent implements OnInit {
   /**

@@ -11,7 +11,7 @@ import { Component, Inject } from '@angular/core';
   // tslint:disable-next-line:component-selector
   selector: 'edit-series.dialog',
   templateUrl: './edit-series.dialog.html',
-  styleUrls: ['./edit-series.dialog.css']
+  styleUrls: ['./edit-series.dialog.less']
 })
 // tslint:disable-next-line:component-class-suffix
 export class EditDialog {

@@ -12,7 +12,7 @@ import * as sha256 from 'fast-sha256';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.css']
+  styleUrls: ['./register-form.component.less']
 })
 export class RegisterFormComponent {
   /**

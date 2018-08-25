@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-feedback-form',
   templateUrl: './feedback-form.component.html',
-  styleUrls: ['./feedback-form.component.css']
+  styleUrls: ['./feedback-form.component.less']
 })
 export class FeedbackFormComponent {
   /**

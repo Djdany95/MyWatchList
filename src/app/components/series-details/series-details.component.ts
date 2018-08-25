@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { SeriesService } from '../../shared/services/series.service';
 import { OmdbapiService } from '../../shared/services/omdbapi.service';
-import { CookieService } from 'ngx-cookie-service';
 import { Title } from '@angular/platform-browser';
 
 /**
@@ -13,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-series-details',
   templateUrl: './series-details.component.html',
-  styleUrls: ['./series-details.component.css']
+  styleUrls: ['./series-details.component.less']
 })
 export class SeriesDetailsComponent implements OnInit {
   /**
@@ -63,13 +61,11 @@ export class SeriesDetailsComponent implements OnInit {
    * Constructor
    * @param route {ActivatedRoute} Service used to get url params
    * @param omdbAPI {OmdbapiService} Service to call OMDB API
-   * @param cookieService {CookieService} Service to create and use custom cookies
    * @param titleService {Title} Service to change the web Title
    */
   constructor(
     private route: ActivatedRoute,
     private omdbAPI: OmdbapiService,
-    private cookieService: CookieService,
     private titleService: Title
   ) {}
 

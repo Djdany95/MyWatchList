@@ -1,13 +1,13 @@
 {
   "index": "/index.html",
   "assetGroups": [{
-    "name": "MyWatchList",
+    "name": "mywatchlist",
     "installMode": "prefetch",
     "resources": {
       "files": [
         "/favicon.ico",
         "/index.html",
-        "/*.css",
+        "/*.less",
         "/*.js"
       ]
     }
