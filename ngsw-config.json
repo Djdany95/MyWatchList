@@ -17,7 +17,7 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/**"
+        "/assets/toolbar.png"
       ]
     }
   }]

@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
-import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import {
   MatAutocompleteModule,
@@ -26,31 +25,32 @@ import {
 } from '@angular/material';
 import 'hammerJS';
 
+import { CookieService } from 'ngx-cookie-service';
+import { ShareButtonsModule } from '@ngx-share/buttons';
+import { ShareButtonsOptions } from '@ngx-share/core';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { NgProgressRouterModule } from '@ngx-progressbar/router';
+
+import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { IntroComponent } from './components/intro/intro.component';
-import { AppRoutingModule } from './shared/routes/app-routing.module';
-import { CookieService } from 'ngx-cookie-service';
 import { InfoCookiesComponent } from './components/info-cookies/info-cookies.component';
 import { ListShareComponent } from './components/list-share/list-share.component';
-import { RouterModule } from '@angular/router';
-import { ShareButtonsModule } from '@ngx-share/buttons';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-import { ShareButtonsOptions } from '@ngx-share/core';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
 import { SeriesDetailsComponent } from './components/series-details/series-details.component';
 import { NewSeriesComponent } from './components/new-series/new-series.component';
-import { Error404Component } from './shared/error-404/error-404.component';
-import { environment } from '../environments/environment';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { LoginDialog } from './components/intro/login-dialog/login.dialog';
 import { RememberDialog } from './components/intro/remember-dialog/remember.dialog';
 import { EditDialog } from './components/list/edit-dialog/edit-series.dialog';
 import { TWITTER_ACCOUNT } from './shared/constants/api-keys.constants';
-import { NgProgressModule } from '@ngx-progressbar/core';
-import { NgProgressHttpModule } from '@ngx-progressbar/http';
-import { NgProgressRouterModule } from '@ngx-progressbar/router';
+import { Error404Component } from './shared/error-404/error-404.component';
+import { AppRoutingModule } from './shared/routes/app-routing.module';
+
+import { environment } from '../environments/environment';
 
 /**
  * Options to SharedButtons Module

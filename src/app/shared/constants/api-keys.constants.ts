@@ -1,9 +1,9 @@
 /**
  * OMDB APIKEY
  */
-export const OMDB_APIKEY = 'SET_YOURS';
+export const OMDB_APIKEY = 'Set_YOURS';
 
 /**
  * TWITTER ACCOUNT
  */
-export const TWITTER_ACCOUNT = 'SET_YOURS';
+export const TWITTER_ACCOUNT = 'Set_YOURS';

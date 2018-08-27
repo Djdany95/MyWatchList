@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "public_html",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -19,7 +19,6 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              "src/manifest.json",
               "src/manifest.json"
             ],
             "styles": [
@@ -65,7 +64,7 @@
               "serviceWorker": true,
               "baseHref": "/",
               "deployUrl": "/",
-              "outputPath": "dist/",
+              "outputPath": "public_html/",
               "i18nFormat": "xlf",
               "i18nLocale": "en",
               "i18nMissingTranslation": "error"
@@ -89,7 +88,7 @@
               "serviceWorker": true,
               "baseHref": "/es/",
               "deployUrl": "/es/",
-              "outputPath": "dist/es/",
+              "outputPath": "public_html/es/",
               "i18nFile": "src/locale/messages.es.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "es",
@@ -114,7 +113,7 @@
               "serviceWorker": true,
               "baseHref": "/gl/",
               "deployUrl": "/gl/",
-              "outputPath": "dist/gl/",
+              "outputPath": "public_html/gl/",
               "i18nFile": "src/locale/messages.gl.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "gl",

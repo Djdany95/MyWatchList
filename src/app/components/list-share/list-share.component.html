@@ -1,7 +1,7 @@
 <div class="nameList" i18n="@@headerShared">
     <br>
     <h3>
-        <button class="float-left" mat-icon-button (click)="toggleNightMode()">
+        <button class="float-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
             <mat-icon data-placement="left" data-toggle="tooltip" title="Toggle Night Mode" aria-label="toggle nightMode" [ngClass]="{nightModeButtonOn: nightMode.toString()==='true', nightModeButtonOff: nightMode.toString()==='false'}">brightness_medium</mat-icon>
         </button>
 
@@ -15,7 +15,7 @@
 <div class="list-container mat-elevation-z8" [class.nightModeShadow]="nightMode==='true'" i18n="@@listShared">
     <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
         <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)">
+            <input matInput (keyup)="applyFilter($event.target.value)" aria-label="Filter">
             <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Filter</mat-placeholder>
         </mat-form-field>
     </div>
@@ -53,7 +53,7 @@
         <ng-container matColumnDef="buttons">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <button mat-icon-button routerLink="/details/{{element.id}}">
+                <button mat-icon-button routerLink="/details/{{element.id}}" aria-label="Details">
                     <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">info</mat-icon>
                 </button>
             </mat-cell>
@@ -65,13 +65,13 @@
 </div>
 
 <br>
-<span class="badge badge-pill" i18n="@@shareNSeries" style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</span>
-<div class="d-flex justify-content-center">
-    <button class="btn-lg" [class.btn-danger]="nightMode==='true'" [class.btn-warning]="nightMode==='false'" routerLink="/intro">Join Now!</button>
-</div>
+<span class="badge badge-pill" i18n="@@shareNSeries" style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'"
+    [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</span>
 
-<share-buttons class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']" [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description"
-    [description]="sharedOptions.description" [tags]="sharedOptions.description" [autoSetMeta]="true"></share-buttons>
+<share-buttons class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
+    [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"
+    [tags]="sharedOptions.description" [autoSetMeta]="true"></share-buttons>
+
 
 
 <div [hidden]="true" i18n="@@shareErrors">

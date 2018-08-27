@@ -1,8 +1,8 @@
-<div class="container register" i18n="@@registerForm">
+<div class="container-fluid register" i18n="@@registerForm">
     <div class="row">
         <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
-                <input (keyup.enter)="register()" i18n-placeholder="@@registerUser" placeholder="Username" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher">
+                <input (keyup.enter)="register()" i18n-placeholder="@@registerUser" placeholder="Username" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
                 <mat-error *ngIf="nameControl.hasError('required')">
                     Username is
                     <strong>required</strong>
@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
-                <input (keyup.enter)="register()" i18n-placeholder="@@registerEmail" placeholder="Email" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher">
+                <input (keyup.enter)="register()" i18n-placeholder="@@registerEmail" placeholder="Email" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
                 <mat-error *ngIf="emailControl.hasError('required')">
                     Email is
                     <strong>required</strong>
@@ -29,7 +29,7 @@
         <div class="w-100 d-block d-sm-none"></div>
         <div class="col-md-2 col-sm-6">
             <mat-form-field appearance="outline">
-                <input (keyup.enter)="register()" i18n-placeholder="@@registerPass" placeholder="Password" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher">
+                <input (keyup.enter)="register()" i18n-placeholder="@@registerPass" placeholder="Password" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" aria-label="Password">
                 <mat-error *ngIf="passControl.hasError('required')">
                     Password is
                     <strong>required</strong>
@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-2 col-sm-6">
             <mat-form-field appearance="outline">
-                <input (keyup.enter)="register()" i18n-placeholder="@@registerPass2" placeholder="Repeat Password" type="password" matInput [formControl]="pass2Control" [errorStateMatcher]="matcher">
+                <input (keyup.enter)="register()" i18n-placeholder="@@registerPass2" placeholder="Repeat Password" type="password" matInput [formControl]="pass2Control" [errorStateMatcher]="matcher" aria-label="Repeat password">
                 <mat-error *ngIf="pass2Control.hasError('required')">
                     Password is
                     <strong>required</strong>
@@ -55,9 +55,9 @@
         </div>
         <div class="col-md-2 col-sm-12">
             <button style="margin-top: 10px" *ngIf="(passControl.value===pass2Control.value) && !nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern') && !emailControl.hasError('required') && !emailControl.hasError('email')"
-                mat-raised-button color="primary" (click)="register()">Register</button>
+                mat-raised-button color="primary" (click)="register()" aria-label="Register">Register</button>
             <button style="margin-top: 10px" *ngIf="!(passControl.value===pass2Control.value) || nameControl.hasError('required') || passControl.hasError('required') || nameControl.hasError('pattern') || passControl.hasError('pattern') || emailControl.hasError('required') || emailControl.hasError('email')"
-                mat-raised-button disabled color="primary" (click)="register()">Register</button>
+                mat-raised-button disabled color="primary" (click)="register()" aria-label="Register">Register</button>
         </div>
     </div>
 </div>

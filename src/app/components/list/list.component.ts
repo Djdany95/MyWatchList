@@ -280,7 +280,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.dataSource.data.forEach((element: any) => {
       if (element.id === id) {
         duplicatedFlag = true;
-        console.log(element)
+        console.log(element);
       }
     });
 

@@ -4,17 +4,17 @@
         <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-sm-block" alt="">
         <h2 class="toolbar-title">mywatchlist</h2>
         <span class="toolbar-spacer"></span>
-        <button mat-raised-button color="primary" (click)="openLoginDialog()">Login</button>
+        <button mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
     </mat-toolbar>
 </header>
 
 <div class="jumbotron" i18n="@@introJumbo">
     <div class="float-right">
-        <button mat-icon-button [matMenuTriggerFor]="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Language">
             <mat-icon>language</mat-icon>
         </button>
         <mat-menu #menu="matMenu" class="langMenu">
-            <button mat-menu-item *ngFor="let lang of languages">
+            <button mat-menu-item *ngFor="let lang of languages" aria-label="Language">
                 <mat-icon>language</mat-icon>
                 <span *ngIf="lang.code !== localeId">
                     <a href="{{lang.href}}">{{lang.label}}</a>
@@ -33,16 +33,16 @@
     <div class="float-md-left">
         <app-register-form (user)="register($event)"></app-register-form>
     </div>
-    <br class=" d-none d-md-block">
-    <br class=" d-none d-md-block">
-    <br class=" d-none d-md-block">
+    <br class="d-none d-md-block">
+    <br class="d-none d-md-block">
+    <br class="d-none d-md-block">
 </div>
 
 <footer>
     <div class="flotanteIzq card w-20 alert-light d-none d-sm-block" i18n="@@contacto">
         <div class="card-header" id="headingContact">
             <h5 class="mb-0 text-center text-truncate">
-                <button class="btn btn-link" data-toggle="collapse" href="#collapseContact" aria-controls="collapseContact" aria-expanded="true">
+                <button class="btn btn-link feedback" data-toggle="collapse" href="#collapseContact" aria-controls="collapseContact" aria-expanded="true" aria-label="Collapse feedback">
                     Feedback
                 </button>
             </h5>
@@ -55,12 +55,10 @@
         </div>
     </div>
 
-    <div class="flotanteDer card w-75" style="background-color: rgb(208, 221, 233)" i18n="@@introCookies" *ngIf="cookiesAdvice">
+    <div class="flotanteDer card" i18n="@@introCookies" *ngIf="cookiesAdvice">
         <div class="card-header" id="headingOne">
             <h5 class="mb-0 text-center text-truncate">
-                <button class="btn btn-link" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne" aria-expanded="true">
                     Cookies...
-                </button>
             </h5>
         </div>
 
@@ -72,7 +70,7 @@
                     more information
                     <a class="alert-link" routerLink="/infocookies">here</a>.
                 </p>
-                <button class="btn btn-primary" type="button" aria-label="Close" (click)="closeCookies()">
+                <button class="btn btn-primary" type="button" aria-label="Close" (click)="closeCookies()" aria-label="OK">
                     <span aria-hidden="true">OK</span>
                 </button>
             </div>

@@ -29,13 +29,13 @@ The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.  
+Run `ng build` to build the project. The build artifacts will be stored in the `public_html/` directory.  
 Use the `-prod` flag for a production build.
 
 ## Internationalization Build
 
 Run `npm run build-i18n:all` to build the project in 3 languages: `English, Español, Galego`.  
-The build artifacts will be stored in the `dist/` directory. This is build with production by default.
+The build artifacts will be stored in the `public_html/` directory. This is build with production by default.
 
 ## Running unit tests
 

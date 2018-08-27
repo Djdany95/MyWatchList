@@ -10,7 +10,7 @@
         </mat-expansion-panel-header>
 
         <mat-form-field class="insert-full-width">
-            <input type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" [matAutocomplete]="auto" #elName>
+            <input type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" [matAutocomplete]="auto" #elName aria-label="Name">
             <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Name</mat-placeholder>
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option [class.nightMode]="nightMode==='true'" *ngFor="let option of predictSeries " [value]="option.title">
@@ -23,7 +23,7 @@
         </mat-form-field>
 
         <mat-form-field class="insert-form">
-            <input matInput [formControl]="tempControl" [errorStateMatcher]="matcher" #elTemp>
+            <input matInput [formControl]="tempControl" [errorStateMatcher]="matcher" #elTemp aria-label="Season">
             <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Season</mat-placeholder>
             <mat-error *ngIf="tempControl.hasError('required')">
                 Season is <strong>required</strong>
@@ -34,7 +34,7 @@
         </mat-form-field>
 
         <mat-form-field class="insert-form">
-            <input matInput [formControl]="epiControl" [errorStateMatcher]="matcher" #elEpi>
+            <input matInput [formControl]="epiControl" [errorStateMatcher]="matcher" #elEpi aria-label="Actual episode">
             <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Actual Episode</mat-placeholder>
             <mat-error *ngIf="epiControl.hasError('required')">
                 Episode is <strong>required</strong>
@@ -45,7 +45,7 @@
         </mat-form-field>
 
         <div style="text-align: center;" *ngIf="!nameControl.hasError('required') && !tempControl.hasError('required') && !tempControl.hasError('pattern') && !epiControl.hasError('required') && !epiControl.hasError('pattern')">
-            <button [color]="nightMode==='true'?'primary':'default'" mat-raised-button (click)="createSeries(elName.value, elTemp.value, elEpi.value)">
+            <button [color]="nightMode==='true'?'primary':'default'" mat-raised-button (click)="createSeries(elName.value, elTemp.value, elEpi.value)" aria-label="Insert series">
           Insert <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">add_circle</mat-icon>
       </button>
         </div>
