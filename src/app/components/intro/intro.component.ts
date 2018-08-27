@@ -1,6 +1,6 @@
 import { MatDialog } from '@angular/material';
 import { LoginDialog } from './login-dialog/login.dialog';
-import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -23,7 +23,7 @@ import * as sha256 from 'fast-sha256';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.less']
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit, OnDestroy {
   /**
    * Used to save the user when login
    */

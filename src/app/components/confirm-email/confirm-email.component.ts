@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -17,7 +17,7 @@ import { alertify } from '../../app.component';
   templateUrl: './confirm-email.component.html',
   styleUrls: ['./confirm-email.component.less']
 })
-export class ConfirmEmailComponent implements OnInit {
+export class ConfirmEmailComponent implements OnInit, OnDestroy {
   /**
    * Get the confirmId in the url
    */

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 /**
  * Error Component
@@ -9,15 +9,15 @@ import { Component } from '@angular/core';
   templateUrl: './error-404.component.html',
   styleUrls: ['./error-404.component.less']
 })
-export class Error404Component {
+export class Error404Component implements OnDestroy {
   /**
    * Constructor
    */
   constructor() {
-    document.body.classList.add('body404')
+    document.body.classList.add('body404');
   }
 
   ngOnDestroy() {
-    document.body.classList.remove('body404')
+    document.body.classList.remove('body404');
   }
 }
