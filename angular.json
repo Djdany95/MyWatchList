@@ -38,6 +38,9 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "serviceWorker": true,
+              "baseHref": "/",
+              "deployUrl": "/",
+              "outputPath": "public_html/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

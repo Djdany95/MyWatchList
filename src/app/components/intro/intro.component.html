@@ -4,8 +4,8 @@
         <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-sm-block" alt="Toolbar icon" title="Toolbar icon">
         <h2 class="toolbar-title">mywatchlist</h2>
         <span class="toolbar-spacer"></span>
-        <button *ngIf="!offline" mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
-        <button *ngIf="offline" mat-raised-button color="primary" aria-label="Offline">Offline :(</button>
+        <button *ngIf="online" mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
+        <button *ngIf="!online" mat-raised-button color="primary" aria-label="Offline">Offline :(</button>
     </mat-toolbar>
 </header>
 

@@ -27,7 +27,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   /**
    * Used to know if user is online or offline
    */
-  offline: boolean;
+  online: boolean;
 
   /**
    * Used to save the user when login
@@ -100,7 +100,7 @@ export class IntroComponent implements OnInit, OnDestroy {
    * Toggle offline flag
    */
   updateOnlineStatus() {
-    this.offline = navigator.onLine;
+    this.online = navigator.onLine;
   }
 
   /**
