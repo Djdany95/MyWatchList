@@ -15,7 +15,7 @@
     "build-i18n:en": "ng build --configuration=production-en",
     "build-i18n:all": "npm run build-i18n:en && npm run build-i18n:es && npm run build-i18n:gl",
     "deploy": "npm run build-i18n:en && npm run htaccess && npm run robotstxt",
-    "postdeploy": "py predeploy.py",
+    "postdeploy": "py postdeploy.py"
   },
   "private": true,
   "dependencies": {

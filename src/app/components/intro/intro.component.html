@@ -1,10 +1,11 @@
 <ng-progress></ng-progress>
 <header>
     <mat-toolbar class="toolbar-header">
-        <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-sm-block" alt="">
+        <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-sm-block" alt="Toolbar icon" title="Toolbar icon">
         <h2 class="toolbar-title">mywatchlist</h2>
         <span class="toolbar-spacer"></span>
-        <button mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
+        <button *ngIf="!offline" mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
+        <button *ngIf="offline" mat-raised-button color="primary" aria-label="Offline">Offline :(</button>
     </mat-toolbar>
 </header>
 

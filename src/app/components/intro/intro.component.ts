@@ -25,6 +25,11 @@ import * as sha256 from 'fast-sha256';
 })
 export class IntroComponent implements OnInit, OnDestroy {
   /**
+   * Used to know if user is online or offline
+   */
+  offline: boolean;
+
+  /**
    * Used to save the user when login
    */
   user: User;
@@ -82,10 +87,20 @@ export class IntroComponent implements OnInit, OnDestroy {
       this.cookiesAdvice = true;
     }
     document.body.classList.add('bodyIntro');
+    this.updateOnlineStatus();
+    window.addEventListener('online',  this.updateOnlineStatus);
+    window.addEventListener('offline', this.updateOnlineStatus);
   }
 
   ngOnDestroy() {
     document.body.classList.remove('bodyIntro');
+  }
+
+  /**
+   * Toggle offline flag
+   */
+  updateOnlineStatus() {
+    this.offline = navigator.onLine;
   }
 
   /**

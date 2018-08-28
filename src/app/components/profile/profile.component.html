@@ -7,7 +7,7 @@
                 <mat-icon aria-label="Go back" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">format_list_bulleted</mat-icon>
             </button>
 
-            <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50">
+            <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
             <i>{{user.name | titlecase}}'s</i> Profile
 
             <button class="float-right" mat-icon-button (click)="logout()" aria-label="Logout">

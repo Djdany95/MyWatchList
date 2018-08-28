@@ -8,7 +8,7 @@
             </button>
 
             <span>
-                <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50">
+                <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
                 <i>{{user.name | titlecase}}'s</i> List
                 <button mat-icon-button routerLink="/profile/{{user.name}}" aria-label="Profile">
                     <mat-icon aria-label="Profile" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_box</mat-icon>
@@ -99,7 +99,7 @@
     <span class="badge badge-pill" i18n="@@listNSeries" style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</span>
 
     <share-buttons class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']" [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description"
-        [description]="sharedOptions.description" [tags]="sharedOptions.description" [autoSetMeta]="true"></share-buttons>
+        [description]="sharedOptions.description" [tags]="sharedOptions.description" [autoSetMeta]="true" aria-label="Share buttons"></share-buttons>
     <br>
 
 </div>
