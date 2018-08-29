@@ -43,9 +43,9 @@ export class IntroComponent implements OnInit, OnDestroy {
    * Languages contained in menu
    */
   languages = [
-    { code: 'en', label: 'English', href: '/'},
-    { code: 'es', label: 'Español', href: '/es/'},
-    { code: 'gl', label: 'Galego', href: '/gl/'}
+    { code: 'en', label: 'English', href: '/' },
+    { code: 'es', label: 'Español', href: '/es/' },
+    { code: 'gl', label: 'Galego', href: '/gl/' }
   ];
 
   /**
@@ -86,9 +86,11 @@ export class IntroComponent implements OnInit, OnDestroy {
     } else {
       this.cookiesAdvice = true;
     }
+    document.body.style.backgroundColor = '';
+    document.body.style.color = '';
     document.body.classList.add('bodyIntro');
     this.updateOnlineStatus();
-    window.addEventListener('online',  this.updateOnlineStatus);
+    window.addEventListener('online', this.updateOnlineStatus);
     window.addEventListener('offline', this.updateOnlineStatus);
   }
 
@@ -181,5 +183,11 @@ export class IntroComponent implements OnInit, OnDestroy {
         this.login(this.user);
       }
     });
+  }
+
+  offlineList() {
+    if (localStorage.getItem('myOfflineList') !== null) {
+      this.router.navigate(['/offlinelist']);
+    }
   }
 }

@@ -70,7 +70,7 @@ export class LoginDialog {
    */
   onLoginClick(): void {
     const data = {
-      userN: this.nameControl.value,
+      userN: this.nameControl.value.toLowerCase(),
       pass: this.passControl.value
     };
 
@@ -113,7 +113,7 @@ export class LoginDialog {
 
     dialogRef.afterClosed().subscribe(email => {
       if (email !== '' && email !== undefined) {
-        this.rememberUser(email);
+        this.rememberUser(email.toLowerCase());
       }
     });
   }

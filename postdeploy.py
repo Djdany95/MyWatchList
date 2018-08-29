@@ -16,7 +16,7 @@ def openFolder():
 
 def main():
     copy()
-    # webFTP()
-    # openFolder()
+    webFTP()
+    openFolder()
 
 main()

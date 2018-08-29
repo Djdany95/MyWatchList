@@ -110,10 +110,7 @@ const shareOptions: ShareButtonsOptions = {
       spinnerPosition: 'left'
     }),
     NgProgressHttpModule,
-    NgProgressRouterModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: environment.production
-    })
+    NgProgressRouterModule
   ],
   providers: [
     CookieService,

@@ -85,6 +85,7 @@
                     <strong>incorrect</strong>
                 </mat-error>
             </mat-form-field>
+            <a href="https://imgur.com/upload" target="_blank"><i>You can upload your image free here and get an URL</i></a>
             <div style="text-align: center;" *ngIf="!imageControl.hasError('required') && !imageControl.hasError('pattern')">
                 <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changeImage()" aria-label="Change image">
                     Change Profile Image

@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  AfterViewInit
-} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Title } from '@angular/platform-browser';
@@ -25,6 +20,11 @@ import { SharedOptions } from '../../shared/models/sharedOptions';
 })
 export class ListShareComponent implements OnInit, AfterViewInit {
   /**
+   * Used to know if user is online or offline
+   */
+  online: boolean;
+
+  /**
    * Used to get the user preference for nightMode
    */
   nightMode: string;
@@ -32,7 +32,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
   /**
    * Used to get the list's username
    */
-  userName = this.route.snapshot.paramMap.get('name');
+  userName: string;
   /**
    * Used to get the user profile image
    */
@@ -60,7 +60,8 @@ export class ListShareComponent implements OnInit, AfterViewInit {
   /**
    * Used to watch if the list is sortered
    */
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   /**
    * Constructor
@@ -76,24 +77,41 @@ export class ListShareComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private titleService: Title
-  ) { }
+  ) {
+    if (!navigator.onLine) {
+      this.userName = 'Offline';
+      this.image = './assets/offline.png';
+    } else {
+      if (this.route.snapshot.url[0].path === 'offlinelist') {
+        this.router.navigate(['/']);
+      }
+      this.userName = this.route.snapshot.paramMap.get('name');
+    }
+    this.sharedOptions = new SharedOptions('', '', '');
+    this.online = navigator.onLine;
+  }
 
   /**
    * We set various parameters to default, check if there are username and if nightMode is setted in storage before.
    * When all done, fetch API to get User Series List
    */
   ngOnInit() {
-    this.titleService.setTitle(
-      this.userName.charAt(0).toUpperCase() +
-      this.userName.slice(1) +
-      '\'s Public Series List'
-    );
+    if (!this.online) {
+      this.titleService.setTitle('My Offline List');
+      this.getNightMode();
+      this.dataSource.data = JSON.parse(localStorage.getItem('myOfflineList'));
+      this.nSeries = this.dataSource.data.length;
+    } else {
+      this.titleService.setTitle(
+        this.userName.charAt(0).toUpperCase() +
+          this.userName.slice(1) +
+          '\s Public Series List'
+      );
 
-    this.sharedOptions = new SharedOptions('', '', '');
+      this.getNightMode();
 
-    this.getNightMode();
-
-    this.findUser(this.userName);
+      this.findUser(this.userName);
+    }
   }
 
   /**
@@ -165,28 +183,15 @@ export class ListShareComponent implements OnInit, AfterViewInit {
     this.seriesService.getSeries(this.userName).subscribe(
       response => {
         this.dataSource.data = response.data.series;
+        this.nSeries = this.dataSource.data.length;
         if (!this.dataSource.data[0]) {
           alertify.error(
             this.userName + document.getElementById('notFollow').innerHTML
           );
         }
-        this.countSeries();
       },
       error => {
         this.dataSource.data = [];
-      }
-    );
-  }
-
-  /**
-   * Call the API to count the series' user follows
-   */
-  countSeries(): void {
-    this.seriesService.countSeries(this.userName).subscribe(
-      response => {
-        this.nSeries = response.data[0].nSeries;
-      },
-      error => {
         this.nSeries = 0;
       }
     );
@@ -219,5 +224,9 @@ export class ListShareComponent implements OnInit, AfterViewInit {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLowerCase();
     this.dataSource.filter = filterValue;
+  }
+
+  retryConnection() {
+    location.reload();
   }
 }

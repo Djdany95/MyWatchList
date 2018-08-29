@@ -167,31 +167,18 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.seriesService.getSeries(this.user.name).subscribe(
       response => {
         this.dataSource.data = response.data.series;
+        localStorage.setItem('myOfflineList', JSON.stringify(response.data.series));
         if (!this.dataSource.data[0]) {
           alertify.error(
             this.user.name + document.getElementById('notFollow').innerHTML
           );
         }
-        this.countSeries();
+        this.nSeries = this.dataSource.data.length;
+        this.cookieService.set('myNSeries', this.nSeries.toString());
       },
       error => {
         this.dataSource.data = [];
-      }
-    );
-  }
-
-  /**
-   * Call the API to count the series' user follows
-   */
-  countSeries(): void {
-    this.seriesService.countSeries(this.user.name).subscribe(
-      response => {
-        this.nSeries = response.data[0].nSeries;
-        this.cookieService.set('myNSeries', this.nSeries.toString());
-      },
-      error => {
         this.nSeries = 0;
-        this.cookieService.set('myNSeries', this.nSeries.toString());
       }
     );
   }

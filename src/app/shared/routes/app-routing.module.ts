@@ -20,6 +20,7 @@ const APP_ROUTES: Routes = [
   { path: 'mylist', component: ListComponent },
   { path: 'infocookies', component: InfoCookiesComponent },
   { path: 'sharedlist/:name', component: ListShareComponent },
+  { path: 'offlinelist', component: ListShareComponent },
   { path: 'profile/:name', component: ProfileComponent },
   { path: 'confirmemail/:confirmId', component: ConfirmEmailComponent },
   { path: 'details/:id', component: SeriesDetailsComponent },

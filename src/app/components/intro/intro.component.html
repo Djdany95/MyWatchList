@@ -5,7 +5,7 @@
         <h2 class="toolbar-title">mywatchlist</h2>
         <span class="toolbar-spacer"></span>
         <button *ngIf="online" mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
-        <button *ngIf="!online" mat-raised-button color="primary" aria-label="Offline">Offline :(</button>
+        <button *ngIf="!online" mat-raised-button color="primary" (click)="offlineList()" aria-label="Offline">Offline :(</button>
     </mat-toolbar>
 </header>
 
