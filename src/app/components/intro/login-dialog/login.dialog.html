@@ -1,7 +1,8 @@
-<h1 mat-dialog-title i18n="@@loginHeader">Please Login</h1>
-<div mat-dialog-content i18n="@@loginContent">
+<h1 mat-dialog-title>Please Login</h1>
+<div mat-dialog-content>
     <mat-form-field>
-        <input (keyup.enter)="onLoginClick()" i18n-placeholder="@@loginUser" placeholder="Username" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
+        <input (keyup.enter)="onLoginClick()" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
+        <mat-placeholder class="placeholder">Username</mat-placeholder>
         <mat-error *ngIf="nameControl.hasError('required')">
             Username is
             <strong>required</strong>
@@ -12,7 +13,8 @@
         </mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input (keyup.enter)="onLoginClick()" i18n-placeholder="@@loginPass" placeholder="Password" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" aria-label="Password">
+        <input (keyup.enter)="onLoginClick()" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" aria-label="Password">
+        <mat-placeholder class="placeholder">Password</mat-placeholder>
         <mat-error *ngIf="passControl.hasError('required')">
             Password is
             <strong>required</strong>
@@ -23,10 +25,10 @@
         </mat-error>
     </mat-form-field>
 </div>
-<span i18n="@@forgot">
+<span>
     <button type="button" class="btn btn-link btn-sm" (click)="openForgotDialog()" aria-label="Forgot username or password?">Forgot username or password?</button>
 </span>
-<div mat-dialog-actions i18n="@@loginButtons">
+<div mat-dialog-actions>
     <button mat-button (click)="onNoClick()" aria-label="Cancel">Cancel</button>
     <button *ngIf="!nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern')"
         mat-button (click)="onLoginClick()" cdkFocusInitial aria-label="Login">Login</button>

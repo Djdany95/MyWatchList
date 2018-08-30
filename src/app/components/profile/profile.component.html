@@ -1,137 +1,134 @@
-<div *ngIf="user.name!='' && user">
-    <div class="nameProfile" i18n="@@profileHeader">
-        <ng-progress></ng-progress>
-        <br>
-        <h3>
-            <button class="float-left" mat-icon-button routerLink="/mylist" aria-label="Return to my list">
-                <mat-icon aria-label="Go back" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">format_list_bulleted</mat-icon>
-            </button>
-
-            <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
-            <i>{{user.name | titlecase}}'s</i> Profile
-
-            <button class="float-right" mat-icon-button (click)="logout()" aria-label="Logout">
-                <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">exit_to_app</mat-icon>
-            </button>
-        </h3>
-        <mat-divider [class.nightMode]="nightMode==='true'"></mat-divider>
-        <span class="badge badge-pill" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</span>
-    </div>
+<div class="nameProfile">
+    <ng-progress></ng-progress>
     <br>
+    <h3>
+        <button class="float-left" mat-icon-button routerLink="/mylist" aria-label="Return to my list">
+            <mat-icon aria-label="Go back" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">format_list_bulleted</mat-icon>
+        </button>
 
-    <div class="mx-auto" style="width: 30%;" [class.nightModeShadow]="nightMode==='true'" i18n="@@changePassForm">
-        <mat-expansion-panel [class.nightMode]="nightMode==='true'">
-            <mat-expansion-panel-header>
-                <mat-panel-title [class.nightMode]="nightMode==='true'">
-                    Change Password
-                </mat-panel-title>
-            </mat-expansion-panel-header>
+        <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
+        <i>{{user.name | titlecase}}</i>'s Profile
 
-            <mat-form-field>
-                <input type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" [(ngModel)]="actualPass" aria-label="Actual password">
-                <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-placeholder>
-                <mat-error *ngIf="passControl.hasError('required')">
-                    Password is
-                    <strong>required</strong>
-                </mat-error>
-                <mat-error *ngIf="passControl.hasError('pattern')">
-                    Password is too
-                    <strong>weak</strong>
-                </mat-error>
-            </mat-form-field>
+        <button class="float-right" mat-icon-button (click)="logout()" aria-label="Logout">
+            <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">exit_to_app</mat-icon>
+        </button>
+    </h3>
+    <mat-divider [class.nightMode]="nightMode==='true'"></mat-divider>
+    <span class="badge badge-pill" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
+        {{nSeries}} series</span>
+</div>
+<br>
 
-            <mat-form-field>
-                <input type="password" matInput [formControl]="passControl2" [errorStateMatcher]="matcher" [(ngModel)]="newPass" aria-label="New password">
-                <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-placeholder>
-                <mat-error *ngIf="passControl2.hasError('required')">
-                    Password is
-                    <strong>required</strong>
-                </mat-error>
-                <mat-error *ngIf="passControl2.hasError('pattern')">
-                    Password is too
-                    <strong>weak</strong>
-                </mat-error>
-            </mat-form-field>
+<div class="mx-auto" style="width: 30%;" [class.nightModeShadow]="nightMode==='true'">
+    <mat-expansion-panel [class.nightMode]="nightMode==='true'">
+        <mat-expansion-panel-header>
+            <mat-panel-title [class.nightMode]="nightMode==='true'">
+                Change Password
+            </mat-panel-title>
+        </mat-expansion-panel-header>
 
-            <div style="text-align: center;" *ngIf="!passControl.hasError('required') && !passControl.hasError('pattern') && !passControl2.hasError('required') && !passControl2.hasError('pattern')">
-                <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changePass()" aria-label="Change password">
-                    Change Password
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">edit</mat-icon>
+        <mat-form-field>
+            <input type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" [(ngModel)]="actualPass" aria-label="Actual password">
+            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-placeholder>
+            <mat-error *ngIf="passControl.hasError('required')">
+                Password is
+                <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="passControl.hasError('pattern')">
+                Password is too
+                <strong>weak</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="password" matInput [formControl]="passControl2" [errorStateMatcher]="matcher" [(ngModel)]="newPass" aria-label="New password">
+            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-placeholder>
+            <mat-error *ngIf="passControl2.hasError('required')">
+                Password is
+                <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="passControl2.hasError('pattern')">
+                Password is too
+                <strong>weak</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <div style="text-align: center;" *ngIf="!passControl.hasError('required') && !passControl.hasError('pattern') && !passControl2.hasError('required') && !passControl2.hasError('pattern')">
+            <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changePass()" aria-label="Change password">
+                Change Password
+                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">edit</mat-icon>
+            </button>
+        </div>
+    </mat-expansion-panel>
+</div>
+
+<br>
+<br>
+
+<div class="mx-auto" style="width: 40%;" [class.nightModeShadow]="nightMode==='true'">
+    <mat-expansion-panel [class.nightMode]="nightMode==='true'">
+        <mat-expansion-panel-header>
+            <mat-panel-title [class.nightMode]="nightMode==='true'">
+                Change Profile Image
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field>
+            <input type="url" matInput [formControl]="imageControl" [errorStateMatcher]="matcher" [(ngModel)]="imageUrl" aria-label="Image URL">
+            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">URL to image</mat-placeholder>
+            <mat-error *ngIf="imageControl.hasError('required')">
+                URL is
+                <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="imageControl.hasError('pattern')">
+                URL is
+                <strong>incorrect</strong>
+            </mat-error>
+        </mat-form-field>
+        <a href="https://imgur.com/upload" target="_blank"><i>You can upload your image free here and get an URL</i></a>
+        <div style="text-align: center;" *ngIf="!imageControl.hasError('required') && !imageControl.hasError('pattern')">
+            <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changeImage()" aria-label="Change image">
+                Change Profile Image
+                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_circle</mat-icon>
+            </button>
+        </div>
+
+    </mat-expansion-panel>
+</div>
+
+<br>
+<br>
+
+<div class="flotante">
+    <!-- Button trigger modal -->
+    <button class="btn btn-danger btn-sm" data-target="#confirmDeleteModal" data-toggle="modal" type="button"
+        aria-label="Delete account">Delete Account</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="confirmDeleteModal" role="dialog" aria-hidden="true" aria-labelledby="confirmDeleteModal"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" [class.nightMode]="nightMode==='true'">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Confirm Delete Account</h5>
+                <button class="close" data-dismiss="modal" type="button" aria-label="Close" aria-label="Close modal">
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        </mat-expansion-panel>
-    </div>
-
-    <br>
-    <br>
-
-    <div class="mx-auto" style="width: 40%;" [class.nightModeShadow]="nightMode==='true'" i18n="@@changeImageForm">
-        <mat-expansion-panel [class.nightMode]="nightMode==='true'">
-            <mat-expansion-panel-header>
-                <mat-panel-title [class.nightMode]="nightMode==='true'">
-                    Change Profile Image
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-
-            <mat-form-field>
-                <input type="url" matInput [formControl]="imageControl" [errorStateMatcher]="matcher" [(ngModel)]="imageUrl" aria-label="Image URL">
-                <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">URL to image</mat-placeholder>
-                <mat-error *ngIf="imageControl.hasError('required')">
-                    URL is
-                    <strong>required</strong>
-                </mat-error>
-                <mat-error *ngIf="imageControl.hasError('pattern')">
-                    URL is
-                    <strong>incorrect</strong>
-                </mat-error>
-            </mat-form-field>
-            <a href="https://imgur.com/upload" target="_blank"><i>You can upload your image free here and get an URL</i></a>
-            <div style="text-align: center;" *ngIf="!imageControl.hasError('required') && !imageControl.hasError('pattern')">
-                <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changeImage()" aria-label="Change image">
-                    Change Profile Image
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_circle</mat-icon>
-                </button>
+            <div class="modal-body">
+                Really do you want delete your account definitely?
+                <br> This can not be reversed!
             </div>
-
-        </mat-expansion-panel>
-    </div>
-
-    <br>
-    <br>
-
-    <div class="flotante">
-        <!-- Button trigger modal -->
-        <button class="btn btn-danger btn-sm" data-target="#confirmDeleteModal" data-toggle="modal" type="button" i18n="@@deleteModalButton" aria-label="Delete account">Delete Account</button>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="confirmDeleteModal" role="dialog" aria-hidden="true" aria-labelledby="confirmDeleteModal" i18n="@@deleteModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content" [class.nightMode]="nightMode==='true'">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Confirm Delete Account</h5>
-                    <button class="close" data-dismiss="modal" type="button" aria-label="Close" aria-label="Close modal">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Really do you want delete your account definitely?
-                    <br> This can not be reversed!
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-dismiss="modal" type="button" aria-label="Cancel">Cancel</button>
-                    <button class="btn btn-danger" data-dismiss="modal" type="button" (click)="deleteAccount()" aria-label="Delete">Delete</button>
-                </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" type="button" aria-label="Cancel">Cancel</button>
+                <button class="btn btn-danger" data-dismiss="modal" type="button" (click)="deleteAccount()" aria-label="Delete">Delete</button>
             </div>
         </div>
     </div>
 </div>
 
-<div *ngIf="user.name=='' || !user " i18n="@@error500 ">
-    <h1>ERROR 500</h1>
-    <h2>RESTRICTED ACCESS TO USERS</h2>
-</div>
 
-<div [hidden]="true" i18n="@@profileErrors">
+<div [hidden]="true">
     <span id="passErr" [hidden]="true">Password is incorrect.</span>
     <span id="urlErr" [hidden]="true">URL is incorrect.</span>
     <span id="imgChange" [hidden]="true">Image changed.</span>

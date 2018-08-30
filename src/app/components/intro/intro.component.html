@@ -9,7 +9,7 @@
     </mat-toolbar>
 </header>
 
-<div class="jumbotron" i18n="@@introJumbo">
+<div class="jumbotron">
     <div class="float-right">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Language" disabled>
             <mat-icon>language</mat-icon>
@@ -17,10 +17,8 @@
         <mat-menu #menu="matMenu" class="langMenu">
             <button mat-menu-item *ngFor="let lang of languages" aria-label="Language">
                 <mat-icon>language</mat-icon>
-                <span *ngIf="lang.code !== localeId">
-                    <a href="{{lang.href}}">{{lang.label}}</a>
-                </span>
-                <span *ngIf="lang.code === localeId">{{lang.label}} </span>
+                <span *ngIf="lang.code !== language" (click)="setLanguage()">{{lang.label}}</span>
+                <span *ngIf="lang.code === language">{{lang.label}} </span>
             </button>
         </mat-menu>
     </div>
@@ -40,7 +38,7 @@
 </div>
 
 <footer>
-    <div class="flotanteIzq card w-20 alert-light d-none d-sm-block" i18n="@@contacto">
+    <div class="flotanteIzq card w-20 alert-light d-none d-sm-block">
         <div class="card-header" id="headingContact">
             <h5 class="mb-0 text-center text-truncate">
                 <button class="btn btn-link feedback" data-toggle="collapse" href="#collapseContact" aria-controls="collapseContact" aria-expanded="true" aria-label="Collapse feedback">
@@ -56,7 +54,7 @@
         </div>
     </div>
 
-    <div class="flotanteDer card" i18n="@@introCookies" *ngIf="cookiesAdvice">
+    <div class="flotanteDer card" *ngIf="cookiesAdvice">
         <div class="card-header" id="headingOne">
             <h5 class="mb-0 text-center text-truncate">
                     Cookies...
@@ -66,10 +64,8 @@
         <div id="collapseOne" aria-labelledby="headingOne">
             <div class="card-body text-center">
                 <p>
-                    We use own cookies and third party cookies to obtain statistics data of our users and improve our services. If accepts or
-                    you continues navigating, we understund you accept their use. You can change configurations or obtain
-                    more information
-                    <a class="alert-link" routerLink="/infocookies">here</a>.
+                    We use own functional cookies needed for the page and third party cookies to obtain statistics data and improve our services. If accepts, we understund you accept their use. You can obtain more information
+                    <a class="alert-link" href="http://www.allaboutcookies.org/">here</a>.
                 </p>
                 <button class="btn btn-primary" type="button" aria-label="Close" (click)="closeCookies()" aria-label="OK">
                     <span aria-hidden="true">OK</span>
@@ -79,7 +75,7 @@
     </div>
 </footer>
 
-<div [hidden]="true" i18n="@@introErrors">
+<div [hidden]="true">
     <span id="registerSuccess" [hidden]="true">Registered successfully. Please confirm email.</span>
     <span id="errConfirm" [hidden]="true">Error! Please confirm email.</span>
     <span id="errUser" [hidden]="true">Error! User or password are incorrect.</span>

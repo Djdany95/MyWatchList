@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IntroComponent } from '../../components/intro/intro.component';
 import { ListComponent } from '../../components/list/list.component';
-import { InfoCookiesComponent } from '../../components/info-cookies/info-cookies.component';
 import { ListShareComponent } from '../../components/list-share/list-share.component';
 import { ProfileComponent } from '../../components/profile/profile.component';
 import { ConfirmEmailComponent } from '../../components/confirm-email/confirm-email.component';
@@ -18,7 +17,6 @@ const APP_ROUTES: Routes = [
   { path: '', component: IntroComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'mylist', component: ListComponent },
-  { path: 'infocookies', component: InfoCookiesComponent },
   { path: 'sharedlist/:name', component: ListShareComponent },
   { path: 'offlinelist', component: ListShareComponent },
   { path: 'profile/:name', component: ProfileComponent },

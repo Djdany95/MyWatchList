@@ -1,0 +1,130 @@
+{
+    "errors": {
+        "errServer": "Server Error. Try it later.",
+        "email": "Email is",
+        "required": "required",
+        "incorrect": "incorrect",
+        "msg": "Message is",
+        "errGeneral": "Error! Please try it later.",
+        "username": "Username is",
+        "short": "too short",
+        "password": "Password is",
+        "weak": "too weak",
+        "cancel": "cancel",
+        "match": "doesn't match",
+        "errConfirm": "Error! Please confirm email.",
+        "errUser": "Error! User or password are incorrect.",
+        "errEmailNot": "Error! Email doesn't exists.",
+        "season": "Season is",
+        "actual": "Actual Episode is",
+        "episode": "Episode is",
+        "name": "Name is",
+        "url": "URL is"
+    },
+    "confirm-email": {
+        "hello": "Welcome, new Watcher!",
+        "registered": "You are now registered!",
+        "goto": "Go to MyWatchList",
+        "confirmSuccess": "Email confirmed."
+    },
+    "feedback": {
+        "send": "Send Feedback",
+        "okFeedback": "Your feedback was sent.",
+        "input": "Input your feedback..."
+    },
+    "intro": {
+        "welcome": "Welcome to MyWatchList!",
+        "info": "Here you can create a list with all of your series and share it with your friends in your favorite social networks.",
+        "register": "Register now to become a Watcher",
+        "cookiesAdvice": "This web use own functional cookies needed for the page and third party cookies to obtain statistics data and improve our services. If accepts, we understund you accept their use. You can obtain more information",
+        "linkCookies": "here",
+        "urlCookies": "http://www.allaboutcookies.org/",
+        "registerSuccess": "Registered successfully. Please confirm email.",
+        "sentCredentials": "Sent credentials to "
+    },
+    "login": {
+        "forgot": "Forgot username or password?"
+    },
+    "forgot": {
+        "header": "Enter email to resend credentials",
+        "send": "Send"
+    },
+    "list": {
+        "list1": "",
+        "list2": "'s List",
+        "filter": "Filter",
+        "onAir": "On Air",
+        "name": "Name",
+        "season": "Season",
+        "actual": "Actual Episode",
+        "following1": "Following",
+        "following2": "series",
+        "seriesAlready": "Series is already in your list.",
+        "seriesNoExists": "Series doesn't exists.",
+        "notFollow": " doesn't follow any series.",
+        "addSuccess": "Added success.",
+        "editSuccess": "Edited success.",
+        "deleteSuccess": "Deleted success."
+    },
+    "edit": {
+        "edit": "Edit",
+        "name": "Name",
+        "season": "Season",
+        "episode": "Actual Episode"
+    },
+    "shared-list": {
+        "list1": "",
+        "list2": "'s Shared List"
+    },
+    "new-series": {
+        "insert": "Insert",
+        "new": "New Series"
+    },
+    "profile": {
+        "profile1": "",
+        "profile2": "'s Profile",
+        "changePass": "Change Password",
+        "actual": "Actual Password",
+        "new": "New Password",
+        "changeImg": "Change Profile Image",
+        "imgURL": "URL to image",
+        "imgur": "You can upload your image free here and get an URL",
+        "deleteAcc": "Delete Account",
+        "deleteModalTitle": "Confirm Delete Account",
+        "deleteModal1": "Really do you want delete your account definitely?",
+        "deleteModal2": "This can not be reversed!",
+        "delete": "Delete",
+        "imgChange": "Image changed.",
+        "passChange": "Password changed."
+    },
+    "register": {
+        "register": "Register",
+        "email": "Email",
+        "user": "Username",
+        "password": "Password",
+        "repeat": "Repeat Password",
+        "emailExist": "Error! Email already exists.",
+        "userExist": "Error! Username already exists."
+    },
+    "series-details": {
+        "plot": "PLOT",
+        "genre": "GENRE",
+        "country": "COUNTRY",
+        "released": "RELEASED",
+        "seasons": "SEASONS",
+        "runtime": "RUNTIME",
+        "cast": "CAST",
+        "director": "DIRECTOR",
+        "unknownDirector": "Unknown Director",
+        "writer": "WRITER",
+        "unknownWriter": "Unknown Writer",
+        "actors": "ACTORS",
+        "unknownActors": "Unknown Actors",
+        "return": "Return to MyWatchList",
+        "wikipedia": "https://en.wikipedia.org/wiki/"
+    },
+    "404": {
+        "error": "Oops, the page you're looking for doesn't exist.",
+        "home": "Go to Home"
+    }
+}

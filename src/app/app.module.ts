@@ -35,7 +35,6 @@ import { NgProgressRouterModule } from '@ngx-progressbar/router';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
 import { IntroComponent } from './components/intro/intro.component';
-import { InfoCookiesComponent } from './components/info-cookies/info-cookies.component';
 import { ListShareComponent } from './components/list-share/list-share.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
@@ -68,7 +67,6 @@ const shareOptions: ShareButtonsOptions = {
     RememberDialog,
     IntroComponent,
     EditDialog,
-    InfoCookiesComponent,
     ListShareComponent,
     ProfileComponent,
     ConfirmEmailComponent,

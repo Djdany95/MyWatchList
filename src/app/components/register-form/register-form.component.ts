@@ -84,9 +84,9 @@ export class RegisterFormComponent {
     this.userService.getUser(username, email).subscribe(
       response => {
         if (response.data === 'username') {
-          alertify.error(document.getElementById('errUsername').innerHTML);
+          alertify.error(document.getElementById('userExist').innerHTML);
         } else if (response.data === 'email') {
-          alertify.error(document.getElementById('errEmail').innerHTML);
+          alertify.error(document.getElementById('emailExist').innerHTML);
         }
       },
       error => {

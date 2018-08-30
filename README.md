@@ -12,30 +12,29 @@ Run `npm install` at first for install all the dependencies.
 
 ## Create API Constants
 
-You need to properly change the next constants in order to run:  
-`src/app/shared/constants/api-urls.constants.ts`  
+You need to properly change the next constants in order to run:
+`src/app/shared/constants/api-urls.constants.ts`
 `src/app/shared/constants/api-keys.constants.ts`
 
 ## See Documentation
 
-Run `npm run compodoc` to create documentation provided by compodoc module, this will be stored in the `documentation/` directory.  
+Run `npm run compodoc` to create documentation provided by compodoc module, this will be stored in the `documentation/` directory.
 Navigate to `http://localhost:4300/` to see it.
 
 ## Development server
 
-Run `ng serve` for a dev server.  
-Navigate to `http://localhost:4200/`.  
+Run `ng serve` for a dev server.
+Navigate to `http://localhost:4200/`.
 The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `public_html/` directory.  
+Run `ng build` to build the project. The build artifacts will be stored in the `public_html/` directory.
 Use the `-prod` flag for a production build.
 
-## Internationalization Build
+## Internationalization
 
-Run `npm run build-i18n:all` to build the project in 3 languages: `English, Español, Galego`.  
-The build artifacts will be stored in the `public_html/` directory. This is build with production by default.
+The project has 3 languages: `English, Español, Galego`.
 
 ## Running unit tests
 

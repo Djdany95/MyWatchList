@@ -1,6 +1,6 @@
 import { MatDialog } from '@angular/material';
 import { LoginDialog } from './login-dialog/login.dialog';
-import { Component, OnInit, Inject, LOCALE_ID, OnDestroy } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -27,6 +27,11 @@ export class IntroComponent implements OnInit, OnDestroy {
   /**
    * Used to know if user is online or offline
    */
+  language: string;
+
+  /**
+   * Used to know if user is online or offline
+   */
   online: boolean;
 
   /**
@@ -35,7 +40,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   user: User;
 
   /**
-   * Flag to hide or not the cookies card info
+   * Flag to hide or not the cookies card advice
    */
   cookiesAdvice: boolean;
 
@@ -43,9 +48,13 @@ export class IntroComponent implements OnInit, OnDestroy {
    * Languages contained in menu
    */
   languages = [
-    { code: 'en', label: 'English', href: '/' },
-    { code: 'es', label: 'Español', href: '/es/' },
-    { code: 'gl', label: 'Galego', href: '/gl/' }
+    { code: 'en', label: 'English' },
+    { code: 'es', label: 'Español' },
+    { code: 'gl', label: 'Galego' },
+    { code: 'pt', label: 'Português' },
+    { code: 'de', label: 'Deutsch' },
+    { code: 'it', label: 'Italiano' },
+    { code: 'fr', label: 'Français' }
   ];
 
   /**
@@ -62,8 +71,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     private router: Router,
     private cookieService: CookieService,
-    private titleService: Title,
-    @Inject(LOCALE_ID) protected localeId: string
+    private titleService: Title
   ) {
     this.titleService.setTitle('Welcome to MyWatchList');
   }
@@ -89,6 +97,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     document.body.style.backgroundColor = '';
     document.body.style.color = '';
     document.body.classList.add('bodyIntro');
+    this.getLanguage();
     this.updateOnlineStatus();
     window.addEventListener('online', this.updateOnlineStatus);
     window.addEventListener('offline', this.updateOnlineStatus);
@@ -96,6 +105,17 @@ export class IntroComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     document.body.classList.remove('bodyIntro');
+  }
+
+  getLanguage() {
+    this.language = navigator.language.slice(0, 1);
+    localStorage.setItem('lang', this.language);
+
+    this.setLanguage();
+  }
+
+  setLanguage() {
+    // TODO set language every time in every page
   }
 
   /**

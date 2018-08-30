@@ -1,4 +1,4 @@
-<div [class.nightModeShadow]="nightMode==='true'" i18n="@@insertForm">
+<div [class.nightModeShadow]="nightMode==='true'">
     <mat-expansion-panel [class.nightMode]="nightMode==='true'">
         <mat-expansion-panel-header>
             <mat-panel-title [class.nightMode]="nightMode==='true'">
@@ -23,24 +23,18 @@
         </mat-form-field>
 
         <mat-form-field class="insert-form">
-            <input matInput [formControl]="tempControl" [errorStateMatcher]="matcher" #elTemp aria-label="Season">
+            <input type="number" matInput [formControl]="tempControl" [errorStateMatcher]="matcher" #elTemp aria-label="Season">
             <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Season</mat-placeholder>
             <mat-error *ngIf="tempControl.hasError('required')">
                 Season is <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="tempControl.hasError('pattern')">
-                Season must be a <strong>number</strong>
-            </mat-error>
         </mat-form-field>
 
         <mat-form-field class="insert-form">
-            <input matInput [formControl]="epiControl" [errorStateMatcher]="matcher" #elEpi aria-label="Actual episode">
+            <input type="number" matInput [formControl]="epiControl" [errorStateMatcher]="matcher" #elEpi aria-label="Actual episode">
             <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Actual Episode</mat-placeholder>
             <mat-error *ngIf="epiControl.hasError('required')">
                 Episode is <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="epiControl.hasError('pattern')">
-                Episode must be a <strong>number</strong>
             </mat-error>
         </mat-form-field>
 

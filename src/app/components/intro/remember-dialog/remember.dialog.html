@@ -1,7 +1,8 @@
-<h1 mat-dialog-title i18n="@@forgotHeader">Enter email to resend credentials</h1>
-<div mat-dialog-content i18n="@@forgotContent">
+<h1 mat-dialog-title>Enter email to resend credentials</h1>
+<div mat-dialog-content>
     <mat-form-field>
-        <input (keyup.enter)="onSendClick()" i18n-placeholder="@@registerEmail" placeholder="Email" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
+        <input (keyup.enter)="onSendClick()" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
+        <mat-placeholder class="placeholder">Email</mat-placeholder>
         <mat-error *ngIf="emailControl.hasError('required')">
             Email is <strong>required</strong>
         </mat-error>
@@ -10,7 +11,7 @@
         </mat-error>
     </mat-form-field>
 </div>
-<div mat-dialog-actions i18n="@@forgotButtons">
+<div mat-dialog-actions>
     <button mat-button (click)="onNoClick()" aria-label="Cancel">Cancel</button>
     <button *ngIf="!emailControl.hasError('required') && !emailControl.hasError('email')" mat-button (click)="onSendClick()" cdkFocusInitial aria-label="Send">Send</button>
 </div>

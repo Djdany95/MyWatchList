@@ -36,8 +36,7 @@ export class NewSeriesComponent implements OnInit {
    * Check if season is required and a number
    */
   tempControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('^[1-9][0-9]*$')
+    Validators.required
   ]);
   /**
    * Form control to episode input
@@ -45,8 +44,7 @@ export class NewSeriesComponent implements OnInit {
    * Check if episode is required and a number
    */
   epiControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern('^[0-9][0-9]*$')
+    Validators.required
   ]);
   /**
    * Used to check if formcontrols have errors
