@@ -20,7 +20,7 @@
     <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
         <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" aria-label="Filter">
-            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Filter</mat-placeholder>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Filter</mat-label>
         </mat-form-field>
     </div>
 
@@ -75,10 +75,3 @@
 <share-buttons *ngIf="online" class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"
     [tags]="sharedOptions.description" [autoSetMeta]="true" aria-label="Share buttons"></share-buttons>
-
-
-
-<div [hidden]="true">
-    <span id="notFollow" [hidden]="true"> doesn't follow any series.</span>
-    <span id="errUser" [hidden]="true">Error! User doesn't exists.</span>
-</div>

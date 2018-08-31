@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <mat-form-field>
         <input type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Name">
-        <mat-placeholder class="placeholder">Name</mat-placeholder>
+        <mat-label class="placeholder">Name</mat-label>
     </mat-form-field>
     <mat-form-field>
         <input type="boolean" matInput placeholder style="display: none;" aria-label="On air">
@@ -12,14 +12,14 @@
     </mat-form-field>
     <mat-form-field>
         <input (keyup.enter)="onEditClick()" type="number" matInput [formControl]="tempControl" [errorStateMatcher]="matcher" [value]="data.s.temp" aria-label="Season">
-        <mat-placeholder class="placeholder">Season</mat-placeholder>
+        <mat-label class="placeholder">Season</mat-label>
         <mat-error *ngIf="tempControl.hasError('required')">
             Season is <strong>required</strong>
         </mat-error>
     </mat-form-field>
     <mat-form-field>
         <input (keyup.enter)="onEditClick()" type="number" matInput [formControl]="epaControl" [errorStateMatcher]="matcher" [value]="data.s.epA" aria-label="Actual episode">
-        <mat-placeholder class="placeholder">Actual Episode</mat-placeholder>
+        <mat-label class="placeholder">Actual Episode</mat-label>
         <mat-error *ngIf="epaControl.hasError('required')">
             Actual Episode is <strong>required</strong>
         </mat-error>

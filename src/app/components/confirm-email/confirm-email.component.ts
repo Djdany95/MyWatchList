@@ -1,11 +1,9 @@
+import { MatSnackBar } from '@angular/material';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { RegisterService } from '../../shared/services/register.service';
-
-import { alertify } from '../../app.component';
-
 
 /**
  * ConfirmEmail Component
@@ -31,6 +29,7 @@ export class ConfirmEmailComponent implements OnInit, OnDestroy {
   constructor(
     private registerService: RegisterService,
     private route: ActivatedRoute,
+    public snackBar: MatSnackBar,
     private titleService: Title
   ) {
     this.titleService.setTitle('MyWatchList');
@@ -55,13 +54,21 @@ export class ConfirmEmailComponent implements OnInit, OnDestroy {
   confirmEmail() {
     this.registerService.confirmEmail(this.confirmId).subscribe(
       response => {
-        alertify.success(document.getElementById('confirmSuccess').innerHTML);
+        this.openSnackBar('Email confirmed.', 'snackSuccess');
       },
       error => {
         if (error !== null) {
-          alertify.error(document.getElementById('errServer').innerHTML);
+          this.openSnackBar('Server Error 500. Try it later.', 'snackError');
         }
       }
     );
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
+    });
   }
 }

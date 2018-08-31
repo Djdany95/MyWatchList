@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
@@ -8,7 +9,7 @@ import { UserService } from '../../shared/services/user.service';
 
 import { User } from '../../shared/models/user';
 
-import { MyErrorStateMatcher, alertify } from '../../app.component';
+import { MyErrorStateMatcher } from '../../app.component';
 
 import * as sha256 from 'fast-sha256';
 
@@ -96,7 +97,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private loginService: LoginService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    public snackBar: MatSnackBar
   ) {}
 
   /**
@@ -188,11 +190,11 @@ export class ProfileComponent implements OnInit {
       )
       .subscribe(
         response => {
-          alertify.success(document.getElementById('passChange').innerHTML);
+          this.openSnackBar('Password changed.', 'snackSuccess');
         },
         error => {
           if (error !== null) {
-            alertify.error(document.getElementById('passErr').innerHTML);
+            this.openSnackBar('Password is incorrect.', 'snackError');
           }
         }
       );
@@ -206,12 +208,12 @@ export class ProfileComponent implements OnInit {
       .changeImage(this.user.name, this.user.pass, this.imageUrl)
       .subscribe(
         response => {
-          alertify.success(document.getElementById('imgChange').innerHTML);
+          this.openSnackBar('Image changed.', 'snackSuccess');
           this.user.imageUrl = this.imageUrl;
         },
         error => {
           if (error !== null) {
-            alertify.error(document.getElementById('urlErr').innerHTML);
+            this.openSnackBar('URL is incorrect.', 'snackError');
           }
         }
       );
@@ -224,5 +226,13 @@ export class ProfileComponent implements OnInit {
     this.user = null;
     this.loginService.logout();
     this.router.navigate(['/intro']);
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
+    });
   }
 }

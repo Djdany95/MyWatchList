@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <mat-form-field>
         <input (keyup.enter)="onLoginClick()" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
-        <mat-placeholder class="placeholder">Username</mat-placeholder>
+        <mat-label class="placeholder">Username</mat-label>
         <mat-error *ngIf="nameControl.hasError('required')">
             Username is
             <strong>required</strong>
@@ -14,7 +14,7 @@
     </mat-form-field>
     <mat-form-field>
         <input (keyup.enter)="onLoginClick()" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" aria-label="Password">
-        <mat-placeholder class="placeholder">Password</mat-placeholder>
+        <mat-label class="placeholder">Password</mat-label>
         <mat-error *ngIf="passControl.hasError('required')">
             Password is
             <strong>required</strong>

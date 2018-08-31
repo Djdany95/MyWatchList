@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatSnackBar } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 
 import { SharedOptions } from '../../shared/models/sharedOptions';
 
 import { SeriesService } from '../../shared/services/series.service';
 import { UserService } from '../../shared/services/user.service';
-
-import { alertify } from '../../app.component';
 
 /**
  * ListShare Component
@@ -77,7 +75,8 @@ export class ListShareComponent implements OnInit, AfterViewInit {
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    public snackBar: MatSnackBar
   ) {
     if (!navigator.onLine) {
       this.userName = 'Offline';
@@ -170,7 +169,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
       },
       error => {
         if (error != null) {
-          alertify.error(document.getElementById('errUser').innerHTML);
+          this.openSnackBar('Error! User doesn\'t exists.', 'snackError');
           this.router.navigateByUrl('/intro');
         }
       }
@@ -186,9 +185,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
         this.dataSource.data = response.data.series;
         this.nSeries = this.dataSource.data.length;
         if (!this.dataSource.data[0]) {
-          alertify.error(
-            this.userName + document.getElementById('notFollow').innerHTML
-          );
+          this.openSnackBar(' doesn\'t follow any series.', 'snackError');
         }
       },
       error => {
@@ -229,5 +226,13 @@ export class ListShareComponent implements OnInit, AfterViewInit {
 
   retryConnection() {
     location.reload();
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
+    });
   }
 }

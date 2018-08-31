@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import {
+  MatTableDataSource,
+  MatSort,
+  MatDialog,
+  MatSnackBar
+} from '@angular/material';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -11,7 +16,6 @@ import { SeriesService } from '../../shared/services/series.service';
 import { LoginService } from '../../shared/services/login.service';
 
 import { EditDialog } from './edit-dialog/edit-series.dialog';
-import { alertify } from '../../app.component';
 
 /**
  * List Component
@@ -70,6 +74,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     private loginService: LoginService,
     private seriesService: SeriesService,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar,
     private router: Router,
     private titleService: Title
   ) {}
@@ -177,9 +182,7 @@ export class ListComponent implements OnInit, AfterViewInit {
           JSON.stringify(response.data.series)
         );
         if (!this.dataSource.data[0]) {
-          alertify.error(
-            this.user.name + document.getElementById('notFollow').innerHTML
-          );
+          this.openSnackBar(" doesn't follow any series.", 'snackError');
         }
         this.nSeries = this.dataSource.data.length;
         if (localStorage.getItem('myUserName') !== null) {
@@ -265,7 +268,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   deleteSeries(seriesId: number): void {
     this.seriesService.deleteSeries(this.user, seriesId).subscribe(response => {
       this.getSeries();
-      alertify.success(document.getElementById('deleteSuccess').innerHTML);
+      this.openSnackBar('Deleted successfully.', 'snackSuccess');
     });
   }
 
@@ -297,13 +300,13 @@ export class ListComponent implements OnInit, AfterViewInit {
       if (!seriesDuplicated) {
         this.seriesService.newSeries(this.user, series).subscribe(response => {
           this.getSeries();
-          alertify.success(document.getElementById('addSuccess').innerHTML);
+          this.openSnackBar('Added successfully.', 'snackSuccess');
         });
       } else {
-        alertify.error(document.getElementById('seriesAlready').innerHTML);
+        this.openSnackBar('Series is already in your list.', 'snackError');
       }
     } else {
-      alertify.error(document.getElementById('seriesNoExists').innerHTML);
+      this.openSnackBar('Series doesn\'t exists.', 'snackError');
     }
   }
 
@@ -361,9 +364,17 @@ export class ListComponent implements OnInit, AfterViewInit {
           .editSeries(this.user, serieEdit)
           .subscribe(response => {
             this.getSeries();
-            alertify.success(document.getElementById('editSuccess').innerHTML);
+            this.openSnackBar('Edited successfully.', 'snackSuccess');
           });
       }
+    });
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
     });
   }
 }

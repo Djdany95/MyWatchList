@@ -63,9 +63,9 @@
         "seriesAlready": "Series is already in your list.",
         "seriesNoExists": "Series doesn't exists.",
         "notFollow": " doesn't follow any series.",
-        "addSuccess": "Added success.",
-        "editSuccess": "Edited success.",
-        "deleteSuccess": "Deleted success."
+        "addSuccess": "Added successfully.",
+        "editSuccess": "Edited successfully.",
+        "deleteSuccess": "Deleted successfully."
     },
     "edit": {
         "edit": "Edit",

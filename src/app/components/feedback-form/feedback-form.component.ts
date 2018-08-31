@@ -1,9 +1,10 @@
+import { MatSnackBar } from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 
 import { FeedbackService } from './../../shared/services/feedback.service';
 
-import { MyErrorStateMatcher, alertify } from './../../app.component';
+import { MyErrorStateMatcher } from './../../app.component';
 
 /**
  * Feedback Component
@@ -19,7 +20,7 @@ export class FeedbackFormComponent {
    * Constructor
    * @param feedbackService {UserService} Service to call user API
    */
-  constructor(public feedbackService: FeedbackService) {
+  constructor(public feedbackService: FeedbackService, public snackBar: MatSnackBar) {
   }
 
   /**
@@ -50,16 +51,24 @@ export class FeedbackFormComponent {
     this.feedbackService.sendFeedback(email, msg).subscribe(
       response => {
         if (response) {
-          alertify.success(document.getElementById('okFeedback').innerHTML);
+          this.openSnackBar('Your feedback was sent.', 'snackSuccess');
           this.msgControl.setValue(' ');
         }
       },
       error => {
         if (error != null) {
-          alertify.error(document.getElementById('errFeedback').innerHTML);
+          this.openSnackBar('Error! Please try it later.', 'snackError');
           this.msgControl.setValue(' ');
         }
       }
     );
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
+    });
   }
 }

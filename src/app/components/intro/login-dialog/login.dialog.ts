@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialog, MatSnackBar } from '@angular/material';
 import { LoginService } from './../../../shared/services/login.service';
 
 import { RememberDialog } from './../remember-dialog/remember.dialog';
-import { MyErrorStateMatcher, alertify } from './../../../app.component';
+import { MyErrorStateMatcher } from './../../../app.component';
 
 /**
  * Login Dialog
@@ -60,6 +60,7 @@ export class LoginDialog {
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar,
     private loginService: LoginService
   ) {}
 
@@ -93,15 +94,13 @@ export class LoginDialog {
     this.loginService.rememberAuth(email).subscribe(
       response => {
         if (response) {
-          alertify.success(
-            document.getElementById('credentials').innerHTML + email
-          );
+          this.openSnackBar('Sent credentials to ', 'snackSuccess');
           this.dialog.closeAll();
         }
       },
       error => {
         if (error != null) {
-          alertify.error(document.getElementById('errEmailNot').innerHTML);
+          this.openSnackBar('Error! Email doesn\'t exists.', 'snackError');
           this.dialog.closeAll();
         }
       }
@@ -122,6 +121,14 @@ export class LoginDialog {
       if (email !== '' && email !== undefined) {
         this.rememberUser(email.toLowerCase());
       }
+    });
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
     });
   }
 }

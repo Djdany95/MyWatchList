@@ -29,7 +29,7 @@
 
         <mat-form-field>
             <input type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" [(ngModel)]="actualPass" aria-label="Actual password">
-            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-placeholder>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-label>
             <mat-error *ngIf="passControl.hasError('required')">
                 Password is
                 <strong>required</strong>
@@ -42,7 +42,7 @@
 
         <mat-form-field>
             <input type="password" matInput [formControl]="passControl2" [errorStateMatcher]="matcher" [(ngModel)]="newPass" aria-label="New password">
-            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-placeholder>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-label>
             <mat-error *ngIf="passControl2.hasError('required')">
                 Password is
                 <strong>required</strong>
@@ -75,7 +75,7 @@
 
         <mat-form-field>
             <input type="url" matInput [formControl]="imageControl" [errorStateMatcher]="matcher" [(ngModel)]="imageUrl" aria-label="Image URL">
-            <mat-placeholder class="placeholder" [class.nightMode]="nightMode==='true'">URL to image</mat-placeholder>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">URL to image</mat-label>
             <mat-error *ngIf="imageControl.hasError('required')">
                 URL is
                 <strong>required</strong>

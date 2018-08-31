@@ -1,5 +1,5 @@
-import { MatDialog } from '@angular/material';
-import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+import { MatDialog, MatSnackBar } from '@angular/material';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -9,7 +9,6 @@ import { LoginService } from '../../shared/services/login.service';
 import { User } from '../../shared/models/user';
 
 import { LoginDialog } from './login-dialog/login.dialog';
-import { alertify } from '../../app.component';
 
 import * as sha256 from 'fast-sha256';
 
@@ -67,6 +66,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     private registerService: RegisterService,
     private loginService: LoginService,
     public dialog: MatDialog,
+    public snackBar: MatSnackBar,
     private router: Router,
     private titleService: Title
   ) {
@@ -139,14 +139,15 @@ export class IntroComponent implements OnInit, OnDestroy {
     this.registerService.register(user).subscribe(
       response => {
         if (response) {
-          alertify.success(
-            document.getElementById('registerSuccess').innerHTML
+          this.openSnackBar(
+            'Registered successfully. Please confirm email.',
+            'snackSuccess'
           );
         }
       },
       error => {
         if (error != null) {
-          alertify.error(document.getElementById('errServer').innerHTML);
+          this.openSnackBar('Server Error! Please try later.', 'snackError');
         }
       }
     );
@@ -172,10 +173,13 @@ export class IntroComponent implements OnInit, OnDestroy {
       error => {
         if (error != null) {
           if (error.status === 403) {
-            alertify.error(document.getElementById('errConfirm').innerHTML);
+            this.openSnackBar('Error! Please confirm email.', 'snackError');
             this.user.pass = '';
           } else if (error.status === 404) {
-            alertify.error(document.getElementById('errUser').innerHTML);
+            this.openSnackBar(
+              'Error! User or password are incorrect.',
+              'snackError'
+            );
             this.user.pass = '';
           }
         }
@@ -206,5 +210,13 @@ export class IntroComponent implements OnInit, OnDestroy {
     if (localStorage.getItem('myOfflineList') !== null) {
       this.router.navigate(['/offlinelist']);
     }
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
+    });
   }
 }

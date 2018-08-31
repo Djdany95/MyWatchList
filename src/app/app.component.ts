@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ErrorStateMatcher } from '@angular/material';
 import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 
@@ -24,15 +23,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     );
   }
 }
-
-/**
- * Needed to use require keyword
- */
-declare var require: any;
-/**
- * Export alertify to use in app as alerts
- */
-export const alertify = require('alertifyjs');
 
 /**
  * Main Component

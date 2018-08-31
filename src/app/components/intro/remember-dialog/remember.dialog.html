@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <mat-form-field>
         <input (keyup.enter)="onSendClick()" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
-        <mat-placeholder class="placeholder">Email</mat-placeholder>
+        <mat-label class="placeholder">Email</mat-label>
         <mat-error *ngIf="emailControl.hasError('required')">
             Email is <strong>required</strong>
         </mat-error>

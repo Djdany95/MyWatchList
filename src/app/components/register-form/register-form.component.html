@@ -3,7 +3,7 @@
         <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
                 <input (keyup.enter)="register()" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
-                <mat-placeholder class="placeholder">Username</mat-placeholder>
+                <mat-label class="placeholder">Username</mat-label>
                 <mat-error *ngIf="nameControl.hasError('required')">
                     Username is
                     <strong>required</strong>
@@ -17,7 +17,7 @@
         <div class="col-md-3 col-sm-6">
             <mat-form-field appearance="outline">
                 <input (keyup.enter)="register()" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
-                <mat-placeholder class="placeholder">Email</mat-placeholder>
+                <mat-label class="placeholder">Email</mat-label>
                 <mat-error *ngIf="emailControl.hasError('required')">
                     Email is
                     <strong>required</strong>
@@ -32,7 +32,7 @@
         <div class="col-md-2 col-sm-6">
             <mat-form-field appearance="outline">
                 <input (keyup.enter)="register()" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" aria-label="Password">
-                <mat-placeholder class="placeholder">Password</mat-placeholder>
+                <mat-label class="placeholder">Password</mat-label>
                 <mat-error *ngIf="passControl.hasError('required')">
                     Password is
                     <strong>required</strong>
@@ -46,7 +46,7 @@
         <div class="col-md-2 col-sm-6">
             <mat-form-field appearance="outline">
                 <input (keyup.enter)="register()" type="password" matInput [formControl]="pass2Control" [errorStateMatcher]="matcher" aria-label="Repeat password">
-                <mat-placeholder class="placeholder">Repeat Password</mat-placeholder>
+                <mat-label class="placeholder">Repeat Password</mat-label>
                 <mat-error *ngIf="pass2Control.hasError('required')">
                     Password is
                     <strong>required</strong>
@@ -64,9 +64,4 @@
                 mat-raised-button disabled color="primary" (click)="register()" aria-label="Register">Register</button>
         </div>
     </div>
-</div>
-
-<div [hidden]="true">
-    <span id="userExist" [hidden]="true">Error! Username already exists.</span>
-    <span id="emailExist" [hidden]="true">Error! Email already exists.</span>
 </div>

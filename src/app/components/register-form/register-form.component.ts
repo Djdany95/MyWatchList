@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -5,7 +6,7 @@ import { User } from './../../shared/models/user';
 
 import { UserService } from './../../shared/services/user.service';
 
-import { alertify, MyErrorStateMatcher } from './../../app.component';
+import { MyErrorStateMatcher } from './../../app.component';
 
 import * as sha256 from 'fast-sha256';
 
@@ -34,7 +35,7 @@ export class RegisterFormComponent {
    * Constructor
    * @param userService {UserService} Service to call user API
    */
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, public snackBar: MatSnackBar) {
     this.nUser = new User('', '', '', '');
   }
 
@@ -89,9 +90,9 @@ export class RegisterFormComponent {
     this.userService.getUser(username, email).subscribe(
       response => {
         if (response.data === 'username') {
-          alertify.error(document.getElementById('userExist').innerHTML);
+          this.openSnackBar('Error! Username already exists.', 'snackError');
         } else if (response.data === 'email') {
-          alertify.error(document.getElementById('emailExist').innerHTML);
+          this.openSnackBar('Error! Email already exists.', 'snackError');
         }
       },
       error => {
@@ -119,5 +120,13 @@ export class RegisterFormComponent {
 
       this.checkUsernameEmail(this.nUser.name, this.nUser.email);
     }
+  }
+
+  openSnackBar(msg: string, type: string) {
+    this.snackBar.open(msg, '', {
+      duration: 1000,
+      panelClass: type,
+      verticalPosition: 'top'
+    });
   }
 }
