@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { OmdbapiService } from '../../shared/services/omdbapi.service';
-import { Title } from '@angular/platform-browser';
 
 /**
  * SeriesDetails Component

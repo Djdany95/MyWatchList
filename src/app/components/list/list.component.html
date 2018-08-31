@@ -8,7 +8,7 @@
 
         <span>
             <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
-            <i>{{user.name | titlecase}}</i>'s List
+            {{user.name | titlecase}}'s List
             <button mat-icon-button routerLink="/profile/{{user.name}}" aria-label="Profile">
                 <mat-icon aria-label="Profile" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_box</mat-icon>
             </button>

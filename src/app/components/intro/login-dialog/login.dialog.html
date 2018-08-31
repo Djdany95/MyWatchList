@@ -24,6 +24,10 @@
             <strong>weak</strong>
         </mat-error>
     </mat-form-field>
+    <input type="boolean" matInput placeholder aria-label="Remember Session">
+    <mat-checkbox [(ngModel)]="remember">
+        Remember session
+    </mat-checkbox>
 </div>
 <span>
     <button type="button" class="btn btn-link btn-sm" (click)="openForgotDialog()" aria-label="Forgot username or password?">Forgot username or password?</button>

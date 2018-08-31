@@ -1,9 +1,10 @@
-import { RememberDialog } from './../remember-dialog/remember.dialog';
-import { LoginService } from './../../../shared/services/login.service';
-import { MatDialogRef, MatDialog } from '@angular/material';
-import { MyErrorStateMatcher, alertify } from './../../../app.component';
-import { FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { LoginService } from './../../../shared/services/login.service';
+
+import { RememberDialog } from './../remember-dialog/remember.dialog';
+import { MyErrorStateMatcher, alertify } from './../../../app.component';
 
 /**
  * Login Dialog
@@ -17,6 +18,11 @@ import { Component } from '@angular/core';
 })
 // tslint:disable-next-line:component-class-suffix
 export class LoginDialog {
+  /**
+   * Use if rememberAuth is called
+   */
+  remember: boolean;
+
   /**
    * Use if rememberAuth is called
    */
@@ -71,7 +77,8 @@ export class LoginDialog {
   onLoginClick(): void {
     const data = {
       userN: this.nameControl.value.toLowerCase(),
-      pass: this.passControl.value
+      pass: this.passControl.value,
+      remember: this.remember
     };
 
     this.dialogRef.close(data);

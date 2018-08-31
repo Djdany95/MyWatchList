@@ -1,7 +1,8 @@
-import { MatDialogRef } from '@angular/material';
-import { MyErrorStateMatcher } from './../../../app.component';
-import { FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
+
+import { MyErrorStateMatcher } from './../../../app.component';
 
 /**
  * Forgot Dialog

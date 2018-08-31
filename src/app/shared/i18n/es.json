@@ -43,7 +43,8 @@
         "sentCredentials": "Enviar credenciales a "
     },
     "login": {
-        "forgot": "¿Has olvidado el usuario o la contraseña?"
+        "forgot": "¿Has olvidado el usuario o la contraseña?",
+        "remember": "Recordar sesión"
     },
     "forgot": {
         "header": "Introduce email para enviar credenciales",

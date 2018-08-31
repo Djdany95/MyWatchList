@@ -1,8 +1,12 @@
-import { FormControl, Validators } from '@angular/forms';
-import { User } from './../../shared/models/user';
-import { alertify, MyErrorStateMatcher } from './../../app.component';
-import { UserService } from './../../shared/services/user.service';
 import { Component, Output, EventEmitter } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
+import { User } from './../../shared/models/user';
+
+import { UserService } from './../../shared/services/user.service';
+
+import { alertify, MyErrorStateMatcher } from './../../app.component';
+
 import * as sha256 from 'fast-sha256';
 
 /**
@@ -18,7 +22,8 @@ export class RegisterFormComponent {
   /**
    * Emitter to pass user to intro component
    */
-  @Output() user: EventEmitter<User> = new EventEmitter();
+  @Output()
+  user: EventEmitter<User> = new EventEmitter();
 
   /**
    * User to emit when register

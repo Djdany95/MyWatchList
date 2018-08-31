@@ -3,11 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 
+import { SharedOptions } from '../../shared/models/sharedOptions';
+
 import { SeriesService } from '../../shared/services/series.service';
 import { UserService } from '../../shared/services/user.service';
 
 import { alertify } from '../../app.component';
-import { SharedOptions } from '../../shared/models/sharedOptions';
 
 /**
  * ListShare Component
@@ -97,7 +98,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
    */
   ngOnInit() {
     if (!this.online) {
-      this.titleService.setTitle('My Offline List');
+      this.titleService.setTitle('Offline MyWatchList');
       this.getNightMode();
       this.dataSource.data = JSON.parse(localStorage.getItem('myOfflineList'));
       this.nSeries = this.dataSource.data.length;
@@ -105,7 +106,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
       this.titleService.setTitle(
         this.userName.charAt(0).toUpperCase() +
           this.userName.slice(1) +
-          '\s Public Series List'
+          ' WatchList'
       );
 
       this.getNightMode();
@@ -152,7 +153,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
     this.sharedOptions.url = window.location.href
       .slice(0, -6)
       .concat('sharedlist/' + this.userName);
-    this.sharedOptions.description = this.userName + ' Public Series List';
+    this.sharedOptions.description = this.userName + ' MyWatchList';
   }
 
   /**

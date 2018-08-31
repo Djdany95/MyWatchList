@@ -33,7 +33,7 @@ export class ConfirmEmailComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private titleService: Title
   ) {
-    this.titleService.setTitle('Confirm Email');
+    this.titleService.setTitle('MyWatchList');
   }
 
   /**

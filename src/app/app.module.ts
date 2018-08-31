@@ -17,6 +17,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatSelectModule,
+  MatSnackBarModule,
   MatSortModule,
   MatTableModule,
   MatToolbarModule,
@@ -25,7 +26,6 @@ import {
 } from '@angular/material';
 import 'hammerJS';
 
-import { CookieService } from 'ngx-cookie-service';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { ShareButtonsOptions } from '@ngx-share/core';
 import { NgProgressModule } from '@ngx-progressbar/core';
@@ -91,6 +91,7 @@ const shareOptions: ShareButtonsOptions = {
     MatInputModule,
     MatMenuModule,
     MatSelectModule,
+    MatSnackBarModule,
     MatSortModule,
     MatTableModule,
     MatToolbarModule,
@@ -111,7 +112,6 @@ const shareOptions: ShareButtonsOptions = {
     NgProgressRouterModule
   ],
   providers: [
-    CookieService,
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ],
   bootstrap: [AppComponent],

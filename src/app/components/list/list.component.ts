@@ -1,23 +1,17 @@
-import { EditDialog } from './edit-dialog/edit-series.dialog';
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  AfterViewInit
-} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
+import { SharedOptions } from '../../shared/models/sharedOptions';
 import { Series } from '../../shared/models/series';
 import { User } from '../../shared/models/user';
 
 import { SeriesService } from '../../shared/services/series.service';
 import { LoginService } from '../../shared/services/login.service';
-import { CookieService } from 'ngx-cookie-service';
 
+import { EditDialog } from './edit-dialog/edit-series.dialog';
 import { alertify } from '../../app.component';
-import { SharedOptions } from '../../shared/models/sharedOptions';
 
 /**
  * List Component
@@ -61,7 +55,8 @@ export class ListComponent implements OnInit, AfterViewInit {
   /**
    * Used to watch if the list is sortered
    */
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort)
+  sort: MatSort;
 
   /**
    * Constructor
@@ -69,7 +64,6 @@ export class ListComponent implements OnInit, AfterViewInit {
    * @param seriesService {SeriesService} Service to call series API
    * @param dialog {MatDialog} Component used to create dialogs with material theme
    * @param router {Router} Used to implicitly navigate to a URL
-   * @param cookieService {CookieService} Service to create and use custom cookies
    * @param titleService {Title} Service to change the web Title
    */
   constructor(
@@ -77,16 +71,18 @@ export class ListComponent implements OnInit, AfterViewInit {
     private seriesService: SeriesService,
     public dialog: MatDialog,
     private router: Router,
-    private cookieService: CookieService,
     private titleService: Title
-  ) { }
+  ) {}
 
   /**
    * We set various parameters to default, check if there are cookies for autologin and if nightMode is setted in storage before.
    * When all done, fetch API to get Series List
    */
   ngOnInit() {
-    if (!this.cookieService.check('myUserName')) {
+    if (
+      localStorage.getItem('myUserName') === null &&
+      sessionStorage.getItem('myUserName') === null
+    ) {
       this.logout();
     }
 
@@ -96,8 +92,8 @@ export class ListComponent implements OnInit, AfterViewInit {
 
     this.titleService.setTitle(
       this.user.name.charAt(0).toUpperCase() +
-      this.user.name.slice(1) +
-      '\'s List'
+        this.user.name.slice(1) +
+        ' MyWatchList'
     );
 
     this.getNightMode();
@@ -111,12 +107,21 @@ export class ListComponent implements OnInit, AfterViewInit {
    * Get user logged from cookies
    */
   setUser(): User {
-    return new User(
-      this.cookieService.get('myUserName'),
-      this.cookieService.get('myUserPass'),
-      this.cookieService.get('myEmail'),
-      this.cookieService.get('myPic')
-    );
+    if (localStorage.getItem('myUserName') !== null) {
+      return new User(
+        localStorage.getItem('myUserName'),
+        localStorage.getItem('myUserPass'),
+        localStorage.getItem('myEmail'),
+        localStorage.getItem('myPic')
+      );
+    } else {
+      return new User(
+        sessionStorage.getItem('myUserName'),
+        sessionStorage.getItem('myUserPass'),
+        sessionStorage.getItem('myEmail'),
+        sessionStorage.getItem('myPic')
+      );
+    }
   }
 
   /**
@@ -157,7 +162,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.sharedOptions.url = window.location.href
       .slice(0, -6)
       .concat('sharedlist/' + this.user.name);
-    this.sharedOptions.description = this.user.name + ' Public Series List';
+    this.sharedOptions.description = this.user.name + ' MyWatchList';
   }
 
   /**
@@ -167,14 +172,21 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.seriesService.getSeries(this.user.name).subscribe(
       response => {
         this.dataSource.data = response.data.series;
-        localStorage.setItem('myOfflineList', JSON.stringify(response.data.series));
+        localStorage.setItem(
+          'myOfflineList',
+          JSON.stringify(response.data.series)
+        );
         if (!this.dataSource.data[0]) {
           alertify.error(
             this.user.name + document.getElementById('notFollow').innerHTML
           );
         }
         this.nSeries = this.dataSource.data.length;
-        this.cookieService.set('myNSeries', this.nSeries.toString());
+        if (localStorage.getItem('myUserName') !== null) {
+          localStorage.setItem('myNSeries', this.nSeries.toString());
+        } else {
+          sessionStorage.setItem('myNSeries', this.nSeries.toString());
+        }
       },
       error => {
         this.dataSource.data = [];
@@ -293,7 +305,6 @@ export class ListComponent implements OnInit, AfterViewInit {
     } else {
       alertify.error(document.getElementById('seriesNoExists').innerHTML);
     }
-
   }
 
   /**

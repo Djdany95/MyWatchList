@@ -1,15 +1,14 @@
 import { MatDialog } from '@angular/material';
-import { LoginDialog } from './login-dialog/login.dialog';
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { RegisterService } from '../../shared/services/register.service';
 import { LoginService } from '../../shared/services/login.service';
-import { CookieService } from 'ngx-cookie-service';
 
 import { User } from '../../shared/models/user';
 
+import { LoginDialog } from './login-dialog/login.dialog';
 import { alertify } from '../../app.component';
 
 import * as sha256 from 'fast-sha256';
@@ -63,17 +62,15 @@ export class IntroComponent implements OnInit, OnDestroy {
    * @param loginService {LoginService} Service to call login API
    * @param dialog {MatDialog} Component used to open dialogs with material theme
    * @param router {Router} Used to implicitly navigate to a URL
-   * @param cookieService {CookieService} Service to create and use custom cookies
    */
   constructor(
     private registerService: RegisterService,
     private loginService: LoginService,
     public dialog: MatDialog,
     private router: Router,
-    private cookieService: CookieService,
     private titleService: Title
   ) {
-    this.titleService.setTitle('Welcome to MyWatchList');
+    this.titleService.setTitle('MyWatchList');
   }
 
   /**
@@ -82,14 +79,14 @@ export class IntroComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.user = new User('', '', '', '');
     if (
-      this.cookieService.check('myUserName') &&
-      this.cookieService.check('myUserPass')
+      localStorage.getItem('myUserName') !== null &&
+      localStorage.getItem('myUserPass') !== null
     ) {
-      this.user.name = this.cookieService.get('myUserName');
-      this.user.pass = this.cookieService.get('myUserPass');
-      this.login(this.user);
+      this.user.name = localStorage.getItem('myUserName');
+      this.user.pass = localStorage.getItem('myUserPass');
+      this.login(this.user, true);
     }
-    if (this.cookieService.check('cookiesAdvice')) {
+    if (localStorage.getItem('cookiesAdvice') !== null) {
       this.cookiesAdvice = false;
     } else {
       this.cookiesAdvice = true;
@@ -129,7 +126,7 @@ export class IntroComponent implements OnInit, OnDestroy {
    * Toggle cookiesAdvice flag
    */
   closeCookies() {
-    this.cookieService.set('cookiesAdvice', 'false');
+    localStorage.setItem('cookiesAdvice', 'false');
     this.cookiesAdvice = false;
   }
 
@@ -160,7 +157,7 @@ export class IntroComponent implements OnInit, OnDestroy {
    * set the cookie for futures logins and navigate to list URL
    * @param user {User} User object with params
    */
-  login(user: User) {
+  login(user: User, remember: boolean) {
     this.loginService.login(user.name, user.pass).subscribe(
       response => {
         if (response) {
@@ -168,7 +165,7 @@ export class IntroComponent implements OnInit, OnDestroy {
           this.user.pass = response.data.pass;
           this.user.email = response.data.email;
           this.user.imageUrl = response.data.imageUrl;
-          this.loginService.setUser(this.user);
+          this.loginService.setUser(this.user, remember);
           this.router.navigate(['/mylist']);
         }
       },
@@ -200,7 +197,7 @@ export class IntroComponent implements OnInit, OnDestroy {
       if (result) {
         this.user.name = result.userN;
         this.user.pass = String(sha256.hash(result.pass));
-        this.login(this.user);
+        this.login(this.user, result.remember);
       }
     });
   }

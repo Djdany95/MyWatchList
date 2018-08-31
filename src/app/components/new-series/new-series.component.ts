@@ -7,9 +7,9 @@ import {
   switchMap
 } from 'rxjs/operators';
 
-import { OmdbapiService } from '../../shared/services/omdbapi.service';
-
 import { Series } from '../../shared/models/series';
+
+import { OmdbapiService } from '../../shared/services/omdbapi.service';
 
 import { MyErrorStateMatcher } from '../../app.component';
 import { PredictSeries } from '../../shared/models/predictSeries';

@@ -1,7 +1,9 @@
-import { FeedbackService } from './../../shared/services/feedback.service';
-import { MyErrorStateMatcher, alertify } from './../../app.component';
 import { FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+
+import { FeedbackService } from './../../shared/services/feedback.service';
+
+import { MyErrorStateMatcher, alertify } from './../../app.component';
 
 /**
  * Feedback Component

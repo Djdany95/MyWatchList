@@ -6,8 +6,8 @@
         </button>
 
         <img class="rounded-circle" [src]="image" width="50" height="50" alt="Profile image" title="Profile image">
-        <span *ngIf="online"><i>{{userName | titlecase}}</i>'s Shared List</span>
-        <span *ngIf="!online"><i>{{userName | titlecase}}</i></span>
+        <span *ngIf="online">{{userName | titlecase}}'s Shared List</span>
+        <span *ngIf="!online">{{userName | titlecase}}</span>
         <button mat-icon-button (click)="retryConnection()" aria-label="Retry connection">
             <mat-icon aria-label="Retry connection" title="Retry connection" [ngClass]="{nightModeButtonOn: nightMode.toString()==='true', nightModeButtonOff: nightMode.toString()==='false'}">sync</mat-icon>
         </button>

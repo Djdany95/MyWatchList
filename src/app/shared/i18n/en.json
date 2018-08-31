@@ -43,7 +43,8 @@
         "sentCredentials": "Sent credentials to "
     },
     "login": {
-        "forgot": "Forgot username or password?"
+        "forgot": "Forgot username or password?",
+        "remember": "Remember Session"
     },
     "forgot": {
         "header": "Enter email to resend credentials",

@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 import { LoginService } from '../../shared/services/login.service';
 import { UserService } from '../../shared/services/user.service';
-import { CookieService } from 'ngx-cookie-service';
 
 import { User } from '../../shared/models/user';
 
 import { MyErrorStateMatcher, alertify } from '../../app.component';
 
 import * as sha256 from 'fast-sha256';
-import { Title } from '@angular/platform-browser';
 
 /**
  * Profile Component
@@ -91,14 +90,12 @@ export class ProfileComponent implements OnInit {
    * @param userService {UserService} Service to call users API
    * @param loginService {LoginService} Service to call login API
    * @param router {Router} Used to implicitly navigate to a URL
-   * @param cookieService {CookieService} Service to create and use custom cookies
    * @param titleService {Title} Service to change the web Title
    */
   constructor(
     private userService: UserService,
     private loginService: LoginService,
     private router: Router,
-    private cookieService: CookieService,
     private titleService: Title
   ) {}
 
@@ -107,15 +104,17 @@ export class ProfileComponent implements OnInit {
    * If there aren't cookies, does logout
    */
   ngOnInit() {
-    if (!this.cookieService.check('myUserName')) {
+    if (
+      localStorage.getItem('myUserName') === null &&
+      sessionStorage.getItem('myUserName') === null
+    ) {
       this.logout();
     }
-    this.nSeries = Number.parseInt(this.cookieService.get('myNSeries'));
+
+    this.nSeries = Number.parseInt(localStorage.getItem('myNSeries'));
     this.user = this.setUser();
     this.titleService.setTitle(
-      this.user.name.charAt(0).toUpperCase() +
-        this.user.name.slice(1) +
-        '\'s Profile'
+      this.user.name.charAt(0).toUpperCase() + this.user.name.slice(1)
     );
     this.getNightMode();
   }
@@ -124,12 +123,21 @@ export class ProfileComponent implements OnInit {
    * Get user logged from cookies
    */
   setUser(): User {
-    return new User(
-      this.cookieService.get('myUserName'),
-      this.cookieService.get('myUserPass'),
-      this.cookieService.get('myEmail'),
-      this.cookieService.get('myPic')
-    );
+    if (localStorage.getItem('myUserName') !== null) {
+      return new User(
+        localStorage.getItem('myUserName'),
+        localStorage.getItem('myUserPass'),
+        localStorage.getItem('myEmail'),
+        localStorage.getItem('myPic')
+      );
+    } else {
+      return new User(
+        sessionStorage.getItem('myUserName'),
+        sessionStorage.getItem('myUserPass'),
+        sessionStorage.getItem('myEmail'),
+        sessionStorage.getItem('myPic')
+      );
+    }
   }
 
   /**
@@ -200,7 +208,6 @@ export class ProfileComponent implements OnInit {
         response => {
           alertify.success(document.getElementById('imgChange').innerHTML);
           this.user.imageUrl = this.imageUrl;
-          this.loginService.setUser(this.user);
         },
         error => {
           if (error !== null) {

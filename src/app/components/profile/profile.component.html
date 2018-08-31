@@ -7,7 +7,7 @@
         </button>
 
         <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
-        <i>{{user.name | titlecase}}</i>'s Profile
+        {{user.name | titlecase}}'s Profile
 
         <button class="float-right" mat-icon-button (click)="logout()" aria-label="Logout">
             <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">exit_to_app</mat-icon>
