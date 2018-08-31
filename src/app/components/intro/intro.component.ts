@@ -105,7 +105,7 @@ export class IntroComponent implements OnInit, OnDestroy {
   }
 
   getLanguage() {
-    this.language = navigator.language.slice(0, 1);
+    this.language = navigator.language.slice(0, 2);
     localStorage.setItem('lang', this.language);
 
     this.setLanguage();

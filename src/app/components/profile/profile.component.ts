@@ -113,7 +113,6 @@ export class ProfileComponent implements OnInit {
       this.logout();
     }
 
-    this.nSeries = Number.parseInt(localStorage.getItem('myNSeries'));
     this.user = this.setUser();
     this.titleService.setTitle(
       this.user.name.charAt(0).toUpperCase() + this.user.name.slice(1)
@@ -126,6 +125,7 @@ export class ProfileComponent implements OnInit {
    */
   setUser(): User {
     if (localStorage.getItem('myUserName') !== null) {
+      this.nSeries = Number.parseInt(localStorage.getItem('myNSeries'));
       return new User(
         localStorage.getItem('myUserName'),
         localStorage.getItem('myUserPass'),
@@ -133,6 +133,7 @@ export class ProfileComponent implements OnInit {
         localStorage.getItem('myPic')
       );
     } else {
+      this.nSeries = Number.parseInt(sessionStorage.getItem('myNSeries'));
       return new User(
         sessionStorage.getItem('myUserName'),
         sessionStorage.getItem('myUserPass'),

@@ -1,11 +1,11 @@
 <div class="nameList">
-    <br>
+    <p>&nbsp;</p>
     <h3>
-        <button class="float-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
+        <button class="f-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
             <mat-icon title="Toggle Night Mode" aria-label="toggle nightMode" [ngClass]="{nightModeButtonOn: nightMode.toString()==='true', nightModeButtonOff: nightMode.toString()==='false'}">brightness_medium</mat-icon>
         </button>
 
-        <img class="rounded-circle" [src]="image" width="50" height="50" alt="Profile image" title="Profile image">
+        <img class="img-circle" [src]="image" width="50" height="50" alt="Profile image" title="Profile image">
         <span *ngIf="online">{{userName | titlecase}}'s Shared List</span>
         <span *ngIf="!online">{{userName | titlecase}}</span>
         <button mat-icon-button (click)="retryConnection()" aria-label="Retry connection">
@@ -68,10 +68,12 @@
     </mat-table>
 </div>
 
-<br>
-<span class="badge badge-pill" style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'"
-    [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</span>
+<p>&nbsp;</p>
+<mat-basic-chip style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
+    {{nSeries}} series</mat-basic-chip>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
-<share-buttons *ngIf="online" class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
+<share-buttons *ngIf="online" class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"
     [tags]="sharedOptions.description" [autoSetMeta]="true" aria-label="Share buttons"></share-buttons>

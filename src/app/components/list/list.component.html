@@ -1,20 +1,20 @@
 <div class="nameList">
-    <br>
+    <p>&nbsp;</p>
     <h3>
 
-        <button class="float-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
+        <button class="f-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
             <mat-icon title="Night Mode" aria-label="Night Mode" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">brightness_medium</mat-icon>
         </button>
 
         <span>
-            <img class="rounded-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
-            {{user.name | titlecase}}'s List
+            <img class="img-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">            {{user.name
+            | titlecase}}'s List
             <button mat-icon-button routerLink="/profile/{{user.name}}" aria-label="Profile">
                 <mat-icon aria-label="Profile" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_box</mat-icon>
             </button>
         </span>
 
-        <button class="float-right" mat-icon-button (click)="logout()" aria-label="Logout">
+        <button class="f-right" mat-icon-button (click)="logout()" aria-label="Logout">
             <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">exit_to_app</mat-icon>
         </button>
 
@@ -24,8 +24,8 @@
 <ng-progress></ng-progress>
 <app-new-series (series)="addSeries($event)" [nightMode]="nightMode"></app-new-series>
 
-<br>
-<br>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 <div class="list-container mat-elevation-z8" [class.nightModeShadow]="nightMode==='true'">
     <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
@@ -95,10 +95,11 @@
     </mat-table>
 </div>
 
-<br>
-<span class="badge badge-pill" style="margin-bottom: 50px" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
-    {{nSeries}} series</span>
-
-<share-buttons class="fixed-bottom" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
+<p>&nbsp;</p>
+<mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
+    {{nSeries}} series</mat-basic-chip>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<share-buttons class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"
     [tags]="sharedOptions.description" [autoSetMeta]="true" aria-label="Share buttons"></share-buttons>

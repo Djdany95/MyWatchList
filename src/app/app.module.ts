@@ -10,6 +10,7 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatCheckboxModule,
+  MatChipsModule,
   MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
@@ -22,7 +23,7 @@ import {
   MatTableModule,
   MatToolbarModule,
   ErrorStateMatcher,
-  ShowOnDirtyErrorStateMatcher
+  ShowOnDirtyErrorStateMatcher,
 } from '@angular/material';
 import 'hammerJS';
 
@@ -84,6 +85,7 @@ const shareOptions: ShareButtonsOptions = {
     MatAutocompleteModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatChipsModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
