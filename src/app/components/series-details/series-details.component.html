@@ -10,24 +10,24 @@
             <img class="poster" src="{{series.Poster}}" alt="Poster" title="Poster" width="310px" height="550px">
         </div>
         <div class="col-lg-8  col-md-6">
-            <h4 class="title">PLOT</h4>
+            <h3 class="title">PLOT</h3>
             <p [innerHTML]="series.Plot==='N/A'? 'Unknown' : series.Plot"></p>
-            <h4 class="title">GENRE</h4>
+            <h3 class="title">GENRE</h3>
             <p [innerHTML]="series.Genre==='N/A'? 'Unknown' : series.Genre"></p>
-            <h4 class="title">COUNTRY</h4>
+            <h3 class="title">COUNTRY</h3>
             <p [innerHTML]="series.Country==='N/A'? 'Unknown' : series.Country"></p>
-            <h4 class="title">RELEASED</h4>
+            <h3 class="title">RELEASED</h3>
             <p [innerHTML]="series.Released==='N/A'? 'Unknown' : series.Released"></p>
-            <h4 class="title">TOTAL SEASONS</h4>
+            <h3 class="title">TOTAL SEASONS</h3>
             <p [innerHTML]="series.totalSeasons==='N/A'? 'Unknown' : series.totalSeasons"></p>
-            <h4 class="title">RUNTIME</h4>
+            <h3 class="title">RUNTIME</h3>
             <p [innerHTML]="series.Runtime==='N/A'? 'Unknown' : series.Runtime"></p>
         </div>
     </div>
     <h2 class="title">CAST</h2>
     <div class="row">
         <div class="col">
-            <h4 class="title">DIRECTOR</h4>
+            <h3 class="title">DIRECTOR</h3>
             <p *ngIf="!(directors.length>0)">Unknown Director</p>
             <div *ngIf="directors.length>0">
                 <ul>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="col">
-            <h4 class="title">WRITER</h4>
+            <h3 class="title">WRITER</h3>
             <p *ngIf="!(writers.length>0)">Unknown Writer</p>
             <div *ngIf="writers.length>0">
                 <ul>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="col">
-            <h4 class="title">ACTORS</h4>
+            <h3 class="title">ACTORS</h3>
             <p *ngIf="!(actors.length>0)">Unknown Actors</p>
             <div *ngIf="actors.length>0">
                 <ul>

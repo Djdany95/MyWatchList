@@ -1,31 +1,30 @@
 <div class="nameList">
-    <p>&nbsp;</p>
-    <h3>
+    <br>
+    <h2>
 
         <button class="f-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
-            <mat-icon title="Night Mode" aria-label="Night Mode" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">brightness_medium</mat-icon>
+            <mat-icon title="Night Mode" aria-label="Night Mode" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">brightness_medium</mat-icon>
         </button>
 
         <span>
             <img class="img-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">            {{user.name
             | titlecase}}'s List
             <button mat-icon-button routerLink="/profile/{{user.name}}" aria-label="Profile">
-                <mat-icon aria-label="Profile" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_box</mat-icon>
+                <mat-icon aria-label="Profile" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">account_box</mat-icon>
             </button>
         </span>
 
         <button class="f-right" mat-icon-button (click)="logout()" aria-label="Logout">
-            <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">exit_to_app</mat-icon>
+            <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">exit_to_app</mat-icon>
         </button>
 
-    </h3>
+    </h2>
     <mat-divider [class.nightMode]="nightMode==='true'"></mat-divider>
 </div>
 <ng-progress></ng-progress>
 <app-new-series (series)="addSeries($event)" [nightMode]="nightMode"></app-new-series>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<br>
 
 <div class="list-container mat-elevation-z8" [class.nightModeShadow]="nightMode==='true'">
     <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
@@ -40,8 +39,8 @@
         <ng-container matColumnDef="active">
             <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> On Air </mat-header-cell>
             <mat-cell *matCellDef="let element">
-                <mat-icon *ngIf="element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">check_box</mat-icon>
-                <mat-icon *ngIf="!element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">indeterminate_check_box</mat-icon>
+                <mat-icon *ngIf="element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">check_box</mat-icon>
+                <mat-icon *ngIf="!element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">indeterminate_check_box</mat-icon>
             </mat-cell>
         </ng-container>
 
@@ -57,7 +56,7 @@
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.temp}}
                 <button class="d-none d-md-inline-block" mat-icon-button (click)="seasonWatched(element.id, element.name, element.active, element.temp, element.epA)"
                     aria-label="Season watched">
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">add_circle
+                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">add_circle
                     </mat-icon>
                 </button>
             </mat-cell>
@@ -68,7 +67,7 @@
             <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Actual Episode </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.epA}}
                 <button mat-icon-button (click)="episodeWatched(element.id, element.name, element.active, element.temp, element.epA)" aria-label="Episode watched">
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">add_circle
+                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">add_circle
                     </mat-icon>
                 </button>
             </mat-cell>
@@ -79,13 +78,13 @@
             <mat-header-cell *matHeaderCellDef=""></mat-header-cell>
             <mat-cell *matCellDef="let element">
                 <button mat-icon-button (click)="deleteSeries(element.id)" aria-label="Delete series">
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">delete</mat-icon>
+                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">delete</mat-icon>
                 </button>
                 <button mat-icon-button (click)="openEditDialog(element)" class="d-none d-md-inline-block" aria-label="Edit series">
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">edit</mat-icon>
+                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">edit</mat-icon>
                 </button>
                 <button mat-icon-button routerLink="/details/{{element.id}}" aria-label="Details">
-                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">info</mat-icon>
+                    <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">info</mat-icon>
                 </button>
             </mat-cell>
         </ng-container>
@@ -95,11 +94,12 @@
     </mat-table>
 </div>
 
-<p>&nbsp;</p>
-<mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
-    {{nSeries}} series</mat-basic-chip>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<br>
+<mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</mat-basic-chip>
+<br>
+<br>
+<br>
+
 <share-buttons class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"
     [tags]="sharedOptions.description" [autoSetMeta]="true" aria-label="Share buttons"></share-buttons>

@@ -40,7 +40,7 @@
 
         <div style="text-align: center;" *ngIf="!nameControl.hasError('required') && !tempControl.hasError('required') && !tempControl.hasError('pattern') && !epiControl.hasError('required') && !epiControl.hasError('pattern')">
             <button [color]="nightMode==='true'?'primary':'default'" mat-raised-button (click)="createSeries(elName.value, elTemp.value, elEpi.value)" aria-label="Insert series">
-          Insert <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">add_circle</mat-icon>
+          Insert <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">add_circle</mat-icon>
       </button>
         </div>
     </mat-expansion-panel>

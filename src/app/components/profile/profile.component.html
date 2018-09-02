@@ -1,23 +1,23 @@
 <div class="nameProfile">
+    <br>
     <ng-progress></ng-progress>
-    <p>&nbsp;</p>
-    <h3>
+    <h2>
         <button class="f-left" mat-icon-button routerLink="/mylist" aria-label="Return to my list">
-            <mat-icon aria-label="Go back" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">format_list_bulleted</mat-icon>
+            <mat-icon aria-label="Go back" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">format_list_bulleted</mat-icon>
         </button>
 
-        <img class="img-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">
-        {{user.name | titlecase}}'s Profile
+        <img class="img-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image"> {{user.name
+        | titlecase}}'s Profile
 
         <button class="f-right" mat-icon-button (click)="logout()" aria-label="Logout">
-            <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">exit_to_app</mat-icon>
+            <mat-icon aria-label="Log Out" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">exit_to_app</mat-icon>
         </button>
-    </h3>
+    </h2>
     <mat-divider [class.nightMode]="nightMode==='true'"></mat-divider>
-    <mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
-        {{nSeries}} series</mat-basic-chip>
+    <mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}}
+        series</mat-basic-chip>
 </div>
-<p>&nbsp;</p>
+<br>
 
 <div class="center-horizontal" style="width: 30%;" [class.nightModeShadow]="nightMode==='true'">
     <mat-expansion-panel [class.nightMode]="nightMode==='true'">
@@ -53,17 +53,17 @@
             </mat-error>
         </mat-form-field>
 
-        <div style="text-align: center;" *ngIf="!oldPassControl.hasError('required') && !passConoldPassControltrol.hasError('pattern') && !newPassControl.hasError('required') && !newPassControl.hasError('pattern')">
+        <div style="text-align: center;" *ngIf="!oldPassControl.hasError('required') && !oldPassControl.hasError('pattern') && !newPassControl.hasError('required') && !newPassControl.hasError('pattern')">
             <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changePass()" aria-label="Change password">
                 Change Password
-                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">edit</mat-icon>
+                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">edit</mat-icon>
             </button>
         </div>
     </mat-expansion-panel>
 </div>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<br>
+<br>
 
 <div class="center-horizontal" style="width: 40%;" [class.nightModeShadow]="nightMode==='true'">
     <mat-expansion-panel [class.nightMode]="nightMode==='true'">
@@ -89,15 +89,15 @@
         <div style="text-align: center;" *ngIf="!imageUrlControl.hasError('required') && !imageUrlControl.hasError('pattern')">
             <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changeImage()" aria-label="Change image">
                 Change Profile Image
-                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_circle</mat-icon>
+                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">account_circle</mat-icon>
             </button>
         </div>
 
     </mat-expansion-panel>
 </div>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<br>
+<br>
 
 <div class="flotante">
     <button mat-flat-button color="warn" type="button" (click)="openDeleteDialog()" aria-label="Delete account">Delete Account</button>

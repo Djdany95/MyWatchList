@@ -25,41 +25,34 @@
     <h1 class="welcome d-none d-md-block">Welcome to MyWatchList!</h1>
     <h1 class="d-md-none">Welcome to MyWatchList!</h1>
     <p class="subWelcome">This is a simple page to track all Series you follow and share it with your friends.</p>
-    <hr>
-    <p>&nbsp;</p>
+    <mat-divider></mat-divider>
+    <br>
 
-    <h4>Register now to become a Lister</h4>
-    <div class="float-md-left">
-        <app-register-form (user)="register($event)"></app-register-form>
-    </div>
-    <br class="d-none d-md-block">
-    <br class="d-none d-md-block">
-    <br class="d-none d-md-block">
+    <h3>Register now to become a Lister</h3>
+
+    <app-register-form (user)="register($event)"></app-register-form>
+
 </div>
 
 <footer>
-    <div class="flotanteIzq card w-20 alert-light d-none d-sm-block">
-        <div class="card-header" id="headingContact">
-            <h5 class="center-text">
-                <a href="#" class="feedback" (click)="openFeedback = !openFeedback" aria-expanded="true" aria-label="Collapse feedback">
-                    Feedback
-                </a>
-            </h5>
-        </div>
+    <div class="feedback d-none d-sm-block">
+        <h4 class="feedbackTitle center-text">
+            <a href="#" (click)="openFeedback = !openFeedback" aria-label="Collapse feedback">
+                Feedback
+            </a>
+        </h4>
 
-        <div *ngIf="openFeedback" class="card-body center-text">
+        <div *ngIf="openFeedback" class="feedbackBody center-text">
             <app-feedback-form></app-feedback-form>
         </div>
     </div>
 
-    <div class="flotanteDer card" *ngIf="cookiesAdvice">
-        <div class="card-header" id="headingOne">
-            <h5 class="center-text">
-                Cookies...
-            </h5>
-        </div>
+    <div class="cookiesAdvice" *ngIf="cookiesAdvice">
+        <h4 class="cookiesAdviceTitle center-text">
+            Cookies...
+        </h4>
 
-        <div class="card-body center-text">
+        <div class="cookiesAdviceBody center-text">
             <p>
                 We use own functional cookies needed for the page and third party cookies to obtain statistics data and improve our services.
                 If accepts, we understund you accept their use. You can obtain more information
