@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Confirm Delete Account</h1>
+<div mat-dialog-content>
+    <p>Really do you want delete your account definitely?</p>
+    <p>This can not be reversed!</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onNoClick()" cdkFocusInitial aria-label="Cancel">Cancel</button>
+    <button mat-raised-button color="warn" (click)="onDeleteClick()" aria-label="Delete Account">Delete Account</button>
+</div>

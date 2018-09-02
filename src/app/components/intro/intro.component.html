@@ -1,7 +1,7 @@
 <ng-progress></ng-progress>
 <header>
     <mat-toolbar class="toolbar-header">
-        <img src="../../../assets/toolbar.png" class="pr-2 toolbar-icon d-none d-sm-block" alt="Toolbar icon" title="Toolbar icon">
+        <img src="../../../assets/toolbar.png" class="toolbar-icon d-none d-sm-block" alt="Toolbar icon" title="Toolbar icon">
         <h2 class="toolbar-title">mywatchlist</h2>
         <span class="toolbar-spacer"></span>
         <button *ngIf="online" mat-raised-button color="primary" (click)="openLoginDialog()" aria-label="Login">Login</button>
@@ -9,7 +9,7 @@
     </mat-toolbar>
 </header>
 
-<div class="jumbotron">
+<div class="myJumbotron">
     <div class="f-right">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Language" disabled>
             <mat-icon>language</mat-icon>
@@ -40,37 +40,34 @@
 <footer>
     <div class="flotanteIzq card w-20 alert-light d-none d-sm-block">
         <div class="card-header" id="headingContact">
-            <h5 class="mb-0 text-center text-truncate">
-                <button class="btn btn-link feedback" data-toggle="collapse" href="#collapseContact" aria-controls="collapseContact" aria-expanded="true" aria-label="Collapse feedback">
+            <h5 class="center-text">
+                <a href="#" class="feedback" (click)="openFeedback = !openFeedback" aria-expanded="true" aria-label="Collapse feedback">
                     Feedback
-                </button>
+                </a>
             </h5>
         </div>
 
-        <div class="collapse" id="collapseContact" aria-labelledby="headingContact">
-            <div class="card-body text-center">
-                <app-feedback-form></app-feedback-form>
-            </div>
+        <div *ngIf="openFeedback" class="card-body center-text">
+            <app-feedback-form></app-feedback-form>
         </div>
     </div>
 
     <div class="flotanteDer card" *ngIf="cookiesAdvice">
         <div class="card-header" id="headingOne">
-            <h5 class="mb-0 text-center text-truncate">
-                    Cookies...
+            <h5 class="center-text">
+                Cookies...
             </h5>
         </div>
 
-        <div id="collapseOne" aria-labelledby="headingOne">
-            <div class="card-body text-center">
-                <p>
-                    We use own functional cookies needed for the page and third party cookies to obtain statistics data and improve our services. If accepts, we understund you accept their use. You can obtain more information
-                    <a href="http://www.allaboutcookies.org/"><b>here</b></a>.
-                </p>
-                <button class="btn btn-primary" type="button" aria-label="Close" (click)="closeCookies()" aria-label="OK">
-                    <span aria-hidden="true">OK</span>
-                </button>
-            </div>
+        <div class="card-body center-text">
+            <p>
+                We use own functional cookies needed for the page and third party cookies to obtain statistics data and improve our services.
+                If accepts, we understund you accept their use. You can obtain more information
+                <a href="http://www.allaboutcookies.org/"><b>here</b></a>.
+            </p>
+            <button mat-flat-button type="button" aria-label="Close" (click)="closeCookies()" aria-label="OK">
+                <span aria-hidden="true">OK</span>
+            </button>
         </div>
     </div>
 </footer>

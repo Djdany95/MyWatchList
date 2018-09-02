@@ -9,6 +9,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import {
   MatAutocompleteModule,
   MatButtonModule,
+  MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
   MatDialogModule,
@@ -51,6 +52,7 @@ import { Error404Component } from './shared/error-404/error-404.component';
 import { AppRoutingModule } from './shared/routes/app-routing.module';
 
 import { environment } from '../environments/environment';
+import { DeleteDialog } from './components/profile/delete-dialog/delete.dialog';
 
 /**
  * Options to SharedButtons Module
@@ -68,6 +70,7 @@ const shareOptions: ShareButtonsOptions = {
     RememberDialog,
     IntroComponent,
     EditDialog,
+    DeleteDialog,
     ListShareComponent,
     ProfileComponent,
     ConfirmEmailComponent,
@@ -84,6 +87,7 @@ const shareOptions: ShareButtonsOptions = {
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
+    MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
     MatDialogModule,
@@ -123,7 +127,8 @@ const shareOptions: ShareButtonsOptions = {
     IntroComponent,
     LoginDialog,
     RememberDialog,
-    ListShareComponent
+    ListShareComponent,
+    DeleteDialog
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

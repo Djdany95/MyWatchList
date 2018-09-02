@@ -28,32 +28,32 @@
         </mat-expansion-panel-header>
 
         <mat-form-field>
-            <input type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher" [(ngModel)]="actualPass" aria-label="Actual password">
+            <input type="password" matInput [formControl]="oldPassControl" [errorStateMatcher]="matcher" aria-label="Actual password">
             <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-label>
-            <mat-error *ngIf="passControl.hasError('required')">
+            <mat-error *ngIf="oldPassControl.hasError('required')">
                 Password is
                 <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="passControl.hasError('pattern')">
+            <mat-error *ngIf="oldPassControl.hasError('pattern')">
                 Password is too
                 <strong>weak</strong>
             </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-            <input type="password" matInput [formControl]="passControl2" [errorStateMatcher]="matcher" [(ngModel)]="newPass" aria-label="New password">
+            <input type="password" matInput [formControl]="newPassControl" [errorStateMatcher]="matcher" aria-label="New password">
             <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-label>
-            <mat-error *ngIf="passControl2.hasError('required')">
+            <mat-error *ngIf="newPassControl.hasError('required')">
                 Password is
                 <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="passControl2.hasError('pattern')">
+            <mat-error *ngIf="newPassControl.hasError('pattern')">
                 Password is too
                 <strong>weak</strong>
             </mat-error>
         </mat-form-field>
 
-        <div style="text-align: center;" *ngIf="!passControl.hasError('required') && !passControl.hasError('pattern') && !passControl2.hasError('required') && !passControl2.hasError('pattern')">
+        <div style="text-align: center;" *ngIf="!oldPassControl.hasError('required') && !passConoldPassControltrol.hasError('pattern') && !newPassControl.hasError('required') && !newPassControl.hasError('pattern')">
             <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changePass()" aria-label="Change password">
                 Change Password
                 <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">edit</mat-icon>
@@ -74,19 +74,19 @@
         </mat-expansion-panel-header>
 
         <mat-form-field>
-            <input type="url" matInput [formControl]="imageControl" [errorStateMatcher]="matcher" [(ngModel)]="imageUrl" aria-label="Image URL">
+            <input type="url" matInput [formControl]="imageUrlControl" [errorStateMatcher]="matcher" aria-label="Image URL">
             <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">URL to image</mat-label>
-            <mat-error *ngIf="imageControl.hasError('required')">
+            <mat-error *ngIf="imageUrlControl.hasError('required')">
                 URL is
                 <strong>required</strong>
             </mat-error>
-            <mat-error *ngIf="imageControl.hasError('pattern')">
+            <mat-error *ngIf="imageUrlControl.hasError('pattern')">
                 URL is
                 <strong>incorrect</strong>
             </mat-error>
         </mat-form-field>
         <a href="https://imgur.com/upload" target="_blank"><i>You can upload your image free here and get an URL</i></a>
-        <div style="text-align: center;" *ngIf="!imageControl.hasError('required') && !imageControl.hasError('pattern')">
+        <div style="text-align: center;" *ngIf="!imageUrlControl.hasError('required') && !imageUrlControl.hasError('pattern')">
             <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changeImage()" aria-label="Change image">
                 Change Profile Image
                 <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: !nightMode==='true'}">account_circle</mat-icon>
@@ -100,37 +100,5 @@
 <p>&nbsp;</p>
 
 <div class="flotante">
-    <!-- Button trigger modal -->
-    <button class="btn btn-danger btn-sm" data-target="#confirmDeleteModal" data-toggle="modal" type="button"
-        aria-label="Delete account">Delete Account</button>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="confirmDeleteModal" role="dialog" aria-hidden="true" aria-labelledby="confirmDeleteModal"
-    tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" [class.nightMode]="nightMode==='true'">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitle">Confirm Delete Account</h5>
-                <button class="close" data-dismiss="modal" type="button" aria-label="Close" aria-label="Close modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Really do you want delete your account definitely?
-                <p>&nbsp;</p> This can not be reversed!
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-dismiss="modal" type="button" aria-label="Cancel">Cancel</button>
-                <button class="btn btn-danger" data-dismiss="modal" type="button" (click)="deleteAccount()" aria-label="Delete">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div [hidden]="true">
-    <span id="passErr" [hidden]="true">Password is incorrect.</span>
-    <span id="urlErr" [hidden]="true">URL is incorrect.</span>
-    <span id="imgChange" [hidden]="true">Image changed.</span>
-    <span id="passChange" [hidden]="true">Password changed.</span>
+    <button mat-flat-button color="warn" type="button" (click)="openDeleteDialog()" aria-label="Delete account">Delete Account</button>
 </div>

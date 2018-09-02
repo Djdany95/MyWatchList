@@ -43,6 +43,11 @@ export class IntroComponent implements OnInit, OnDestroy {
   cookiesAdvice: boolean;
 
   /**
+   * Flag to hide or not the cookies card advice
+   */
+  openFeedback: boolean;
+
+  /**
    * Languages contained in menu
    */
   languages = [
@@ -91,6 +96,7 @@ export class IntroComponent implements OnInit, OnDestroy {
     } else {
       this.cookiesAdvice = true;
     }
+    this.openFeedback = false;
     document.body.style.backgroundColor = '';
     document.body.style.color = '';
     document.body.classList.add('bodyIntro');

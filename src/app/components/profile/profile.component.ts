@@ -1,4 +1,4 @@
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
@@ -12,6 +12,7 @@ import { User } from '../../shared/models/user';
 import { MyErrorStateMatcher } from '../../app.component';
 
 import * as sha256 from 'fast-sha256';
+import { DeleteDialog } from './delete-dialog/delete.dialog';
 
 /**
  * Profile Component
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
    *
    * Required and pass pattern
    */
-  passControl: FormControl = new FormControl('', [
+  oldPassControl: FormControl = new FormControl('', [
     Validators.required,
     Validators.pattern('^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{8,64}$')
   ]);
@@ -37,7 +38,7 @@ export class ProfileComponent implements OnInit {
    *
    * Required and pass pattern
    */
-  passControl2: FormControl = new FormControl('', [
+  newPassControl: FormControl = new FormControl('', [
     Validators.required,
     Validators.pattern('^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{8,64}$')
   ]);
@@ -46,7 +47,7 @@ export class ProfileComponent implements OnInit {
    *
    * Required and URL pattern
    */
-  imageControl: FormControl = new FormControl('', [
+  imageUrlControl: FormControl = new FormControl('', [
     Validators.required,
     Validators.pattern(
       'https?://(?:www.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|www.' +
@@ -57,19 +58,6 @@ export class ProfileComponent implements OnInit {
    * Used to check if formcontrols have errors
    */
   matcher = new MyErrorStateMatcher();
-
-  /**
-   * Check actual password to change
-   */
-  actualPass: any;
-  /**
-   * New password to change
-   */
-  newPass: any;
-  /**
-   * imageURL to change
-   */
-  imageUrl = '';
 
   /**
    * Used to get the user preference for nightMode
@@ -98,7 +86,8 @@ export class ProfileComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private titleService: Title,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {}
 
   /**
@@ -125,7 +114,7 @@ export class ProfileComponent implements OnInit {
    */
   setUser(): User {
     if (localStorage.getItem('myUserName') !== null) {
-      this.nSeries = Number.parseInt(localStorage.getItem('myNSeries'));
+      this.nSeries = Number.parseInt(localStorage.getItem('myNSeries'), 10);
       return new User(
         localStorage.getItem('myUserName'),
         localStorage.getItem('myUserPass'),
@@ -133,7 +122,7 @@ export class ProfileComponent implements OnInit {
         localStorage.getItem('myPic')
       );
     } else {
-      this.nSeries = Number.parseInt(sessionStorage.getItem('myNSeries'));
+      this.nSeries = Number.parseInt(sessionStorage.getItem('myNSeries'), 10);
       return new User(
         sessionStorage.getItem('myUserName'),
         sessionStorage.getItem('myUserPass'),
@@ -171,12 +160,12 @@ export class ProfileComponent implements OnInit {
   /**
    * Call API to delete user account
    */
-  deleteAccount(): void {
-    this.userService
-      .deleteAccount(this.user.name, this.user.pass)
-      .subscribe(response => {
-        this.logout();
-      });
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(DeleteDialog, {
+      width: '50%',
+      panelClass: this.nightMode === 'true' ? 'nightMode' : '',
+      data: {name: this.user.name, pass: this.user.pass}
+    });
   }
 
   /**
@@ -186,8 +175,8 @@ export class ProfileComponent implements OnInit {
     this.userService
       .changePass(
         this.user.name,
-        String(sha256.hash(this.actualPass)),
-        String(sha256.hash(this.newPass))
+        String(sha256.hash(this.oldPassControl.value)),
+        String(sha256.hash(this.newPassControl.value))
       )
       .subscribe(
         response => {
@@ -206,11 +195,11 @@ export class ProfileComponent implements OnInit {
    */
   changeImage(): void {
     this.userService
-      .changeImage(this.user.name, this.user.pass, this.imageUrl)
+      .changeImage(this.user.name, this.user.pass, this.imageUrlControl.value)
       .subscribe(
         response => {
           this.openSnackBar('Image changed.', 'snackSuccess');
-          this.user.imageUrl = this.imageUrl;
+          this.user.imageUrl = this.imageUrlControl.value;
         },
         error => {
           if (error !== null) {
