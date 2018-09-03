@@ -1,9 +1,9 @@
-<h1 mat-dialog-title>Please Login</h1>
+<h1 mat-dialog-title>{{'login.title' | translate}}</h1>
 <div mat-dialog-content>
     <form>
         <mat-form-field>
             <input (keyup.enter)="onLoginClick()" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
-            <mat-label class="placeholder">Username</mat-label>
+            <mat-label class="placeholder">{{'register.user' | translate}}s</mat-label>
             <mat-error *ngIf="nameControl.hasError('required')">
                 {{'errors.username' | translate}}
                 <strong>{{'errors.required' | translate}}</strong>
@@ -16,7 +16,7 @@
         <mat-form-field>
             <input (keyup.enter)="onLoginClick()" type="password" matInput [formControl]="passControl" [errorStateMatcher]="matcher"
                 aria-label="Password">
-            <mat-label class="placeholder">Password</mat-label>
+            <mat-label class="placeholder">{{'register.password' | translate}}</mat-label>
             <mat-error *ngIf="passControl.hasError('required')">
                 {{'errors.password' | translate}}
                 <strong>{{'errors.required' | translate}}</strong>

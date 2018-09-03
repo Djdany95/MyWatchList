@@ -1,10 +1,6 @@
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
+@import (reference) '../style/colors.less';
 
-.text-wrapper {
+.page-404 {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -13,34 +9,34 @@
 }
 
 .title {
-    font-size: 6em;
+    font-size: 6rem;
     font-weight: 700;
-    color: #ee4b5e;
+    color: @error-color;
 }
 
 .subtitle {
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #1fa9d6;
+    color: @font-icon-light-theme-color;
 }
 
 .buttons {
-    margin: 30px;
+    margin: 2rem;
 }
 
 a.button {
     font-weight: 700;
-    border: 2px solid #ee4b5e;
+    border: 2px solid @error-color;
     text-decoration: none;
-    padding: 15px;
+    padding: 1rem;
     text-transform: uppercase;
-    color: #ee4b5e;
-    border-radius: 26px;
+    color: @error-color;
+    border-radius: 2rem;
     transition: all 0.2s ease-in-out;
 }
 
 a.button:hover {
-    background-color: #ee4b5e;
+    background-color: @error-color;
     color: white;
     transition: all 0.2s ease-in-out;
 }

@@ -44,6 +44,7 @@
         "sentCredentials": "Sent credentials to "
     },
     "login": {
+        "title": "Sign In",
         "forgot": "Forgot username or password?",
         "remember": "Remember Session"
     },

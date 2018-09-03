@@ -58,9 +58,9 @@
             </mat-form-field>
         </div>
         <div class="col-md-2 col-sm-12">
-            <button style="margin-top: 10px" *ngIf="(passControl.value===pass2Control.value) && !nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern') && !emailControl.hasError('required') && !emailControl.hasError('email')"
+            <button class="btn-register" *ngIf="(passControl.value===pass2Control.value) && !nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern') && !emailControl.hasError('required') && !emailControl.hasError('email')"
                 mat-raised-button color="primary" (click)="register()" aria-label="Register">Register</button>
-            <button style="margin-top: 10px" *ngIf="!(passControl.value===pass2Control.value) || nameControl.hasError('required') || passControl.hasError('required') || nameControl.hasError('pattern') || passControl.hasError('pattern') || emailControl.hasError('required') || emailControl.hasError('email')"
+            <button class="btn-register" *ngIf="!(passControl.value===pass2Control.value) || nameControl.hasError('required') || passControl.hasError('required') || nameControl.hasError('pattern') || passControl.hasError('pattern') || emailControl.hasError('required') || emailControl.hasError('email')"
                 mat-raised-button disabled color="primary" (click)="register()" aria-label="Register">Register</button>
         </div>
     </form>

@@ -9,12 +9,24 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <mat-form-field class="insert-full-width">
+        <mat-form-field class="full-width">
             <input type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" [matAutocomplete]="auto" #elName aria-label="Name">
             <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'list.name' | translate}}</mat-label>
             <mat-autocomplete #auto="matAutocomplete">
-                <mat-option [class.nightMode]="nightMode==='true'" *ngFor="let option of predictSeries " [value]="option.title">
+                <mat-option [class.nightMode]="nightMode==='true'" *ngFor="let option of predictSeries" [value]="option.title">
                     {{ option.title }}
+                </mat-option>
+                <mat-option [class.nightMode]="nightMode==='true'">
+                    HELLO
+                </mat-option>
+                <mat-option [class.nightMode]="nightMode==='true'">
+                    HELLO
+                </mat-option>
+                <mat-option [class.nightMode]="nightMode==='true'">
+                    HELLO
+                </mat-option>
+                <mat-option [class.nightMode]="nightMode==='true'">
+                    HELLO
                 </mat-option>
             </mat-autocomplete>
             <mat-error *ngIf="nameControl.hasError('required')">
@@ -22,7 +34,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="insert-form">
+        <mat-form-field class="insert-form-field">
             <input type="number" matInput [formControl]="tempControl" [errorStateMatcher]="matcher" #elTemp aria-label="Season">
             <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'list.season' | translate}}</mat-label>
             <mat-error *ngIf="tempControl.hasError('required')">
@@ -30,7 +42,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="insert-form">
+        <mat-form-field class="insert-form-field">
             <input type="number" matInput [formControl]="epiControl" [errorStateMatcher]="matcher" #elEpi aria-label="Actual episode">
             <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'list.actual' | translate}}</mat-label>
             <mat-error *ngIf="epiControl.hasError('required')">

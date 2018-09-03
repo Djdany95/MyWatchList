@@ -44,6 +44,7 @@
         "sentCredentials": "Enviar credenciales a "
     },
     "login": {
+        "title": "Iniciar Sesión",
         "forgot": "¿Has olvidado el usuario o la contraseña?",
         "remember": "Recordar sesión"
     },

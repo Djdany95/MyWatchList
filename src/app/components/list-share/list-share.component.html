@@ -70,6 +70,6 @@
 <mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">{{'list.following1' | translate}}
     {{nSeries}} {{'list.following2' | translate}}</mat-basic-chip>
 
-<share-buttons *ngIf="online" class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
+<share-buttons *ngIf="online" class="btn-shared-buttons" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','reddit','whatsapp','telegram','tumblr','linkedin','google','copy']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"
     [tags]="sharedOptions.description" [autoSetMeta]="true" aria-label="Share buttons"></share-buttons>

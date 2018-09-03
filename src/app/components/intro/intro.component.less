@@ -1,61 +1,20 @@
-.cookiesAdvice {
-    margin: 10px;
-    position: fixed;
-    bottom: 0px;
-    right: 0;
-    background-color: #d5e6f6;
-    width: 98%;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
-
-.cookiesAdviceTitle{
-    margin-bottom: 0;
-    padding: 1rem;
-    background-color: #bfddfa5e;
-    border-bottom: 1px solid #aacded;
-}
-
-.cookiesAdviceBody{
-    padding: 1rem;
-}
-
-.feedback{
-    margin: 10px;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    background-color: #d5e6f6;
-    width: 40%;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
-
-.feedbackTitle{
-    margin-bottom: 0;
-    padding: 1rem;
-    background-color: #bfddfa5e;
-    border-bottom: 1px solid #aacded;
-}
-
-.feedbackTitle a{
-    color: black;
-}
-
-.feedbackBody{
-    padding: 1rem;
-}
+@import (reference) '../../shared/style/colors.less';
 
 .toolbar-header {
-    background-color: #aacded;
+    background-color: @base-light-theme-color;
     border-radius: 5px 5px 0px 0px;
     -moz-border-radius: 5px 5px 0px 0px;
     -webkit-border-radius: 5px 5px 0px 0px;
-    margin-bottom: -5px;
+    margin-bottom: -0.5rem;
+}
+
+.toolbar-icon{
+    width: 4rem;
+    padding-right: 0.5rem;
 }
 
 .toolbar-title {
-    font-size: 160%;
+    font-size: 1.8rem;
     font-family: 'Montserrat Alternates';
     font-weight: bold;
 }
@@ -64,9 +23,54 @@
     flex: 1 1 auto;
 }
 
-.toolbar-icon{
-    width: 50px;
-    padding-right: 0.55rem;
+.cookiesAdvice {
+    position: fixed;
+    bottom: 0.1rem;
+    right: 0;
+    background-color: @light-light-theme-color;
+    width: 100%;
+    border: 1px solid @base-light-theme-color;
+    border-radius: .25rem;
+    -webkit-box-shadow: 0px 1px 20px -2px black;
+    -moz-box-shadow: 0px 1px 20px -2px black;
+    box-shadow: 0px 1px 20px -2px black;
+}
+
+.cookiesAdviceTitle{
+    padding: 1rem;
+    background-color: @card-title-color;
+    border-bottom: 1px solid @base-light-theme-color;
+}
+
+.cookiesAdviceBody{
+    padding: 1rem;
+}
+
+.feedback{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: @light-light-theme-color;
+    width: 40%;
+    border: 1px solid @base-light-theme-color;
+    border-radius: .25rem;
+    -webkit-box-shadow: 0px 1px 20px -2px black;
+    -moz-box-shadow: 0px 1px 20px -2px black;
+    box-shadow: 0px 1px 20px -2px black;
+}
+
+.feedbackTitle{
+    padding: 1rem;
+    background-color: @card-title-color;
+    border-bottom: 1px solid @base-light-theme-color;
+}
+
+.feedbackTitle a{
+    color: black;
+}
+
+.feedbackBody{
+    padding: 1rem;
 }
 
 .divider{
