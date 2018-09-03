@@ -1,0 +1,134 @@
+{
+  "errors": {
+    "errServer": "Erro no servidor. Tente mais tarde.",
+    "email": "Email é",
+    "required": "obrigatório",
+    "incorrect": "incorreto",
+    "msg": "Mensagem é",
+    "errGeneral": "Erro! Por favor, tente mais tarde.",
+    "username": "Usuário é",
+    "short": "muito curto",
+    "password": "Senha é",
+    "passwords": "Senhas",
+    "weak": "muito fraco",
+    "cancel": "Cancelar",
+    "match": "não corresponde",
+    "errConfirm": "Erro! Por favor confirme o email.",
+    "errUser": "Erro! Usuário ou senha estão incorretos.",
+    "errEmailNot": "Erro! O email não existe.",
+    "errUserNot": "Erro! O usuário não existe.",
+    "season": "Temporada é",
+    "actual": "Episódio atual é",
+    "episode": "Episódio é",
+    "name": "Nome é",
+    "imageInvalid": "A imagem é inválida."
+  },
+  "confirm-email": {
+    "hello": "Bem-vindo, novo Watcher!",
+    "registered": "Você está agora registrado!",
+    "goto": "Ir para MyWatchList",
+    "confirmSuccess": "Email confirmou."
+  },
+  "feedback": {
+    "enviar": "Enviar feedback",
+    "okFeedback": "Seu feedback foi enviado",
+    "input": "Insira seu feedback ..."
+  },
+  "intro": {
+    "welcome": "Bem-vindo ao MyWatchList!",
+    "login": "Iniciar sessão",
+    "info": "Aqui você pode criar uma lista com todas as suas séries e compartilhá-la com seus amigos nas suas redes sociais favoritas.",
+    "register": "Registre-se agora para se tornar um Watcher",
+    "cookiesAdvice": "Este uso da web possui cookies funcionais necessários para a página e cookies de terceiros para obter dados estatísticos e melhorar nossos serviços. Se aceitarmos, aceitamos que você aceite o uso deles. Você pode obter mais informações",
+    "linkCookies": "aqui",
+    "urlCookies": "http://www.allaboutcookies.org/es-",
+    "registerSuccess": "Registrado com sucesso. Por favor, confirme o e-mail.",
+    "sentCredentials": "Credenciais enviadas para "
+  },
+  "login": {
+    "title": "Iniciar sessão",
+    "forgot": "Esqueceu o nome de usuário ou senha?",
+    "remember": "Lembrar sessão"
+  },
+  "forgot": {
+    "header": "Digite o email para reenviar credenciais",
+    "send": "Enviar"
+  },
+  "list": {
+    "list1": "Lista de",
+    "list2": "",
+    "filter": "Filtro",
+    "onAir": "Emissão",
+    "name": "Nome",
+    "season": "Temporada",
+    "actual": "Episódio atual",
+    "following1": "Seguindo",
+    "following2": "série",
+    "seriesAlready": "A série já está na sua lista",
+    "seriesNoExists": "Series não existe.",
+    "notFollow": "não segue nenhuma série",
+    "addSuccess": "Adicionado com sucesso.",
+    "editSuccess": "Editado com sucesso.",
+    "deleteSuccess": "Excluído com sucesso."
+  },
+  "edit": {
+    "edit": "Editar",
+    "name": "Nome",
+    "season": "Temporada",
+    "episode": "Episódio atual"
+  },
+  "shared-list": {
+    "list1": "Lista compartilhada de",
+    "list2": ""
+  },
+  "new-series": {
+    "insert": "Insira",
+    "new": "Nova série"
+  },
+  "profile": {
+    "profile1": "Perfil de",
+    "profile2": "",
+    "changePass": "Alterar senha",
+    "actual": "Senha real",
+    "new": "Nova senha",
+    "changeImg": "Alterar imagem do perfil",
+    "changeImgMobile": "Alterar",
+    "imageUpload": "Carregar uma imagem",
+    "deleteAcc": "Excluir conta",
+    "deleteModalTitle": "Confirmar exclusão da conta",
+    "deleteModal1": "Você realmente quer deletar sua conta definitivamente?",
+    "deleteModal2": "Isso não pode ser revertido!",
+    "delete": "Excluir",
+    "imgChange": "Imagem alterada",
+    "passChange": "Senha alterada"
+  },
+  "register": {
+    "register": "Inscreva-se",
+    "user": "Nome de usuário",
+    "password": "Senha",
+    "repeat": "Repetir senha",
+    "emailExist": "Erro! O email já existe.",
+    "userExist": "Erro! O nome de usuário já existe."
+  },
+  "series-details": {
+    "plot": "TRAMA",
+    "genre": "GÊNERO",
+    "country": "PAÍS",
+    "released": "ESTREIA",
+    "seasons": "TEMPORADAS",
+    "runtime": "DURAÇÃO",
+    "cast": "CASTING",
+    "director": "DIRETOR",
+    "unknownDirector": "DireTor desconhecido",
+    "writer": "ESCRITOR",
+    "unknownWriter": "Escritor desconhecido",
+    "actors": "ATORES",
+    "unknownActors": "Atores desconhecidos",
+    "return": "Retornar para MyWatchList",
+    "wikipedia": "https://pt.wikipedia.org/wiki/"
+  },
+  "404": {
+    "error": "Opa, a página que você está procurando não existe.",
+    "home": "Ir para Casa"
+  }
+}

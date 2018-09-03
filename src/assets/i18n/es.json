@@ -1,132 +1,134 @@
 {
-    "errors": {
-        "errServer": "Error en el Servidor. Inténtalo más tarde.",
-        "email": "Email es",
-        "required": "requerido",
-        "incorrect": "incorrecto",
-        "msg": "Mensaje es",
-        "errGeneral": "¡Error! Por favor inténtalo más tarde.",
-        "username": "Usuario es",
-        "short": "muy corto",
-        "password": "Contraseña es",
-        "weak": "muy débil",
-        "cancel": "Cancelar",
-        "match": "no coinciden",
-        "errConfirm": "¡Error! Por favor confirma el email.",
-        "errUser": "¡Error! Usuario o Contraseña son incorrectos.",
-        "errEmailNot": "¡Error! Email no existe.",
-        "errUserNot": "Error! El usuario no existe.",
-        "season": "Temporada es",
-        "actual": "Episodio actual es",
-        "episode": "Episodio es",
-        "name": "Nombre es",
-        "imageInvalid": "La imagen es invalida."
-    },
-    "confirm-email": {
-        "hello": "¡Bienvenido, nuevo Watcher!",
-        "registered": "¡Ahora estás registrado!",
-        "goto": "Ir a MyWatchList",
-        "confirmSuccess": "Email confirmado."
-    },
-    "feedback": {
-        "send": "Enviar Feedback",
-        "okFeedback": "El feedback se ha enviado.",
-        "input": "Escribe las sugerencias..."
-    },
-    "intro": {
-        "welcome": "¡Bienvenido a MyWatchList!",
-        "info": "Aquí podrás crear una lista con todas tus series y compartirla con tus amigos en tus redes sociales favoritas.",
-        "register": "Regístrate ahora para ser un Watcher",
-        "cookiesAdvice": "Esta web usa cookies funcionales propias necesarias para el funcionamiento de la página y cookies de terceros para obtener estadísticas y mejorar nuestros servicios. Si aceptas, entendemos que consientes su uso. Puedes obtener más información",
-        "linkCookies": "aquí",
-        "urlCookies": "http://www.allaboutcookies.org/es/",
-        "registerSuccess": "¡Registrado! Por favor confirma el email.",
-        "sentCredentials": "Enviar credenciales a "
-    },
-    "login": {
-        "title": "Iniciar Sesión",
-        "forgot": "¿Has olvidado el usuario o la contraseña?",
-        "remember": "Recordar sesión"
-    },
-    "forgot": {
-        "header": "Introduce email para enviar credenciales",
-        "send": "Enviar"
-    },
-    "list": {
-        "list1": "Lista de",
-        "list2": "",
-        "filter": "Filtro",
-        "onAir": "Emisión",
-        "name": "Nombre",
-        "season": "Temporada",
-        "actual": "Episodio actual",
-        "following1": "Siguiendo",
-        "following2": "series",
-        "seriesAlready": "La serie ya está en tu lista.",
-        "seriesNoExists": "La serie no existe.",
-        "notFollow": " no sigue ninguna serie.",
-        "addSuccess": "Añadida correctamente.",
-        "editSuccess": "Editada correctamente.",
-        "deleteSuccess": "Eliminada correctamente."
-    },
-    "edit": {
-        "edit": "Editar",
-        "name": "Nombre",
-        "season": "Temporada",
-        "episode": "Episodio actual"
-    },
-    "shared-list": {
-        "list1": "Lista compartida de",
-        "list2": ""
-    },
-    "new-series": {
-        "insert": "Insertar",
-        "new": "Nueva serie"
-    },
-    "profile": {
-        "profile1": "Perfil de",
-        "profile2": "",
-        "changePass": "Cambiar contraseña",
-        "actual": "Contraseña actual",
-        "new": "Nueva contraseña",
-        "changeImg": "Cambiar imagen de perfil",
-        "changeImgMobile": "Cambiar",
-        "imageUpload": "Sube una imagen",
-        "deleteAcc": "Eliminar cuenta",
-        "deleteModalTitle": "Confirmar eliminar cuenta",
-        "deleteModal1": "¿Seguro que quieres eliminar tu cuenta definitivamente?",
-        "deleteModal2": "¡Esto no se puede revertir!",
-        "delete": "Eliminar",
-        "imgChange": "Imagen cambiada.",
-        "passChange": "Contraseña cambiada."
-    },
-    "register": {
-        "register": "Registrar",
-        "user": "Usuario",
-        "password": "Contraseña",
-        "repeat": "Repetir contraseña",
-        "emailExist": "¡Error! Email ya existe.",
-        "userExist": "¡Error! Usuario ya existe."
-    },
-    "series-details": {
-        "plot": "SINOPSIS",
-        "genre": "GÉNERO",
-        "country": "PAÍS",
-        "released": "ESTRENO",
-        "seasons": "TEMPORADAS",
-        "runtime": "DURACIÓN",
-        "cast": "CASTING",
-        "director": "DIRECTOR",
-        "unknownDirector": "Director desconocido",
-        "writer": "ESCRITOR",
-        "unknownWriter": "Escritor desconocido",
-        "actors": "ACTORES",
-        "unknownActors": "Actores desconocidos",
-        "return": "Volver a MyWatchList",
-        "wikipedia": "https://es.wikipedia.org/wiki/"
-    },
-    "404": {
-        "error": "Oops, la página que buscas no existe.",
-        "home": "Ir a Inicio"
-    }
+  "errors": {
+    "errServer": "Error en el Servidor. Inténtalo más tarde.",
+    "email": "Email es",
+    "required": "requerido",
+    "incorrect": "incorrecto",
+    "msg": "Mensaje es",
+    "errGeneral": "¡Error! Por favor inténtalo más tarde.",
+    "username": "Usuario es",
+    "short": "muy corto",
+    "password": "Contraseña es",
+    "passwords": "Contraseñas",
+    "weak": "muy débil",
+    "cancel": "Cancelar",
+    "match": "no coinciden",
+    "errConfirm": "¡Error! Por favor confirma el email.",
+    "errUser": "¡Error! Usuario o Contraseña son incorrectos.",
+    "errEmailNot": "¡Error! Email no existe.",
+    "errUserNot": "Error! El usuario no existe.",
+    "season": "Temporada es",
+    "actual": "Episodio actual es",
+    "episode": "Episodio es",
+    "name": "Nombre es",
+    "imageInvalid": "La imagen es invalida."
+  },
+  "confirm-email": {
+    "hello": "¡Bienvenido, nuevo Watcher!",
+    "registered": "¡Ahora estás registrado!",
+    "goto": "Ir a MyWatchList",
+    "confirmSuccess": "Email confirmado."
+  },
+  "feedback": {
+    "send": "Enviar Feedback",
+    "okFeedback": "El feedback se ha enviado.",
+    "input": "Escribe las sugerencias..."
+  },
+  "intro": {
+    "welcome": "¡Bienvenido a MyWatchList!",
+    "login": "Iniciar Sesión",
+    "info": "Aquí podrás crear una lista con todas tus series y compartirla con tus amigos en tus redes sociales favoritas.",
+    "register": "Regístrate ahora para ser un Watcher",
+    "cookiesAdvice": "Esta web usa cookies funcionales propias necesarias para el funcionamiento de la página y cookies de terceros para obtener estadísticas y mejorar nuestros servicios. Si aceptas, entendemos que consientes su uso. Puedes obtener más información",
+    "linkCookies": "aquí",
+    "urlCookies": "http://www.allaboutcookies.org/es/",
+    "registerSuccess": "¡Registrado! Por favor confirma el email.",
+    "sentCredentials": "Enviar credenciales a "
+  },
+  "login": {
+    "title": "Iniciar Sesión",
+    "forgot": "¿Has olvidado el usuario o la contraseña?",
+    "remember": "Recordar sesión"
+  },
+  "forgot": {
+    "header": "Introduce email para enviar credenciales",
+    "send": "Enviar"
+  },
+  "list": {
+    "list1": "Lista de",
+    "list2": "",
+    "filter": "Filtro",
+    "onAir": "Emisión",
+    "name": "Nombre",
+    "season": "Temporada",
+    "actual": "Episodio actual",
+    "following1": "Siguiendo",
+    "following2": "series",
+    "seriesAlready": "La serie ya está en tu lista.",
+    "seriesNoExists": "La serie no existe.",
+    "notFollow": " no sigue ninguna serie.",
+    "addSuccess": "Añadida correctamente.",
+    "editSuccess": "Editada correctamente.",
+    "deleteSuccess": "Eliminada correctamente."
+  },
+  "edit": {
+    "edit": "Editar",
+    "name": "Nombre",
+    "season": "Temporada",
+    "episode": "Episodio actual"
+  },
+  "shared-list": {
+    "list1": "Lista compartida de",
+    "list2": ""
+  },
+  "new-series": {
+    "insert": "Insertar",
+    "new": "Nueva serie"
+  },
+  "profile": {
+    "profile1": "Perfil de",
+    "profile2": "",
+    "changePass": "Cambiar contraseña",
+    "actual": "Contraseña actual",
+    "new": "Nueva contraseña",
+    "changeImg": "Cambiar imagen de perfil",
+    "changeImgMobile": "Cambiar",
+    "imageUpload": "Sube una imagen",
+    "deleteAcc": "Eliminar cuenta",
+    "deleteModalTitle": "Confirmar eliminar cuenta",
+    "deleteModal1": "¿Seguro que quieres eliminar tu cuenta definitivamente?",
+    "deleteModal2": "¡Esto no se puede revertir!",
+    "delete": "Eliminar",
+    "imgChange": "Imagen cambiada.",
+    "passChange": "Contraseña cambiada."
+  },
+  "register": {
+    "register": "Registrarse",
+    "user": "Usuario",
+    "password": "Contraseña",
+    "repeat": "Repetir contraseña",
+    "emailExist": "¡Error! Email ya existe.",
+    "userExist": "¡Error! Usuario ya existe."
+  },
+  "series-details": {
+    "plot": "SINOPSIS",
+    "genre": "GÉNERO",
+    "country": "PAÍS",
+    "released": "ESTRENO",
+    "seasons": "TEMPORADAS",
+    "runtime": "DURACIÓN",
+    "cast": "CASTING",
+    "director": "DIRECTOR",
+    "unknownDirector": "Director desconocido",
+    "writer": "ESCRITOR",
+    "unknownWriter": "Escritor desconocido",
+    "actors": "ACTORES",
+    "unknownActors": "Actores desconocidos",
+    "return": "Volver a MyWatchList",
+    "wikipedia": "https://es.wikipedia.org/wiki/"
+  },
+  "404": {
+    "error": "Oops, la página que buscas no existe.",
+    "home": "Ir a Inicio"
+  }
 }

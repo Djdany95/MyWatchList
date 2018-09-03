@@ -1,0 +1,134 @@
+{
+  "errors": {
+    "errServer": "Serverfehler. Probieren Sie es später aus.",
+    "email": "Email ist",
+    "required": "erforderlich",
+    "incorrect": "falsch",
+    "msg": "Nachricht ist",
+    "errGeneral": "Error! Bitte versuchen Sie es später.",
+    "username": "Benutzername ist",
+    "short": "zu kurz",
+    "password": "Passwort ist",
+    "passwords": "Passwörter",
+    "weak": "zu schwach",
+    "cancel": "Stornieren",
+    "match": "passt nicht zusammen",
+    "errConfirm": "Error! Bitte bestätigen Sie die email.",
+    "errUser": "Error! Benutzer oder Passwort sind falsch.",
+    "errEmailNot": "Error! Email existiert nicht.",
+    "errUserNot": "Error! Benutzer existiert nicht.",
+    "season": "Die Jahreszeit ist",
+    "actual": "Aktuelle Episode ist",
+    "episode": "Episode ist",
+    "name": "Name ist",
+    "imageInvalid": "Das Bild ist ungültig."
+  },
+  "confirm-email": {
+    "hello": "Willkommen, neu Watcher!",
+    "registered": "Sie sind jetzt registriert!",
+    "goto": "Gehe zu MyWatchList",
+    "confirmSuccess": "Email bestätigt."
+  },
+  "feedback": {
+    "send": "Feedback abschicken",
+    "okFeedback": "Dein Feedback wurde gesendet.",
+    "input": "Gib dein Feedback ein..."
+  },
+  "intro": {
+    "welcome": "Willkommen bei MyWatchList!",
+    "login": "Anmeldung",
+    "info": "Hier kannst du eine Liste mit all deinen Serien erstellen und sie mit deinen Freunden in deinen bevorzugten sozialen Netzwerken teilen.",
+    "register": "Jetzt registrieren um ein Watcher zu werden",
+    "cookiesAdvice": "Dieses Web verwendet eigene funktionale Cookies, die für die Seiten- und Third-Party-Cookies benötigt werden, um statistische Daten zu erhalten und unsere Services zu verbessern. Wenn Sie akzeptieren, akzeptieren wir deren Verwendung. Sie können weitere Informationen erhalten.",
+    "linkCookies": "here",
+    "urlCookies": "http://www.allaboutcookies.org/ge/",
+    "registerSuccess": "Erfolgreich registriert. Bitte email bestätigen.",
+    "sentCredentials": "Anmeldeinformationen gesendet an "
+  },
+  "login": {
+    "title": "Anmelden",
+    "forgot": "Benutzername oder Passwort vergessen?",
+    "remember": "Remember Session"
+  },
+  "forgot": {
+    "header": "Email eingeben, um die Anmeldedaten erneut zu senden",
+    "send": "Senden"
+  },
+  "list": {
+    "list1": "",
+    "list2": " Liste",
+    "filter": "Filter",
+    "onAir": "On Air",
+    "name": "Name",
+    "season": "Jahreszeit",
+    "actual": "Aktuelle Episode",
+    "following1": "Folge",
+    "following2": "serie",
+    "seriesAlready": "Serie ist schon in deiner liste.",
+    "seriesNoExists": "Serie existiert nicht.",
+    "notFollow": " folgt keiner serie.",
+    "addSuccess": "Erfolgreich hinzugefügt.",
+    "editSuccess": "Erfolgreich bearbeitet.",
+    "deleteSuccess": "Gelöscht erfolgreich."
+  },
+  "edit": {
+    "edit": "Bearbeiten",
+    "name": "Name",
+    "season": "Jahreszeit",
+    "episode": "Aktuelle Episode"
+  },
+  "shared-list": {
+    "list1": "",
+    "list2": " gemeinsame liste"
+  },
+  "new-series": {
+    "insert": "Einfügen",
+    "new": "Neue Serie"
+  },
+  "profile": {
+    "profile1": "",
+    "profile2": " Profil",
+    "changePass": "Passwort ändern",
+    "actual": "Tatsächliches Passwor",
+    "new": "Neues Passwort",
+    "changeImg": "Profilbild ändern",
+    "changeImgMobile": "Ändern",
+    "imageUpload": "Ein Bild hochladen",
+    "deleteAcc": "Konto löschen",
+    "deleteModalTitle": "Bestätigen Löschen",
+    "deleteModal1": "Willst du wirklich deinen Account löschen?",
+    "deleteModal2": "Das kann nicht rückgängig gemacht werden!",
+    "delete": "Löschen",
+    "imgChange": "Bild geändert.",
+    "passChange": "Passwort geändert."
+  },
+  "register": {
+    "register": "Registrieren",
+    "user": "Benutzername",
+    "password": "Passwort",
+    "repeat": "Passwort wiederholen",
+    "emailExist": "Fehler! Email existiert bereits.",
+    "userExist": "Fehler! Benutzername existiert bereits."
+  },
+  "series-details": {
+    "plot": "HANDLUNG",
+    "genre": "GENRE",
+    "country": "LAND",
+    "released": "FREIGEGEBEN",
+    "seasons": "JAHRESZEITEN",
+    "runtime": "LAUFZEI",
+    "cast": "BESETZUNG",
+    "director": "REGISSEUR",
+    "unknownDirector": "Unbekannter Direktor",
+    "writer": "AUTOR",
+    "unknownWriter": "Unbekannter Autor",
+    "actors": "SCHAUSPIELER",
+    "unknownActors": "Unknown Schauspieler",
+    "return": "Zurück zu MyWatchList",
+    "wikipedia": "https://de.wikipedia.org/wiki/"
+  },
+  "404": {
+    "error": "Hoppla, die von Ihnen gesuchte Seite existiert nicht.",
+    "home": "Gehe nach Hause"
+  }
+}

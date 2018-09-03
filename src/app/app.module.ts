@@ -1,8 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import {
   HttpClient,
@@ -30,7 +30,6 @@ import {
   ErrorStateMatcher,
   ShowOnDirtyErrorStateMatcher
 } from '@angular/material';
-import 'hammerJS';
 
 import { ShareButtonsModule } from '@ngx-share/buttons';
 import { ShareButtonsOptions } from '@ngx-share/core';
@@ -50,15 +49,17 @@ import { SeriesDetailsComponent } from './components/series-details/series-detai
 import { NewSeriesComponent } from './components/new-series/new-series.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
+import { Error404Component } from './shared/error-404/error-404.component';
+
 import { LoginDialog } from './components/intro/login-dialog/login.dialog';
 import { RememberDialog } from './components/intro/remember-dialog/remember.dialog';
+import { DeleteDialog } from './components/profile/delete-dialog/delete.dialog';
 import { EditDialog } from './components/list/edit-dialog/edit-series.dialog';
-import { TWITTER_ACCOUNT } from './shared/constants/api-keys.constants';
-import { Error404Component } from './shared/error-404/error-404.component';
+
 import { AppRoutingModule } from './shared/routes/app-routing.module';
 
+import { TWITTER_ACCOUNT } from './shared/constants/api-keys.constants';
 import { environment } from '../environments/environment';
-import { DeleteDialog } from './components/profile/delete-dialog/delete.dialog';
 
 /**
  * Options to SharedButtons Module
@@ -91,6 +92,7 @@ const shareOptions: ShareButtonsOptions = {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
@@ -107,7 +109,6 @@ const shareOptions: ShareButtonsOptions = {
     MatSortModule,
     MatTableModule,
     MatToolbarModule,
-    AppRoutingModule,
     RouterModule,
     HttpClientModule, // for share counts and translator
     HttpClientJsonpModule, // for linkedin and tumblr share counts

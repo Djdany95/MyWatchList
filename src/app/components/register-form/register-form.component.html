@@ -52,16 +52,16 @@
                     <strong>{{'errors.required' | translate}}</strong>
                 </mat-error>
                 <mat-error *ngIf="!(passControl.value===pass2Control.value)">
-                    Passwords
+                    {{'errors.passwords' | translate}}
                     <strong>{{'errors.match' | translate}}</strong>
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="col-md-2 col-sm-12">
             <button class="btn-register" *ngIf="(passControl.value===pass2Control.value) && !nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern') && !emailControl.hasError('required') && !emailControl.hasError('email')"
-                mat-raised-button color="primary" (click)="register()" aria-label="Register">Register</button>
+                mat-raised-button color="primary" (click)="register()" aria-label="Register">{{'register.register' | translate}}</button>
             <button class="btn-register" *ngIf="!(passControl.value===pass2Control.value) || nameControl.hasError('required') || passControl.hasError('required') || nameControl.hasError('pattern') || passControl.hasError('pattern') || emailControl.hasError('required') || emailControl.hasError('email')"
-                mat-raised-button disabled color="primary" (click)="register()" aria-label="Register">Register</button>
+                mat-raised-button disabled color="primary" (click)="register()" aria-label="Register">{{'register.register' | translate}}</button>
         </div>
     </form>
 </div>

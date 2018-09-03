@@ -1,0 +1,134 @@
+{
+  "errors": {
+    "errServer": "Erreur du serveur. Essayez-le plus tard.",
+    "email": "Email is",
+    "required": "requis",
+    "incorrect": "incorrect",
+    "msg": "Le message est",
+    "errGeneral": "Erreur! Veuillez l'essayer plus tard.",
+    "username": "Nom d'utilisateur est",
+    "short": "trop ​​court",
+    "password": "Le mot de passe est",
+    "passwords": "Mots de passe",
+    "weak": "trop ​​faible",
+    "cancel": "Annuler",
+    "match": "ne correspond pas",
+    "errConfirm": "Erreur! Veuillez confirmer votre e-mail.",
+    "errUser": "Erreur! L'utilisateur ou le mot de passe est incorrect.",
+    "errEmailNot": "Erreur! Le courrier électronique n'existe pas.",
+    "errUserNot": "Erreur! L'utilisateur n'existe pas.",
+    "season": "La saison est",
+    "actual": "L'épisode réel est",
+    "episode": "L'épisode est",
+    "name": "Nom est",
+    "imageInvalid": "L'image n'est pas valide"
+  },
+  "confirm-email": {
+    "hello": "Bienvenue, nouveau Watcher!",
+    "registered": "Vous êtes maintenant inscrit!",
+    "goto": "Aller à MyWatchList",
+    "confirmSuccess": "Email confirmé."
+  },
+  "feedback": {
+    "send": "Envoyer des commentaires",
+    "okFeedback": "Vos commentaires ont été envoyés.",
+    "input": "Entrez vos commentaires ..."
+  },
+  "intro": {
+    "welcome": "Bienvenue sur MyWatchList!",
+    "login": "Se connecter",
+    "info": "Ici, vous pouvez créer une liste de toutes vos séries et la partager avec vos amis sur vos réseaux sociaux préférés.",
+    "register": "Inscrivez-vous maintenant pour devenir un Watcher",
+    "cookiesAdvice": "Ce site Web utilise des cookies fonctionnels propres à la page et aux cookies tiers pour obtenir des données statistiques et améliorer nos services. Si vous acceptez, nous acceptons que vous en acceptiez l'utilisation. Vous pouvez obtenir plus d'informations",
+    "linkCookies": "ici",
+    "urlCookies": "http://www.allaboutcookies.org/fr/",
+    "registerSuccess": "Enregistré avec succès. Veuillez confirmer votre adresse email.",
+    "sentCredentials": "Les informations d'identification envoyées à "
+  },
+  "login": {
+    "title": "Se connecter",
+    "forgot": "Nom d'utilisateur ou mot de passe oublié?",
+    "remember": "Se souvenir de la session"
+  },
+  "forgot": {
+    "header": "Entrez un email pour renvoyer les identifiants",
+    "send": "Envoyer"
+  },
+  "list": {
+    "list1": "Liste de ",
+    "list2": "",
+    "filter": "Filtre",
+    "onAir": "On Air",
+    "name": "Nom",
+    "season": "Saison",
+    "actual": "Episode réel",
+    "following1": "Suite",
+    "following2": "série",
+    "seriesAlready": "La série est déjà dans votre liste.",
+    "seriesNoExists": "La série n'existe pas",
+    "notFollow": "ne suit aucune série.",
+    "addSuccess": "Ajouté avec succès",
+    "editSuccess": "Édité avec succès",
+    "deleteSuccess": "Supprimé avec succès."
+  },
+  "edit": {
+    "edit": "Edit",
+    "name": "Nom",
+    "season": "Saison",
+    "episode": "Episode réel"
+  },
+  "shared-list": {
+    "list1": "Liste partagée de ",
+    "list2": ""
+  },
+  "new-series": {
+    "insert": "Insert",
+    "new": "Neue Série"
+  },
+  "profile": {
+    "profile1": "Profil de ",
+    "profile2": "",
+    "changePass": "Modifier le mot de passe",
+    "actual": "Mot de passe actuel",
+    "new": "Nouveau mot de passe",
+    "changeImg": "Modifier l'image du profil",
+    "changeImgMobile": "Modifier",
+    "imageUpload": "Télécharger une image",
+    "deleteAcc": "Supprimer le compte",
+    "deleteModalTitle": "Confirmer le compte de suppression",
+    "deleteModal1": "Veux-tu vraiment supprimer ton compte définitivement?",
+    "deleteModal2": "Cela ne peut pas être inversé!",
+    "delete": "Supprimer",
+    "imgChange": "Image modifiée",
+    "passChange": "Le mot de passe a été modifié."
+  },
+  "register": {
+    "register": "S'inscrire",
+    "user": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "repeat": "Répéter le mot de passe",
+    "emailExist": "Erreur! Email existe déjà.",
+    "userExist": "Erreur! Le nom d'utilisateur existe déjà."
+  },
+  "series-details": {
+    "plot": "INTRIGUE",
+    "genre": "GENRE",
+    "country": "PAYS",
+    "released": "LIBÉRÉ",
+    "seasons": "SAISONS",
+    "runtime": "DUREE",
+    "cast": "FONDERIE",
+    "director": "DIRECTEUR",
+    "unknownDirector": "Directeur inconnu",
+    "writer": "RÉDACTEUR",
+    "unknownWriter": "Rédacteur inconnur",
+    "actors": "ACTEURS",
+    "unknownActors": "Acteurs inconnu",
+    "return": "Revenir à MyWatchList",
+    "wikipedia": "https://fr.wikipedia.org/wiki/"
+  },
+  "404": {
+    "error": "Oups, la page que vous recherchez n'existe pas.",
+    "home": "Aller à la Maison"
+  }
+}

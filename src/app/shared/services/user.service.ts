@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { MYWATCHLISTAPI_URL } from '../constants/api-urls.constants';
+import { MYWATCHLISTAPI_URL, IMGUR_URL } from '../constants/api-urls.constants';
+import { IMGUR_APIKEY } from '../constants/api-keys.constants';
 
 /**
  * Service to call MyWatchList API
@@ -63,9 +64,9 @@ export class UserService {
   uploadImage(
     imageBase64: string
   ): Observable<any> {
-    const headers = new HttpHeaders({ 'Authorization': 'Client-ID 144475adecb0f35' });
+    const headers = new HttpHeaders({ 'Authorization': IMGUR_APIKEY });
     return this._http.post(
-      'https://api.imgur.com/3/image',
+      IMGUR_URL,
       { image: imageBase64 },
       { headers: headers }
     );
