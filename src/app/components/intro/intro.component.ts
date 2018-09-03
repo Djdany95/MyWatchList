@@ -10,6 +10,7 @@ import { User } from '../../shared/models/user';
 
 import { LoginDialog } from './login-dialog/login.dialog';
 
+import { TranslateService } from '@ngx-translate/core';
 import * as sha256 from 'fast-sha256';
 
 /**
@@ -73,9 +74,13 @@ export class IntroComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private translate: TranslateService
   ) {
     this.titleService.setTitle('MyWatchList');
+    this.language = navigator.language.slice(0, 2);
+    localStorage.setItem('lang', this.language);
+    translate.setDefaultLang(this.language);
   }
 
   /**
@@ -100,7 +105,6 @@ export class IntroComponent implements OnInit, OnDestroy {
     document.body.style.backgroundColor = '';
     document.body.style.color = '';
     document.body.classList.add('bodyIntro');
-    this.getLanguage();
     this.updateOnlineStatus();
     window.addEventListener('online', this.updateOnlineStatus);
     window.addEventListener('offline', this.updateOnlineStatus);
@@ -110,15 +114,9 @@ export class IntroComponent implements OnInit, OnDestroy {
     document.body.classList.remove('bodyIntro');
   }
 
-  getLanguage() {
-    this.language = navigator.language.slice(0, 2);
-    localStorage.setItem('lang', this.language);
-
-    this.setLanguage();
-  }
-
-  setLanguage() {
-    // TODO set language every time in every page
+  setLanguage(lang: string) {
+    localStorage.setItem('lang', lang);
+    this.translate.use(lang);
   }
 
   /**
@@ -146,14 +144,17 @@ export class IntroComponent implements OnInit, OnDestroy {
       response => {
         if (response) {
           this.openSnackBar(
-            'Registered successfully. Please confirm email.',
+            this.translate.instant('intro.registerSuccess'),
             'snackSuccess'
           );
         }
       },
       error => {
         if (error != null) {
-          this.openSnackBar('Server Error! Please try later.', 'snackError');
+          this.openSnackBar(
+            this.translate.instant('errors.errServer'),
+            'snackError'
+          );
         }
       }
     );
@@ -179,11 +180,14 @@ export class IntroComponent implements OnInit, OnDestroy {
       error => {
         if (error != null) {
           if (error.status === 403) {
-            this.openSnackBar('Error! Please confirm email.', 'snackError');
+            this.openSnackBar(
+              this.translate.instant('errors.errConfirm'),
+              'snackError'
+            );
             this.user.pass = '';
           } else if (error.status === 404) {
             this.openSnackBar(
-              'Error! User or password are incorrect.',
+              this.translate.instant('errors.errUser'),
               'snackError'
             );
             this.user.pass = '';

@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialog, MatSnackBar } from '@angular/material';
@@ -61,8 +62,11 @@ export class LoginDialog {
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
-    private loginService: LoginService
-  ) {}
+    private loginService: LoginService,
+    private translate: TranslateService
+  ) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * Function when user dismiss dialog
@@ -94,13 +98,13 @@ export class LoginDialog {
     this.loginService.rememberAuth(email).subscribe(
       response => {
         if (response) {
-          this.openSnackBar('Sent credentials to ', 'snackSuccess');
+          this.openSnackBar(this.translate.instant('intro.sentCredentials'), 'snackSuccess');
           this.dialog.closeAll();
         }
       },
       error => {
         if (error != null) {
-          this.openSnackBar('Error! Email doesn\'t exists.', 'snackError');
+          this.openSnackBar(this.translate.instant('errors.errEmailNot'), 'snackError');
           this.dialog.closeAll();
         }
       }

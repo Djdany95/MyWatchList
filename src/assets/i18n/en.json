@@ -10,16 +10,17 @@
         "short": "too short",
         "password": "Password is",
         "weak": "too weak",
-        "cancel": "cancel",
+        "cancel": "Cancel",
         "match": "doesn't match",
         "errConfirm": "Error! Please confirm email.",
         "errUser": "Error! User or password are incorrect.",
         "errEmailNot": "Error! Email doesn't exists.",
+        "errUserNot": "Error! User doesn't exists.",
         "season": "Season is",
         "actual": "Actual Episode is",
         "episode": "Episode is",
         "name": "Name is",
-        "imageInvalid": "Image is invalid"
+        "imageInvalid": "Image is invalid."
     },
     "confirm-email": {
         "hello": "Welcome, new Watcher!",
@@ -88,6 +89,7 @@
         "actual": "Actual Password",
         "new": "New Password",
         "changeImg": "Change Profile Image",
+        "changeImgMobile": "Change",
         "imageUpload": "Upload an image",
         "deleteAcc": "Delete Account",
         "deleteModalTitle": "Confirm Delete Account",
@@ -99,7 +101,6 @@
     },
     "register": {
         "register": "Register",
-        "email": "Email",
         "user": "Username",
         "password": "Password",
         "repeat": "Repeat Password",

@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -78,8 +79,11 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private titleService: Title,
     public snackBar: MatSnackBar,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private translate: TranslateService
+  ) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * We set various parameters to default, check if there are cookies of user logged and if nightMode is setted in storage before.
@@ -171,11 +175,11 @@ export class ProfileComponent implements OnInit {
       )
       .subscribe(
         response => {
-          this.openSnackBar('Password changed.', 'snackSuccess');
+          this.openSnackBar(this.translate.instant('profile.passChange'), 'snackSuccess');
         },
         error => {
           if (error !== null) {
-            this.openSnackBar('Password is incorrect.', 'snackError');
+            this.openSnackBar(this.translate.instant('errors.incorrect'), 'snackError');
           }
         }
       );
@@ -204,7 +208,7 @@ export class ProfileComponent implements OnInit {
       },
       error => {
         if (error !== null) {
-          this.openSnackBar('Image is invalid.', 'snackError');
+          this.openSnackBar(this.translate.instant('errors.imageInvalid'), 'snackError');
         }
       }
     );
@@ -218,7 +222,7 @@ export class ProfileComponent implements OnInit {
       .changeImage(this.user.name, this.user.pass, this.user.imageUrl)
       .subscribe(
         response => {
-          this.openSnackBar('Image changed.', 'snackSuccess');
+          this.openSnackBar(this.translate.instant('profile.imgChange'), 'snackSuccess');
           if (localStorage.getItem('myUserName') !== null) {
             localStorage.setItem('myPic', this.user.imageUrl);
           } else {
@@ -227,7 +231,7 @@ export class ProfileComponent implements OnInit {
         },
         error => {
           if (error !== null) {
-            this.openSnackBar('Image is invalid.', 'snackError');
+            this.openSnackBar(this.translate.instant('errors.imageInvalid'), 'snackError');
           }
         }
       );

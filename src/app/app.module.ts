@@ -4,7 +4,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpClientJsonpModule
+} from '@angular/common/http';
 
 import {
   MatAutocompleteModule,
@@ -24,7 +28,7 @@ import {
   MatTableModule,
   MatToolbarModule,
   ErrorStateMatcher,
-  ShowOnDirtyErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher
 } from '@angular/material';
 import 'hammerJS';
 
@@ -33,6 +37,8 @@ import { ShareButtonsOptions } from '@ngx-share/core';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { NgProgressRouterModule } from '@ngx-progressbar/router';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
@@ -103,8 +109,15 @@ const shareOptions: ShareButtonsOptions = {
     MatToolbarModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule, // for share counts
+    HttpClientModule, // for share counts and translator
     HttpClientJsonpModule, // for linkedin and tumblr share counts
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     ShareButtonsModule.forRoot({ options: shareOptions }),
     ServiceWorkerModule.register('./ngsw-worker.js', {
       enabled: environment.production
@@ -133,3 +146,8 @@ const shareOptions: ShareButtonsOptions = {
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
+
+// required for AOT compilation with Translate
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

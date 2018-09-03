@@ -10,50 +10,50 @@
             <img class="poster" src="{{series.Poster}}" alt="Poster" title="Poster" width="310px" height="550px">
         </div>
         <div class="col-lg-8  col-md-6">
-            <h3 class="title">PLOT</h3>
+            <h3 class="title">{{'series-details.plot' | translate}}</h3>
             <p [innerHTML]="series.Plot==='N/A'? 'Unknown' : series.Plot"></p>
-            <h3 class="title">GENRE</h3>
+            <h3 class="title">{{'series-details.genre' | translate}}</h3>
             <p [innerHTML]="series.Genre==='N/A'? 'Unknown' : series.Genre"></p>
-            <h3 class="title">COUNTRY</h3>
+            <h3 class="title">{{'series-details.country' | translate}}</h3>
             <p [innerHTML]="series.Country==='N/A'? 'Unknown' : series.Country"></p>
-            <h3 class="title">RELEASED</h3>
+            <h3 class="title">{{'series-details.released' | translate}}</h3>
             <p [innerHTML]="series.Released==='N/A'? 'Unknown' : series.Released"></p>
-            <h3 class="title">TOTAL SEASONS</h3>
+            <h3 class="title">{{'series-details.seasons' | translate}}</h3>
             <p [innerHTML]="series.totalSeasons==='N/A'? 'Unknown' : series.totalSeasons"></p>
-            <h3 class="title">RUNTIME</h3>
+            <h3 class="title">{{'series-details.runtime' | translate}}</h3>
             <p [innerHTML]="series.Runtime==='N/A'? 'Unknown' : series.Runtime"></p>
         </div>
     </div>
-    <h2 class="title">CAST</h2>
+    <h2 class="title">{{'series-details.cast' | translate}}</h2>
     <div class="row">
         <div class="col">
-            <h3 class="title">DIRECTOR</h3>
-            <p *ngIf="!(directors.length>0)">Unknown Director</p>
+            <h3 class="title">{{'series-details.director' | translate}}</h3>
+            <p *ngIf="!(directors.length>0)">{{'series-details.unknownDirector' | translate}}</p>
             <div *ngIf="directors.length>0">
                 <ul>
-                    <mat-basic-chip href="https://en.wikipedia.org/wiki/{{director}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let director of directors">
+                    <mat-basic-chip href="{{'series-details.wikipedia' | translate}}{{director}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let director of directors">
                         {{director}}
                     </mat-basic-chip>
                 </ul>
             </div>
         </div>
         <div class="col">
-            <h3 class="title">WRITER</h3>
-            <p *ngIf="!(writers.length>0)">Unknown Writer</p>
+            <h3 class="title">{{'series-details.writer' | translate}}</h3>
+            <p *ngIf="!(writers.length>0)">{{'series-details.unkownWriter' | translate}}</p>
             <div *ngIf="writers.length>0">
                 <ul>
-                    <mat-basic-chip href="https://en.wikipedia.org/wiki/{{writer}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let writer of writers">
+                    <mat-basic-chip href="{{'series-details.wikipedia' | translate}}{{writer}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let writer of writers">
                         {{writer}}
                     </mat-basic-chip>
                 </ul>
             </div>
         </div>
         <div class="col">
-            <h3 class="title">ACTORS</h3>
-            <p *ngIf="!(actors.length>0)">Unknown Actors</p>
+            <h3 class="title">{{'series-details.actors' | translate}}</h3>
+            <p *ngIf="!(actors.length>0)">{{'series-details.unknownActors' | translate}}</p>
             <div *ngIf="actors.length>0">
                 <ul>
-                    <mat-basic-chip href="https://en.wikipedia.org/wiki/{{actor}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let actor of actors">
+                    <mat-basic-chip href="{{'series-details.wikipedia' | translate}}{{actor}}" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'" *ngFor="let actor of actors">
                         {{actor}}
                     </mat-basic-chip>
                 </ul>
@@ -62,4 +62,4 @@
     </div>
 </div>
 
-<button mat-raised-button class="flotante" [color]="nightMode==='true'?'primary':'default'" routerLink="/mylist" aria-label="Return to my watch list">Return to MyWatchList</button>
+<button mat-raised-button class="flotante" [color]="nightMode==='true'?'primary':'default'" routerLink="/mylist" aria-label="Return to my watch list">{{'series-details.return' | translate}}</button>

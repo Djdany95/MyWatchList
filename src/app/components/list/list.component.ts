@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {
   MatTableDataSource,
@@ -76,8 +77,11 @@ export class ListComponent implements OnInit, AfterViewInit {
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     private router: Router,
-    private titleService: Title
-  ) {}
+    private titleService: Title,
+    private translate: TranslateService
+  ) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * We set various parameters to default, check if there are cookies for autologin and if nightMode is setted in storage before.
@@ -182,7 +186,7 @@ export class ListComponent implements OnInit, AfterViewInit {
           JSON.stringify(response.data.series)
         );
         if (!this.dataSource.data[0]) {
-          this.openSnackBar(" doesn't follow any series.", 'snackError');
+          this.openSnackBar(this.translate.instant('list.notFollow'), 'snackError');
         }
         this.nSeries = this.dataSource.data.length;
         if (localStorage.getItem('myUserName') !== null) {
@@ -268,7 +272,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   deleteSeries(seriesId: number): void {
     this.seriesService.deleteSeries(this.user, seriesId).subscribe(response => {
       this.getSeries();
-      this.openSnackBar('Deleted successfully.', 'snackSuccess');
+      this.openSnackBar(this.translate.instant('list.deleteSuccess'), 'snackSuccess');
     });
   }
 
@@ -300,13 +304,13 @@ export class ListComponent implements OnInit, AfterViewInit {
       if (!seriesDuplicated) {
         this.seriesService.newSeries(this.user, series).subscribe(response => {
           this.getSeries();
-          this.openSnackBar('Added successfully.', 'snackSuccess');
+          this.openSnackBar(this.translate.instant('list.addSuccess'), 'snackSuccess');
         });
       } else {
-        this.openSnackBar('Series is already in your list.', 'snackError');
+        this.openSnackBar(this.translate.instant('list.seriesAlready'), 'snackError');
       }
     } else {
-      this.openSnackBar('Series doesn\'t exists.', 'snackError');
+      this.openSnackBar(this.translate.instant('list.seriesNoExists'), 'snackError');
     }
   }
 
@@ -364,7 +368,7 @@ export class ListComponent implements OnInit, AfterViewInit {
           .editSeries(this.user, serieEdit)
           .subscribe(response => {
             this.getSeries();
-            this.openSnackBar('Edited successfully.', 'snackSuccess');
+            this.openSnackBar(this.translate.instant('list.editSuccess'), 'snackSuccess');
           });
       }
     });

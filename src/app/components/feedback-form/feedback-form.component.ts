@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { FeedbackService } from './../../shared/services/feedback.service';
 
 import { MyErrorStateMatcher } from './../../app.component';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Feedback Component
@@ -20,7 +21,12 @@ export class FeedbackFormComponent {
    * Constructor
    * @param feedbackService {UserService} Service to call user API
    */
-  constructor(public feedbackService: FeedbackService, public snackBar: MatSnackBar) {
+  constructor(
+    public feedbackService: FeedbackService,
+    public snackBar: MatSnackBar,
+    private translate: TranslateService
+  ) {
+    this.translate.use(localStorage.getItem('lang'));
   }
 
   /**
@@ -51,13 +57,16 @@ export class FeedbackFormComponent {
     this.feedbackService.sendFeedback(email, msg).subscribe(
       response => {
         if (response) {
-          this.openSnackBar('Your feedback was sent.', 'snackSuccess');
+          this.openSnackBar(this.translate.instant('feedback.okFeedback'), 'snackSuccess');
           this.msgControl.setValue(' ');
         }
       },
       error => {
         if (error != null) {
-          this.openSnackBar('Error! Please try it later.', 'snackError');
+          this.openSnackBar(
+            this.translate.instant('errors.errGeneral'),
+            'snackError'
+          );
           this.msgControl.setValue(' ');
         }
       }

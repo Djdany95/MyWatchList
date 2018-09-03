@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Error Component
@@ -13,8 +14,9 @@ export class Error404Component implements OnDestroy {
   /**
    * Constructor
    */
-  constructor() {
+  constructor(private translate: TranslateService) {
     document.body.classList.add('body404');
+    this.translate.use(localStorage.getItem('lang'));
   }
 
   ngOnDestroy() {

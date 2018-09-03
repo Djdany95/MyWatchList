@@ -5,12 +5,12 @@
             <input (keyup.enter)="onLoginClick()" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
             <mat-label class="placeholder">Username</mat-label>
             <mat-error *ngIf="nameControl.hasError('required')">
-                Username is
-                <strong>required</strong>
+                {{'errors.username' | translate}}
+                <strong>{{'errors.required' | translate}}</strong>
             </mat-error>
             <mat-error *ngIf=" nameControl.hasError('pattern')">
-                Username is too
-                <strong>short</strong>
+                {{'errors.username' | translate}}
+                <strong>{{'errors.short' | translate}}</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field>
@@ -18,26 +18,25 @@
                 aria-label="Password">
             <mat-label class="placeholder">Password</mat-label>
             <mat-error *ngIf="passControl.hasError('required')">
-                Password is
-                <strong>required</strong>
+                {{'errors.password' | translate}}
+                <strong>{{'errors.required' | translate}}</strong>
             </mat-error>
             <mat-error *ngIf="passControl.hasError('pattern')">
-                Password is too
-                <strong>weak</strong>
+                {{'errors.password' | translate}}
+                <strong>{{'errors.weak' | translate}}</strong>
             </mat-error>
         </mat-form-field>
         <input type="boolean" matInput placeholder aria-label="Remember Session">
         <mat-checkbox name="remember" [(ngModel)]="remember">
-            Remember session
+            {{'login.remember' | translate}}
         </mat-checkbox>
     </form>
 </div>
 <span>
-    <button mat-button color="primary" type="button" (click)="openForgotDialog()" aria-label="Forgot username or password?">Forgot
-        username or password?</button>
+    <button mat-button color="primary" type="button" (click)="openForgotDialog()" aria-label="Forgot username or password?">{{'login.forgot' | translate}}</button>
 </span>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" aria-label="Cancel">Cancel</button>
+    <button mat-button (click)="onNoClick()" aria-label="Cancel">{{'errors.cancel' | translate}}</button>
     <button *ngIf="!nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern')"
         mat-button (click)="onLoginClick()" cdkFocusInitial aria-label="Login">Login</button>
 </div>

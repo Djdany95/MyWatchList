@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { OmdbapiService } from '../../shared/services/omdbapi.service';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * SeriesDetails Component
@@ -66,8 +67,11 @@ export class SeriesDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private omdbAPI: OmdbapiService,
-    private titleService: Title
-  ) {}
+    private titleService: Title,
+    private translate: TranslateService
+  ) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * We set nightMode if exists and get SeriesDetails from API with the given ID

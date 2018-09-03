@@ -13,6 +13,7 @@ import { OmdbapiService } from '../../shared/services/omdbapi.service';
 
 import { MyErrorStateMatcher } from '../../app.component';
 import { PredictSeries } from '../../shared/models/predictSeries';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * NewSeries Component
@@ -70,7 +71,9 @@ export class NewSeriesComponent implements OnInit {
    * Constructor
    * @param omdbAPI {OmdbApiService} Call the API to fetch series titles and iMDB IDs
    */
-  constructor(private omdbAPI: OmdbapiService) {}
+  constructor(private omdbAPI: OmdbapiService, private translate: TranslateService) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * On init 'put' a 'watcher' to SeriesName input to call the API 'OnTheGo',

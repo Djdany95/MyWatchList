@@ -6,8 +6,8 @@
         </button>
 
         <span>
-            <img class="img-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image">            {{user.name
-            | titlecase}}'s List
+            <img class="img-circle" [src]="user.imageUrl" width="50" height="50" alt="Profile image" title="Profile image"> {{'list.list1' | translate}} {{user.name
+            | titlecase}}{{'list.list2' | translate}}
             <button mat-icon-button routerLink="/profile/{{user.name}}" aria-label="Profile">
                 <mat-icon aria-label="Profile" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">account_box</mat-icon>
             </button>
@@ -28,14 +28,14 @@
     <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
         <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" aria-label="Filter">
-            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Filter</mat-label>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'list.filter' | translate}}</mat-label>
         </mat-form-field>
     </div>
 
     <mat-table #table [dataSource]="dataSource" matSort matSortActive="active" matSortDisableClear matSortDirection="desc" [class.nightMode]="nightMode==='true'">
         <!-- Active Column -->
         <ng-container matColumnDef="active">
-            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> On Air </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> {{'list.onAir' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element">
                 <mat-icon *ngIf="element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">check_box</mat-icon>
                 <mat-icon *ngIf="!element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">indeterminate_check_box</mat-icon>
@@ -44,13 +44,13 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> Name </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> {{'list.name' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.name}} </mat-cell>
         </ng-container>
 
         <!-- Temp Column -->
         <ng-container matColumnDef="temp">
-            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Season </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> {{'list.season' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.temp}}
                 <button class="d-none d-md-inline-block" mat-icon-button (click)="seasonWatched(element.id, element.name, element.active, element.temp, element.epA)"
                     aria-label="Season watched">
@@ -62,7 +62,7 @@
 
         <!-- epS Column -->
         <ng-container matColumnDef="epA">
-            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Actual Episode </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> {{'list.actual' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.epA}}
                 <button mat-icon-button (click)="episodeWatched(element.id, element.name, element.active, element.temp, element.epA)" aria-label="Episode watched">
                     <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">add_circle
@@ -92,7 +92,8 @@
     </mat-table>
 </div>
 
-<mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}} series</mat-basic-chip>
+<mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">{{'list.following1' | translate}}
+    {{nSeries}} {{'list.following2' | translate}}</mat-basic-chip>
 
 <share-buttons class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"

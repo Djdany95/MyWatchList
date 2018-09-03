@@ -1,17 +1,18 @@
-<h1 mat-dialog-title>Enter email to resend credentials</h1>
+<h1 mat-dialog-title>{{'forgot.header' | translate}}</h1>
 <div mat-dialog-content>
     <mat-form-field>
         <input (keyup.enter)="onSendClick()" type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
         <mat-label class="placeholder">Email</mat-label>
         <mat-error *ngIf="emailControl.hasError('required')">
-            Email is <strong>required</strong>
+            {{'errors.email' | translate}} <strong>{{'errors.required' | translate}}</strong>
         </mat-error>
         <mat-error *ngIf=" emailControl.hasError('email')">
-            Email is <strong>incorrect</strong>
+            {{'errors.email' | translate}} <strong>{{'errors.incorrect' | translate}}</strong>
         </mat-error>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" aria-label="Cancel">Cancel</button>
-    <button *ngIf="!emailControl.hasError('required') && !emailControl.hasError('email')" mat-button (click)="onSendClick()" cdkFocusInitial aria-label="Send">Send</button>
+    <button mat-button (click)="onNoClick()" aria-label="Cancel">{{'errors.cancel' | translate}}</button>
+    <button *ngIf="!emailControl.hasError('required') && !emailControl.hasError('email')" mat-button (click)="onSendClick()"
+        cdkFocusInitial aria-label="Send">{{'forgot.send' | translate}}</button>
 </div>

@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource, MatSort, MatSnackBar } from '@angular/material';
@@ -76,8 +77,10 @@ export class ListShareComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private router: Router,
     private titleService: Title,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private translate: TranslateService
   ) {
+    this.translate.use(localStorage.getItem('lang'));
     if (!navigator.onLine) {
       this.userName = 'Offline';
       this.image = './assets/offline.png';
@@ -169,7 +172,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
       },
       error => {
         if (error != null) {
-          this.openSnackBar('Error! User doesn\'t exists.', 'snackError');
+          this.openSnackBar(this.translate.instant('errors.errUserNot'), 'snackError');
           this.router.navigateByUrl('/intro');
         }
       }
@@ -185,7 +188,7 @@ export class ListShareComponent implements OnInit, AfterViewInit {
         this.dataSource.data = response.data.series;
         this.nSeries = this.dataSource.data.length;
         if (!this.dataSource.data[0]) {
-          this.openSnackBar(' doesn\'t follow any series.', 'snackError');
+          this.openSnackBar(this.translate.instant('list.notFollow'), 'snackError');
         }
       },
       error => {

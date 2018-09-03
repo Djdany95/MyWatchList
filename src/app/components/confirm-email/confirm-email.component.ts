@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -30,9 +31,11 @@ export class ConfirmEmailComponent implements OnInit, OnDestroy {
     private registerService: RegisterService,
     private route: ActivatedRoute,
     public snackBar: MatSnackBar,
-    private titleService: Title
+    private titleService: Title,
+    private translate: TranslateService
   ) {
     this.titleService.setTitle('MyWatchList');
+    this.translate.use(localStorage.getItem('lang'));
   }
 
   /**
@@ -54,11 +57,17 @@ export class ConfirmEmailComponent implements OnInit, OnDestroy {
   confirmEmail() {
     this.registerService.confirmEmail(this.confirmId).subscribe(
       response => {
-        this.openSnackBar('Email confirmed.', 'snackSuccess');
+        this.openSnackBar(
+          this.translate.instant('confirm-email.confirmSuccess'),
+          'snackSuccess'
+        );
       },
       error => {
         if (error !== null) {
-          this.openSnackBar('Server Error 500. Try it later.', 'snackError');
+          this.openSnackBar(
+            this.translate.instant('errors.errServer'),
+            'snackError'
+          );
         }
       }
     );

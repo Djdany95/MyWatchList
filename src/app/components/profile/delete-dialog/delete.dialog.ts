@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from '../../../shared/services/user.service';
@@ -32,8 +33,11 @@ export class DeleteDialog {
     @Inject(MAT_DIALOG_DATA) public data: User,
     private userService: UserService,
     private loginService: LoginService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private translate: TranslateService
+  ) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * Function when user dismiss dialog

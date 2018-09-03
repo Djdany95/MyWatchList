@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
@@ -34,7 +35,9 @@ export class RememberDialog {
    * Constructor
    * @param dialogRef DialogReferenced
    */
-  constructor(public dialogRef: MatDialogRef<RememberDialog>) {}
+  constructor(public dialogRef: MatDialogRef<RememberDialog>, private translate: TranslateService) {
+    this.translate.use(localStorage.getItem('lang'));
+  }
 
   /**
    * Function when user dismiss dialog

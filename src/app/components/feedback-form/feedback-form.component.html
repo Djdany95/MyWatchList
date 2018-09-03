@@ -3,24 +3,23 @@
     <input type="email" matInput [formControl]="emailControl" [errorStateMatcher]="matcher" aria-label="Email">
     <mat-label class="placeholder">Email</mat-label>
     <mat-error *ngIf="emailControl.hasError('required')">
-      Email is
-      <strong>required</strong>
+      {{'errors.email' | translate}}
+      <strong>{{'errors.required' | translate}}</strong>
     </mat-error>
     <mat-error *ngIf=" emailControl.hasError('email')">
-      Email is
-      <strong>incorrect</strong>
+      {{'errors.email' | translate}}
+      <strong>{{'errors.incorrect' | translate}}</strong>
     </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <textarea type="text" matInput [formControl]="msgControl"
-      [errorStateMatcher]="matcher" aria-label="Input your feedback"></textarea>
-    <mat-label class="placeholder">Input your feedback...</mat-label>
+    <textarea type="text" matInput [formControl]="msgControl" [errorStateMatcher]="matcher" aria-label="Input your feedback"></textarea>
+    <mat-label class="placeholder">{{'feedback.input' | translate}}</mat-label>
     <mat-error *ngIf="msgControl.hasError('required')">
-      Message is
-      <strong>required</strong>
+      {{'errors.msg' | translate}}
+      <strong>{{'errors.required' | translate}}</strong>
     </mat-error>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="sendFeedback()" aria-label="Sen feedback">Send Feedback</button>
+  <button mat-raised-button color="primary" (click)="sendFeedback()" aria-label="Sen feedback">{{'feedback.send' | translate}}</button>
 </div>

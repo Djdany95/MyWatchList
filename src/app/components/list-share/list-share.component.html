@@ -5,7 +5,7 @@
         </button>
 
         <img class="img-circle" [src]="image" width="50" height="50" alt="Profile image" title="Profile image">
-        <span *ngIf="online">{{userName | titlecase}}'s Shared List</span>
+        <span *ngIf="online"> {{'shared-list.list1' | translate}} {{userName | titlecase}}{{'shared-list.list2' | translate}}</span>
         <span *ngIf="!online">{{userName | titlecase}}</span>
         <button mat-icon-button (click)="retryConnection()" aria-label="Retry connection">
             <mat-icon aria-label="Retry connection" title="Retry connection" [ngClass]="{nightModeButtonOn: nightMode.toString()==='true', nightModeButtonOff: nightMode.toString()==='false'}">sync</mat-icon>
@@ -19,14 +19,14 @@
     <div class="list-header" [class.nightMode]="nightMode==='true'" [class.lightModeFilter]="nightMode==='false'">
         <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" aria-label="Filter">
-            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Filter</mat-label>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'list.filter' | translate}}</mat-label>
         </mat-form-field>
     </div>
 
     <mat-table #table [dataSource]="dataSource" matSort matSortActive="active" matSortDisableClear matSortDirection="desc" [class.nightMode]="nightMode==='true'">
         <!-- Active Column -->
         <ng-container matColumnDef="active">
-            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> On Air </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> {{'list.onAir' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element">
                 <mat-icon *ngIf="element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">check_box</mat-icon>
                 <mat-icon *ngIf="!element.active" [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">indeterminate_check_box</mat-icon>
@@ -35,19 +35,19 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> Name </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header [class.nightModeHeaders]="nightMode==='true'"> {{'list.name' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.name}} </mat-cell>
         </ng-container>
 
         <!-- Temp Column -->
         <ng-container matColumnDef="temp">
-            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Season </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> {{'list.season' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.temp}} </mat-cell>
         </ng-container>
 
         <!-- epS Column -->
         <ng-container matColumnDef="epA">
-            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> Actual Episode </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef [class.nightModeHeaders]="nightMode==='true'"> {{'list.actual' | translate}} </mat-header-cell>
             <mat-cell *matCellDef="let element" [class.nightModeHeaders]="nightMode==='true'"> {{element.epA}}
             </mat-cell>
         </ng-container>
@@ -67,8 +67,8 @@
     </mat-table>
 </div>
 
-<mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
-    {{nSeries}} series</mat-basic-chip>
+<mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">{{'list.following1' | translate}}
+    {{nSeries}} {{'list.following2' | translate}}</mat-basic-chip>
 
 <share-buttons *ngIf="online" class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"

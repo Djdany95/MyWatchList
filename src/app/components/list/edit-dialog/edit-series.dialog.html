@@ -1,31 +1,31 @@
-<h1 mat-dialog-title>Edit {{data.s.name}}</h1>
+<h1 mat-dialog-title>{{'edit.edit' | translate}} {{data.s.name}}</h1>
 <div mat-dialog-content>
     <mat-form-field>
         <input type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Name">
-        <mat-label class="placeholder">Name</mat-label>
+        <mat-label class="placeholder">{{'edit.name' | translate}}</mat-label>
     </mat-form-field>
     <mat-form-field>
         <input type="boolean" matInput placeholder style="display: none;" aria-label="On air">
         <mat-checkbox [(ngModel)]="data.s.active">
-            On Air
+            {{'list.onAir' | translate}}
         </mat-checkbox>
     </mat-form-field>
     <mat-form-field>
         <input (keyup.enter)="onEditClick()" type="number" matInput [formControl]="tempControl" [errorStateMatcher]="matcher" [value]="data.s.temp" aria-label="Season">
-        <mat-label class="placeholder">Season</mat-label>
+        <mat-label class="placeholder">{{'edit.season' | translate}}</mat-label>
         <mat-error *ngIf="tempControl.hasError('required')">
-            Season is <strong>required</strong>
+            {{'errors.season' | translate}} <strong>{{'errors.required' | translate}}</strong>
         </mat-error>
     </mat-form-field>
     <mat-form-field>
         <input (keyup.enter)="onEditClick()" type="number" matInput [formControl]="epaControl" [errorStateMatcher]="matcher" [value]="data.s.epA" aria-label="Actual episode">
-        <mat-label class="placeholder">Actual Episode</mat-label>
+        <mat-label class="placeholder">{{'edit.episode' | translate}}</mat-label>
         <mat-error *ngIf="epaControl.hasError('required')">
-            Actual Episode is <strong>required</strong>
+            {{'errors.actual' | translate}} <strong>{{'errors.required' | translate}}</strong>
         </mat-error>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" aria-label="Cancel">Cancel</button>
-    <button *ngIf="!nameControl.hasError('required') && !tempControl.hasError('required') && !epaControl.hasError('required')" mat-button (click)="onEditClick()" cdkFocusInitial aria-label="Edit">Edit</button>
+    <button mat-button (click)="onNoClick()" aria-label="Cancel">{{'errors.cancel' | translate}}</button>
+    <button *ngIf="!nameControl.hasError('required') && !tempControl.hasError('required') && !epaControl.hasError('required')" mat-button (click)="onEditClick()" cdkFocusInitial aria-label="Edit">{{'edit.edit' | translate}}</button>
 </div>

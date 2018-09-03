@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
@@ -35,8 +36,13 @@ export class RegisterFormComponent {
    * Constructor
    * @param userService {UserService} Service to call user API
    */
-  constructor(private userService: UserService, public snackBar: MatSnackBar) {
+  constructor(
+    private userService: UserService,
+    public snackBar: MatSnackBar,
+    private translate: TranslateService
+  ) {
     this.nUser = new User('', '', '', '');
+    this.translate.use(localStorage.getItem('lang'));
   }
 
   /**
@@ -90,9 +96,15 @@ export class RegisterFormComponent {
     this.userService.getUser(username, email).subscribe(
       response => {
         if (response.data === 'username') {
-          this.openSnackBar('Error! Username already exists.', 'snackError');
+          this.openSnackBar(
+            this.translate.instant('register.userExists'),
+            'snackError'
+          );
         } else if (response.data === 'email') {
-          this.openSnackBar('Error! Email already exists.', 'snackError');
+          this.openSnackBar(
+            this.translate.instant('register.emailExists'),
+            'snackError'
+          );
         }
       },
       error => {
