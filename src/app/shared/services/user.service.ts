@@ -57,6 +57,21 @@ export class UserService {
   }
 
   /**
+   * Used to upload image to imgur
+   * @param imageBase64 Base64 encoded image
+   */
+  uploadImage(
+    imageBase64: string
+  ): Observable<any> {
+    const headers = new HttpHeaders({ 'Authorization': 'Client-ID 144475adecb0f35' });
+    return this._http.post(
+      'https://api.imgur.com/3/image',
+      { image: imageBase64 },
+      { headers: headers }
+    );
+  }
+
+  /**
    * Used to change User Profile Image
    * @param username Username
    * @param pass Password

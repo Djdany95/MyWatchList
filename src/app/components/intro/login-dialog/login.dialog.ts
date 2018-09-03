@@ -114,7 +114,7 @@ export class LoginDialog {
    */
   openForgotDialog(): void {
     const dialogRef = this.dialog.open(RememberDialog, {
-      width: '400px'
+      width: '320px'
     });
 
     dialogRef.afterClosed().subscribe(email => {

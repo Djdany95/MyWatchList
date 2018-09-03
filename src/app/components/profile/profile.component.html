@@ -1,5 +1,4 @@
 <div class="nameProfile">
-    <br>
     <ng-progress></ng-progress>
     <h2>
         <button class="f-left" mat-icon-button routerLink="/mylist" aria-label="Return to my list">
@@ -14,47 +13,47 @@
         </button>
     </h2>
     <mat-divider [class.nightMode]="nightMode==='true'"></mat-divider>
-    <mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following {{nSeries}}
-        series</mat-basic-chip>
+    <mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
+        {{nSeries}} series
+    </mat-basic-chip>
 </div>
-<br>
 
-<div class="center-horizontal" style="width: 30%;" [class.nightModeShadow]="nightMode==='true'">
+<div class="center-horizontal expansion" [class.nightModeShadow]="nightMode==='true'">
     <mat-expansion-panel [class.nightMode]="nightMode==='true'">
         <mat-expansion-panel-header>
             <mat-panel-title [class.nightMode]="nightMode==='true'">
                 Change Password
             </mat-panel-title>
         </mat-expansion-panel-header>
+        <form>
+            <mat-form-field>
+                <input type="password" matInput [formControl]="oldPassControl" [errorStateMatcher]="matcher" aria-label="Actual password">
+                <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-label>
+                <mat-error *ngIf="oldPassControl.hasError('required')">
+                    Password is
+                    <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="oldPassControl.hasError('pattern')">
+                    Password is too
+                    <strong>weak</strong>
+                </mat-error>
+            </mat-form-field>
 
-        <mat-form-field>
-            <input type="password" matInput [formControl]="oldPassControl" [errorStateMatcher]="matcher" aria-label="Actual password">
-            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">Actual Password</mat-label>
-            <mat-error *ngIf="oldPassControl.hasError('required')">
-                Password is
-                <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="oldPassControl.hasError('pattern')">
-                Password is too
-                <strong>weak</strong>
-            </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-            <input type="password" matInput [formControl]="newPassControl" [errorStateMatcher]="matcher" aria-label="New password">
-            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-label>
-            <mat-error *ngIf="newPassControl.hasError('required')">
-                Password is
-                <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="newPassControl.hasError('pattern')">
-                Password is too
-                <strong>weak</strong>
-            </mat-error>
-        </mat-form-field>
-
+            <mat-form-field>
+                <input type="password" matInput [formControl]="newPassControl" [errorStateMatcher]="matcher" aria-label="New password">
+                <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">New Password</mat-label>
+                <mat-error *ngIf="newPassControl.hasError('required')">
+                    Password is
+                    <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="newPassControl.hasError('pattern')">
+                    Password is too
+                    <strong>weak</strong>
+                </mat-error>
+            </mat-form-field>
+        </form>
         <div style="text-align: center;" *ngIf="!oldPassControl.hasError('required') && !oldPassControl.hasError('pattern') && !newPassControl.hasError('required') && !newPassControl.hasError('pattern')">
-            <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changePass()" aria-label="Change password">
+            <button mat-raised-button [color]="nightMode==='true'?'primary':'default'" (click)="changePass()" aria-label="Change password">
                 Change Password
                 <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">edit</mat-icon>
             </button>
@@ -62,10 +61,7 @@
     </mat-expansion-panel>
 </div>
 
-<br>
-<br>
-
-<div class="center-horizontal" style="width: 40%;" [class.nightModeShadow]="nightMode==='true'">
+<div class="center-horizontal expansion img-expansion" [class.nightModeShadow]="nightMode==='true'">
     <mat-expansion-panel [class.nightMode]="nightMode==='true'">
         <mat-expansion-panel-header>
             <mat-panel-title [class.nightMode]="nightMode==='true'">
@@ -73,31 +69,33 @@
             </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <mat-form-field>
-            <input type="url" matInput [formControl]="imageUrlControl" [errorStateMatcher]="matcher" aria-label="Image URL">
-            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">URL to image</mat-label>
-            <mat-error *ngIf="imageUrlControl.hasError('required')">
-                URL is
-                <strong>required</strong>
-            </mat-error>
-            <mat-error *ngIf="imageUrlControl.hasError('pattern')">
-                URL is
-                <strong>incorrect</strong>
-            </mat-error>
-        </mat-form-field>
-        <a href="https://imgur.com/upload" target="_blank"><i>You can upload your image free here and get an URL</i></a>
-        <div style="text-align: center;" *ngIf="!imageUrlControl.hasError('required') && !imageUrlControl.hasError('pattern')">
-            <button [class.nightMode]="nightMode==='true'" mat-raised-button (click)="changeImage()" aria-label="Change image">
+        <button type="button" class="btn-upload d-none d-md-block" [color]="nightMode==='true'?'primary':'default'" mat-raised-button
+            (click)="imgFileInput.click()">Upload an image
+            <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">cloud_upload</mat-icon>
+        </button>
+        <button type="button" class="btn-upload d-md-none" [color]="nightMode==='true'?'primary':'default'" mat-raised-button (click)="imgFileInput.click()"><mat-icon
+                [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">cloud_upload</mat-icon>
+        </button>
+        <input hidden type="file" #imgFileInput (change)="generateBase64($event)" />
+
+        <img class="img-circle upload-image-preview d-none d-md-block" *ngIf="image !== undefined" [src]="image">
+        <img class="img-circle upload-image-preview-mobile d-md-none" *ngIf="image !== undefined" [src]="image">
+
+        <div class="center-text d-none d-md-block" *ngIf="image !== undefined">
+            <button mat-raised-button [color]="nightMode==='true'?'primary':'default'" (click)="uploadImage()" aria-label="Change image">
                 Change Profile Image
+                <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">account_circle</mat-icon>
+            </button>
+        </div>
+        <div class="center-text d-md-none" *ngIf="image !== undefined">
+            <button mat-raised-button [color]="nightMode==='true'?'primary':'default'" (click)="uploadImage()" aria-label="Change image">
+                Change
                 <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">account_circle</mat-icon>
             </button>
         </div>
 
     </mat-expansion-panel>
 </div>
-
-<br>
-<br>
 
 <div class="flotante">
     <button mat-flat-button color="warn" type="button" (click)="openDeleteDialog()" aria-label="Delete account">Delete Account</button>

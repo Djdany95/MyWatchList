@@ -1,5 +1,5 @@
 <div [class.nightModeShadow]="nightMode==='true'">
-    <mat-expansion-panel [class.nightMode]="nightMode==='true'">
+    <mat-expansion-panel class="new-series" [class.nightMode]="nightMode==='true'">
         <mat-expansion-panel-header>
             <mat-panel-title [class.nightMode]="nightMode==='true'">
                 Insert
@@ -39,9 +39,10 @@
         </mat-form-field>
 
         <div style="text-align: center;" *ngIf="!nameControl.hasError('required') && !tempControl.hasError('required') && !tempControl.hasError('pattern') && !epiControl.hasError('required') && !epiControl.hasError('pattern')">
-            <button [color]="nightMode==='true'?'primary':'default'" mat-raised-button (click)="createSeries(elName.value, elTemp.value, elEpi.value)" aria-label="Insert series">
-          Insert <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">add_circle</mat-icon>
-      </button>
+            <button [color]="nightMode==='true'?'primary':'default'" mat-raised-button (click)="createSeries(elName.value, elTemp.value, elEpi.value)"
+                aria-label="Insert series">
+                Insert <mat-icon [ngClass]="{nightModeButtonOn: nightMode==='true', nightModeButtonOff: nightMode==='false'}">add_circle</mat-icon>
+            </button>
         </div>
     </mat-expansion-panel>
 </div>

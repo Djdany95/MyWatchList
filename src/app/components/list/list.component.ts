@@ -344,7 +344,7 @@ export class ListComponent implements OnInit, AfterViewInit {
    */
   openEditDialog(series: Series): void {
     const dialogRef = this.dialog.open(EditDialog, {
-      width: '250px',
+      width: '320px',
       data: { s: series }
     });
 

@@ -19,7 +19,7 @@
         "actual": "Actual Episode is",
         "episode": "Episode is",
         "name": "Name is",
-        "url": "URL is"
+        "imageInvalid": "Image is invalid"
     },
     "confirm-email": {
         "hello": "Welcome, new Watcher!",
@@ -88,8 +88,7 @@
         "actual": "Actual Password",
         "new": "New Password",
         "changeImg": "Change Profile Image",
-        "imgURL": "URL to image",
-        "imgur": "You can upload your image free here and get an URL",
+        "imageUpload": "Upload an image",
         "deleteAcc": "Delete Account",
         "deleteModalTitle": "Confirm Delete Account",
         "deleteModal1": "Really do you want delete your account definitely?",

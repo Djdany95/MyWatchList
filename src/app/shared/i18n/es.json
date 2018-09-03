@@ -19,7 +19,7 @@
         "actual": "Episodio actual es",
         "episode": "Episodio es",
         "name": "Nombre es",
-        "url": "URL es"
+        "imageInvalid": "La imagen es invalida."
     },
     "confirm-email": {
         "hello": "¡Bienvenido, nuevo Watcher!",
@@ -88,8 +88,7 @@
         "actual": "Contraseña actual",
         "new": "Nueva contraseña",
         "changeImg": "Cambiar imagen de perfil",
-        "imgURL": "URL de la imagen",
-        "imgur": "Puedes subir tu imagen gratis aquí y obtener su URL",
+        "imageUpload": "Sube una imagen",
         "deleteAcc": "Eliminar cuenta",
         "deleteModalTitle": "Confirmar eliminar cuenta",
         "deleteModal1": "¿Seguro que quieres eliminar tu cuenta definitivamente?",

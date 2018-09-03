@@ -43,18 +43,6 @@ export class ProfileComponent implements OnInit {
     Validators.pattern('^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{8,64}$')
   ]);
   /**
-   * Form controls to imageURL
-   *
-   * Required and URL pattern
-   */
-  imageUrlControl: FormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(
-      'https?://(?:www.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|www.' +
-        '[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|https?://(?:www.|(?!www))[a-zA-Z0-9].[^s]{2,}|www.[a-zA-Z0-9].[^s]{2,}'
-    )
-  ]);
-  /**
    * Used to check if formcontrols have errors
    */
   matcher = new MyErrorStateMatcher();
@@ -73,6 +61,9 @@ export class ProfileComponent implements OnInit {
    * Number of series the user is following
    */
   nSeries: number;
+
+  image: string;
+  imageBase64: string;
 
   /**
    * Constructor
@@ -162,9 +153,9 @@ export class ProfileComponent implements OnInit {
    */
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(DeleteDialog, {
-      width: '50%',
+      width: '320px',
       panelClass: this.nightMode === 'true' ? 'nightMode' : '',
-      data: {name: this.user.name, pass: this.user.pass}
+      data: { name: this.user.name, pass: this.user.pass }
     });
   }
 
@@ -193,17 +184,50 @@ export class ProfileComponent implements OnInit {
   /**
    * Call the API to change profileImage
    */
+  generateBase64(event: any): void {
+    const reader = new FileReader();
+    reader.onload = (loadEvent: any) => {
+      this.image = loadEvent.target.result;
+      this.imageBase64 = this.image.slice(this.image.indexOf(',') + 1);
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  /**
+   * Call the API to upload image to imgur
+   */
+  uploadImage(): void {
+    this.userService.uploadImage(this.imageBase64).subscribe(
+      response => {
+        this.user.imageUrl = response.data.link;
+        this.changeImage();
+      },
+      error => {
+        if (error !== null) {
+          this.openSnackBar('Image is invalid.', 'snackError');
+        }
+      }
+    );
+  }
+
+  /**
+   * Call the API to change profileImage
+   */
   changeImage(): void {
     this.userService
-      .changeImage(this.user.name, this.user.pass, this.imageUrlControl.value)
+      .changeImage(this.user.name, this.user.pass, this.user.imageUrl)
       .subscribe(
         response => {
           this.openSnackBar('Image changed.', 'snackSuccess');
-          this.user.imageUrl = this.imageUrlControl.value;
+          if (localStorage.getItem('myUserName') !== null) {
+            localStorage.setItem('myPic', this.user.imageUrl);
+          } else {
+            sessionStorage.setItem('myPic', this.user.imageUrl);
+          }
         },
         error => {
           if (error !== null) {
-            this.openSnackBar('URL is incorrect.', 'snackError');
+            this.openSnackBar('Image is invalid.', 'snackError');
           }
         }
       );

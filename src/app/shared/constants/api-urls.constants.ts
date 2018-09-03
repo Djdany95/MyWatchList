@@ -1,7 +1,7 @@
 /**
  * MyWatchList API URL
  */
-export const MYWATCHLISTAPI_URL = 'SET_YOURS';
+export const MYWATCHLISTAPI_URL = 'https://mywatchlist-api.herokuapp.com/api/';
 
 /**
  * OMDB API URL

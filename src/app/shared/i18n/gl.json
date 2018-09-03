@@ -19,7 +19,7 @@
         "actual": "Episodio actual é",
         "episode": "Episodio é",
         "name": "Nome é",
-        "url": "URL é"
+        "imageInvalid": "A imaxe é invalida."
     },
     "confirm-email": {
         "hello": "Benvido, novo Watcher!",
@@ -34,7 +34,7 @@
     },
     "intro": {
         "welcome": "Benvido a MyWatchList!",
-        "info": "Aquí podrás crear una lista con todas túas series e compartila cos teus amigos nas túas redes sociais favoritas.",
+        "info": "Aquí podrás crear unha lista con todas túas series e compartila cos teus amigos nas túas redes sociais favoritas.",
         "register": "Rexístrate agora para ser un Watcher",
         "cookiesAdvice": "Esta web usa cookies funcionais propias necesarias para o funcionamento da páxina e cookies de terceiros para obter estadísticas e mellorar nosos servizos. Si aceptas, entendemos que consintes seu uso. Podes obter máis información",
         "linkCookies": "aquí",
@@ -87,15 +87,14 @@
         "changePass": "Cambiar contrasinal",
         "actual": "Contrasinal actual",
         "new": "Novo contrasinal",
-        "changeImg": "Cambiar imaxen de perfil",
-        "imgURL": "URL da imaxen",
-        "imgur": "Podes subir túa imaxen gratis aquí e obter súa URL",
+        "changeImg": "Cambiar imaxe de perfil",
+        "imageUpload": "Sube unha imaxe",
         "deleteAcc": "Eliminar conta",
         "deleteModalTitle": "Confirmar eliminar conta",
         "deleteModal1": "¿Seguro que queres eliminar túa conta definitivamente?",
         "deleteModal2": "¡Esto non se pode revertir!",
         "delete": "Eliminar",
-        "imgChange": "Imaxen cambiada.",
+        "imgChange": "imaxe cambiada.",
         "passChange": "Contrasinal cambiada."
     },
     "register": {

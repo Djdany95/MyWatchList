@@ -200,7 +200,7 @@ export class IntroComponent implements OnInit, OnDestroy {
    */
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialog, {
-      width: '290px'
+      width: '320px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

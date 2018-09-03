@@ -1,5 +1,4 @@
 <div class="nameList">
-    <br>
     <h2>
         <button class="f-left" mat-icon-button (click)="toggleNightMode()" aria-label="Toggle night mode">
             <mat-icon title="Toggle Night Mode" aria-label="toggle nightMode" [ngClass]="{nightModeButtonOn: nightMode.toString()==='true', nightModeButtonOff: nightMode.toString()==='false'}">brightness_medium</mat-icon>
@@ -68,12 +67,8 @@
     </mat-table>
 </div>
 
-<br>
-<mat-basic-chip [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
+<mat-basic-chip class="badge-following" [class.badge-dark]="nightMode==='true'" [class.badge-light]="nightMode==='false'">Following
     {{nSeries}} series</mat-basic-chip>
-<br>
-<br>
-<br>
 
 <share-buttons *ngIf="online" class="btnShared" [theme]="sharedOptions.theme" [show]="0" [include]="['facebook','twitter','google','reddit','whatsapp','telegram','copy','tumblr','linkedin']"
     [showText]="true" [size]="-4" [url]="sharedOptions.url" [title]="sharedOptions.description" [description]="sharedOptions.description"

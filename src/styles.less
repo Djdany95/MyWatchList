@@ -73,8 +73,6 @@ body {
 }
 
 .mat-table {
-    overflow: auto;
-    max-height: 500px;
     background-color: #d5e6f6;
 }
 
@@ -84,7 +82,8 @@ body {
 
 .nameList {
     text-align: center;
-    margin-bottom: 10px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .nightMode {
@@ -137,12 +136,8 @@ body {
     box-shadow: 0 3px 1px -2px rgba(100, 112, 117, .2), 0 2px 2px 0 rgba(100, 112, 117, .14), 0 1px 5px 0 rgba(100, 112, 117, .12);
 }
 
-.nightModeShadowHeader {
-    box-shadow: 0 3px 1px -2px rgba(100, 112, 117, .2), 0 2px 2px 0 rgba(100, 112, 117, .14), 0 1px 5px 0 rgba(100, 112, 117, .12);
-}
-
 .nightModeShadow {
-    box-shadow: 0 5px 5px -3px rgba(100, 112, 117, .2), 0 8px 10px 1px rgba(100, 112, 117, .14), 0 3px 14px 2px rgba(100, 112, 117, .12);
+    box-shadow: 0 5px 5px -3px rgba(100, 112, 117, 0.2), 0 1px 1px 1px rgba(100, 112, 117, 0.14), 0 1px 1px 1px rgba(100, 112, 117, 0.12)
 }
 
 .lightModeFilter {
@@ -155,6 +150,12 @@ body {
 
 .langMenu {
     background-color: #d5e6f6;
+}
+
+.badge-following {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .badge-light {
