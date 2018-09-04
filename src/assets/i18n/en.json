@@ -83,7 +83,8 @@
   },
   "new-series": {
     "insert": "Insert",
-    "new": "New Series"
+    "new": "New Series",
+    "name": "Name"
   },
   "profile": {
     "profile1": "",

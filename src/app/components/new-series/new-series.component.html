@@ -11,22 +11,10 @@
 
         <mat-form-field class="full-width">
             <input type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" [matAutocomplete]="auto" #elName aria-label="Name">
-            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'list.name' | translate}}</mat-label>
+            <mat-label class="placeholder" [class.nightMode]="nightMode==='true'">{{'new-series.name' | translate}}</mat-label>
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option [class.nightMode]="nightMode==='true'" *ngFor="let option of predictSeries" [value]="option.title">
                     {{ option.title }}
-                </mat-option>
-                <mat-option [class.nightMode]="nightMode==='true'">
-                    HELLO
-                </mat-option>
-                <mat-option [class.nightMode]="nightMode==='true'">
-                    HELLO
-                </mat-option>
-                <mat-option [class.nightMode]="nightMode==='true'">
-                    HELLO
-                </mat-option>
-                <mat-option [class.nightMode]="nightMode==='true'">
-                    HELLO
                 </mat-option>
             </mat-autocomplete>
             <mat-error *ngIf="nameControl.hasError('required')">
