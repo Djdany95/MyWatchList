@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { OmdbapiService } from '../../shared/services/omdbapi.service';
@@ -68,7 +68,8 @@ export class SeriesDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private omdbAPI: OmdbapiService,
     private titleService: Title,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) {
     this.translate.use(localStorage.getItem('lang'));
   }
@@ -120,6 +121,7 @@ export class SeriesDetailsComponent implements OnInit {
         this.titleService.setTitle(this.series.Title);
       },
       error => {
+        this.router.navigate(['/series-not-found']);
         console.log(error);
       }
     );

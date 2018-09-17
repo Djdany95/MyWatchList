@@ -22,6 +22,7 @@ const APP_ROUTES: Routes = [
   { path: 'profile/:name', component: ProfileComponent },
   { path: 'confirmemail/:confirmId', component: ConfirmEmailComponent },
   { path: 'details/:id', component: SeriesDetailsComponent },
+  { path: 'series-not-found', component: Error404Component }
   { path: '**', component: Error404Component }
 ];
 
