@@ -14,6 +14,7 @@ import { OmdbapiService } from '../../shared/services/omdbapi.service';
 import { MyErrorStateMatcher } from '../../app.component';
 import { PredictSeries } from '../../shared/models/predictSeries';
 import { TranslateService } from '@ngx-translate/core';
+import { MatExpansionPanel } from '@angular/material';
 
 /**
  * NewSeries Component
@@ -85,9 +86,9 @@ export class NewSeriesComponent implements OnInit {
       .pipe(
         debounceTime(500),
         distinctUntilChanged(),
-        filter((query: string) => query.length > 2 || query.length === 0),
+        filter((query: string) => query.trim().length > 2 || query.trim().length === 0),
         switchMap((query: string) =>
-          this.omdbAPI.getSeriesTitleOMDB('*' + query + '*')
+          this.omdbAPI.getSeriesTitleOMDB('*' + query.trim() + '*')
         )
       )
       .subscribe(
@@ -113,18 +114,27 @@ export class NewSeriesComponent implements OnInit {
    * @param elTemp Series' Season
    * @param elEpi Series' Episode
    */
-  createSeries(elName: string, elTemp: number, elEpi: number): void {
+  createSeries(elName: string, elTemp: number, elEpi: number, mep: MatExpansionPanel): void {
     let imdbID: string;
-    this.predictSeries.forEach(element => {
-      if (element.title === elName) {
-        imdbID = element.id;
-      }
-    });
+    if (this.predictSeries === undefined) {
+      imdbID = undefined;
+    } else {
+      this.predictSeries.forEach(element => {
+        if (element.title === elName) {
+          imdbID = element.id;
+        }
+      });
+    }
     if (imdbID === undefined) {
       imdbID = 'badID';
     }
     const active = elEpi > 0 ? true : false;
     const newSeries = new Series(imdbID, active, elName, elTemp, elEpi);
     this.series.emit(newSeries);
+
+    this.nameControl.setValue(' ');
+    this.tempControl.setValue(0);
+    this.epiControl.setValue(0);
+    mep.close();
   }
 }

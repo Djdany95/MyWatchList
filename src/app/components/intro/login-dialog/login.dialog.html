@@ -3,7 +3,7 @@
     <form>
         <mat-form-field>
             <input (keyup.enter)="onLoginClick()" type="text" matInput [formControl]="nameControl" [errorStateMatcher]="matcher" aria-label="Username">
-            <mat-label class="placeholder">{{'register.user' | translate}}s</mat-label>
+            <mat-label class="placeholder">{{'register.user' | translate}}</mat-label>
             <mat-error *ngIf="nameControl.hasError('required')">
                 {{'errors.username' | translate}}
                 <strong>{{'errors.required' | translate}}</strong>
@@ -38,5 +38,5 @@
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()" aria-label="Cancel">{{'errors.cancel' | translate}}</button>
     <button *ngIf="!nameControl.hasError('required') && !passControl.hasError('required') && !nameControl.hasError('pattern') && !passControl.hasError('pattern')"
-        mat-button (click)="onLoginClick()" cdkFocusInitial aria-label="Login">Login</button>
+        mat-button (click)="onLoginClick()" cdkFocusInitial aria-label="Login">{{'intro.login' | translate}}</button>
 </div>
