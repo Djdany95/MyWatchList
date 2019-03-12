@@ -126,7 +126,7 @@ export class NewSeriesComponent implements OnInit {
       });
     }
     if (imdbID === undefined) {
-      imdbID = 'badID';
+      imdbID = Math.floor(Math.random() * 10000).toString();
     }
     const active = elEpi > 0 ? true : false;
     const newSeries = new Series(imdbID, active, elName, elTemp, elEpi);

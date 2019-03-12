@@ -45,7 +45,7 @@ import { IntroComponent } from './components/intro/intro.component';
 import { ListShareComponent } from './components/list-share/list-share.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmEmailComponent } from './components/confirm-email/confirm-email.component';
-import { SeriesDetailsComponent } from './components/series-details/series-details.component';
+// import { SeriesDetailsComponent } from './components/series-details/series-details.component';
 import { NewSeriesComponent } from './components/new-series/new-series.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
@@ -81,7 +81,7 @@ const shareOptions: ShareButtonsOptions = {
     ListShareComponent,
     ProfileComponent,
     ConfirmEmailComponent,
-    SeriesDetailsComponent,
+    // SeriesDetailsComponent,
     NewSeriesComponent,
     Error404Component,
     RegisterFormComponent,
